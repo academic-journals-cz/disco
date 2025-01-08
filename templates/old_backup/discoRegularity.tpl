@@ -12,12 +12,8 @@
 
 <h3>{translate key="plugins.generic.disco.regularity"}</h3>
 <p>{translate key="plugins.generic.disco.regularity.description"}</p>
-<form class="pkp_form" method="put" action="{$actionUrl}">
-    {csrf}
-    {if $discoId}
-        <input type="hidden" name="discoId" value="{$discoId|escape}" />
-    {/if}
-    <input type="hidden" name="category" value="regularity" />
+<form class="pkp_form" id="discoRegularityForm">
+    
     {foreach from=$regularityArray key=requirement item=services}
         {include file="{$discoItem}" category="regularity" requirement=$requirement services=$services}
     {/foreach}

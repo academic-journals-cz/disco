@@ -7,12 +7,23 @@
 *
 * TODO text.
 *}
-<form class="pkp_form" id="discoAppearanceForm">
-    <h3>{translate key="plugins.generic.disco.policy"}</h3>
-    <p>{translate key="plugins.generic.disco.policy.description"}</p>
+<h3>{translate key="plugins.generic.disco.journalPolicy"}</h3>
+<p>{translate key="plugins.generic.disco.journalPolicy.description"}</p>
+{assign var="journalPolicyArray" value=$categorizedRequirements["journalPolicy"]}
+
+<form class="pkp_form" method="put" action="{$actionUrl}">
+
+    {csrf}
+    {if $discoId}
+        <input type="hidden" name="discoId" value="{$discoId|escape}" />
+    {/if}
+    <input type="hidden" name="category" value="journalPolicy" />
+    {foreach from=$journalPolicyArray key=requirement item=services}
+        {include file="{$discoItem}" category="journalPolicy" requirement=$requirement services=$services}
+    {/foreach}
+
     {fbvFormSection class="formButtons"}
-            {fbvElement type="button" class="pkp_helpers_align_left" id="previewButton" label="common.preview"}
-            {assign var=buttonId value="submitFormButton"|concat:"-"|uniqid}
-            {fbvElement type="submit" class="submitFormButton" id=$buttonId label="common.save"}
+    {assign var=buttonId value="submitFormButton"|concat:"-"|uniqid}
+    {fbvElement type="submit" class="submitFormButton" id=$buttonId label="common.save"}
     {/fbvFormSection}
 </form>

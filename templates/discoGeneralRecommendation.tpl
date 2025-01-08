@@ -7,12 +7,13 @@
 *
 * TODO text.
 *}
-<form class="pkp_form" id="discoAppearanceForm">
-    <h3>{translate key="plugins.generic.disco.generalRecommendations"}</h3>
-    <p>{translate key="plugins.generic.disco.generalRecommendations.description"}</p>
-    {fbvFormSection class="formButtons"}
-            {fbvElement type="button" class="pkp_helpers_align_left" id="previewButton" label="common.preview"}
-            {assign var=buttonId value="submitFormButton"|concat:"-"|uniqid}
-            {fbvElement type="submit" class="submitFormButton" id=$buttonId label="common.save"}
-    {/fbvFormSection}
-</form>
+{*{capture assign=actionUrl}{url router=$smarty.const.ROUTE_COMPONENT component="plugins.generic.disco.controllers.form.DiscoFormHandler" op="updateGeneralRecommendationsCriteria" contextId=$contextId escape=false}       {/capture}*}
+{assign var="generalRecommendationsArray" value=$categorizedRequirements["generalRecommendations"]}
+
+<h3>{translate key="plugins.generic.disco.generalRecommendations"}</h3>
+<p>{translate key="plugins.generic.disco.generalRecommendations.description"}</p>
+ <form class="pkp_form">   
+{foreach from=$generalRecommendationsArray key=requirement item=services}
+    {include file="{$discoItem}" category="generalRecommendations" requirement=$requirement services=$services type="recommendation"}
+{/foreach}
+ </form>

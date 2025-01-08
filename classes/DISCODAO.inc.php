@@ -17,18 +17,29 @@ import('plugins.generic.disco.classes.disco');
 
 class DiscoDAO extends DAO {
 
-    
-    
-    
-    
-        /**
-	 * Get a list of localized settings.
-	 * @return array
+           
+    /**
+	 * Get a disco by ID
+	 * @param $discoId int Disco ID
+	 * @param $contextId int (optional) Context ID
 	 */
-	function getLocaleFieldNames() {
-            return array('openAuthorship','peerReview','ownershipScience','noCharges','openLicence','doasScore','functionalWebsite','fullContentAvailable','qualityEnHomepage','uniqueJournalUrl','biographicInformation','editorialBoardPage','scholarlyArticles','publicationEthicsDescription','authorsGuidelinesDescription','peerReviewDescription','references','uniqueUrlPerArticle','titleOnLp','doiOnLp','dataInJats','uniqueUrlGalleys','noApc','noRegistration','oaDescribed');
+	function getById($discoId, $contextId = null) {
+		$params = array((int) $discoId);
+		if ($contextId) $params[] = (int) $contextId;
+
+		$result = $this->retrieve(
+			'SELECT * FROM disco_plugin WHERE disco_id = ?'
+			. ($contextId?' AND context_id = ?':''),
+			$params
+		);
+
+		$returner = null;
+		if ($result->RecordCount() != 0) {
+			$returner = $this->_fromRow($result->GetRowAssoc(false));
+		}
+		$result->Close();
+		return $returner;
 	}
-        
         
 	/**
 	 * Get a set of disco criteria by context ID
@@ -49,125 +60,108 @@ class DiscoDAO extends DAO {
         /**
 	 * Insert a disco object.
 	 * @param $disco disco
-	 * @return int Inserted static page ID
+	 * @return int Inserted disco ID
 	 */
 	function insertObject($disco) {
 		$this->update(
-			'INSERT INTO disco_plugin (context_id, type) VALUES (?, ?)',
+			'INSERT INTO disco_plugin (context_id) VALUES (?)',
 			array(
 				(int) $disco->getContextId(),
-				$discot->getType()
+//				$disco->getCategory()
 			)
 		);
 
 		$disco->setId($this->getInsertId());
 		$this->updateLocaleFields($disco);
-
 		return $disco->getId();
 	}
-        
-	/**
-	 * Update the database with a scopus score object
-	 * @param $disco ScopusScore
+
+        /**
+	 * Update the database with a disco object
+	 * @param $disco Disco
 	 */
 	function updateObject($disco) {
 		$this->update(
 			'UPDATE	disco_plugin
-			SET	context_id = ?,
-				type = ?
-			WHERE	disco_id = ?',
+			SET	context_id = ?
+			WHERE disco_id = ?',
 			array(
 				(int) $disco->getContextId(),
-				$disco->getType(),
 				(int) $disco->getId()
 			)
 		);
+		$this->updateLocaleFields($disco);
 	}
-
-	/**
-	 * Generate a new scopus score object.
-	 * @return ScopusScore
+	
+        /**
+	 * Delete a disco by ID.
+	 * @param $discoId int
 	 */
-	function newDataObject() {
-		return new ScopusScore();
-	}
+	function deleteById($discoId) {
+		$this->update(
+			'DELETE FROM disco_plugin WHERE disco_id = ?',
+			(int) $discoId
+		);
 
-	/**
-	 * Return a new scopus score object from a given row.
-	 * @return ScopusScore
-	 */
-	function _fromRow($row) {
-		$scopusScore = $this->newDataObject();
-		$scopusScore->setId($row['scopus_score_id']);
-                $scopusScore->setUpdateDate($row['update_date']);
-		$scopusScore->setCitationCount($row['citation_count']);
-                $scopusScore->setScopusLink($row['scopus_link']);
-		$scopusScore->setSubmissionId($row['submission_id']);
-
-		return $scopusScore;
-	}
-
-	/**
-	 * Get the insert ID for the last inserted static page.
-	 * @return int
-	 */
-	function getInsertId() {
-		return $this->_getInsertId('scopus_score', 'scopus_score_id');
+		$this->update(
+			'DELETE FROM disco_plugin_settings WHERE disco_id = ?',
+			(int) $discoId
+		);
 	}
         
-	/**
-	 * Delete a static page by ID.
-	 * @param $staticPageId int
+        /**
+	 * Delete a disco object.
+	 * @param $disco Disco
 	 */
-	function deleteById($staticPageId) {
-		$this->update(
-			'DELETE FROM static_pages WHERE static_page_id = ?',
-			(int) $staticPageId
-		);
-		$this->update(
-			'DELETE FROM static_page_settings WHERE static_page_id = ?',
-			(int) $staticPageId
-		);
+	function deleteObject($disco) {
+		$this->deleteById($disco->getId());
 	}
 
-	/**
-	 * Delete a static page object.
-	 * @param $staticPage StaticPage
-	 */
-	function deleteObject($staticPage) {
-		$this->deleteById($staticPage->getId());
-	}
-
-	/**
-	 * Generate a new static page object.
-	 * @return StaticPage
+        /**
+	 * Generate a new disco object.
+	 * @return Disco
 	 */
 	function newDataObject() {
 		return new Disco();
 	}
-
-	/**
-	 * Return a new static pages object from a given row.
-	 * @return StaticPage
+        
+        /**
+	 * Return a new disco object from a given row.
+	 * @return disco
 	 */
 	function _fromRow($row) {
-		$staticPage = $this->newDataObject();
-		$staticPage->setId($row['static_page_id']);
-		$staticPage->setPath($row['path']);
-		$staticPage->setContextId($row['context_id']);
+		$disco = $this->newDataObject();
+		$disco->setId($row['disco_id']);
+//		$disco->setCategory($row['category']);
+		$disco->setContextId($row['context_id']);
 
-		$this->getDataObjectSettings('static_page_settings', 'static_page_id', $row['static_page_id'], $staticPage);
-		return $staticPage;
+		$this->getDataObjectSettings('disco_plugin_settings', 'disco_id', $row['disco_id'], $disco);
+
+		return $disco;
+	}
+        
+        /**
+	 * Get the insert ID for the last inserted disco.
+	 * @return int
+	 */
+	function getInsertId() {
+		return $this->_getInsertId('disco_plugin', 'disco_id');
 	}
 
 	/**
-	 * Update the localized data for this object
-	 * @param $author object
+	 * Get the additional field names.
+	 * @return array
 	 */
-	function updateLocaleFields(&$staticPage) {
-		$this->updateDataObjectSettings('static_page_settings', $staticPage, array(
-			'static_page_id' => $staticPage->getId()
-		));
+	function getAdditionalFieldNames() {
+		return array('persistantIdentification', 'scholarlyJournal', 'noCharges', 'openAuthorship', 'ownershipScience', 'openLicence', 'fullContentAvailable', 'functionalWebsite', 'journalUrl', 'qualityEnHomepage', 'aimsAndScopeDescribed', 'authorGuidelinesDescribed', 'bibliographicInformation', 'editorialBoardPage', 'contactDetailsAvailable', 'peerReviewDescribed', 'publicationEthicsDescribed', 'scholarlyArticles', 'fullBio', 'linkToFulltext', 'lpDoi', 'references', 'uniqueUrlArticles', 'authorsAffiliations', 'titlesAbstractsInEnglish', 'markingReferences', 'noAPC', 'apcDescribed', 'oaPolicyDescribed', 'copyrightTerms', 'periodicity', 'publishingHistory', 'timeliness', 'eIssn', 'journalTitle', 'machineReadableMetadataFormat', 'oaiPMHEnabled', 'usingDOIs', 'metadataFormatOpenAIRE', 'noRegistrationNeed', 'noEmbargoPeriod', 'journalPublisherNameAvailable');
+	}
+
+	/**
+	 * Update the settings for this object
+	 * @param $disco object
+	 */
+	function updateLocaleFields($disco) {
+		$this->updateDataObjectSettings('disco_plugin_settings', $disco, array('disco_id' => (int) $disco->getId()));
 	}
 }
 

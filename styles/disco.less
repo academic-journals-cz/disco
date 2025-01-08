@@ -1,4 +1,7 @@
 #disco{
+    .checkbox{
+        margin-right:13px;
+    }
     .toggle-btn {
         .arrow {
             text-decoration: none;
@@ -8,7 +11,46 @@
     }
     .active{   
         .arrow {
-            font-size: 10px;
+            font-size: 14px;
         }
     }
+    .info-block {
+        border: 1px solid #ddd;
+        margin-top: 15px;
+        .toggle-btn {
+            display: ruby-text;
+            background: #fff;
+            text-decoration: none;
+            margin-left: -1px;
+            margin-top: -5px;
+            padding-right: 10px;
+            padding-bottom: 5px;
+            .toggle-text {
+                text-decoration: underline;
+            }
+        }
+        .info-content {
+            margin: 0 20px;
+        }
+    }
+    .discoInline{
+        li {
+            display: inline-block;
+        }
+        li:nth-child(2){
+            margin-left: 15px;
+            padding-left: 15px;
+            border-left: 1px solid #ddd;
+        }
+    }
+    
+    .metadataQuality{
+        font-size: 16px;
+    }
+    
+    .results_score, .results_application{
+        display: inline-block;
+        margin-right: 20px;
+    }
 }
+

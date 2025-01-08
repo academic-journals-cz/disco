@@ -7,12 +7,12 @@
 *
 * TODO text.
 *}
-<form class="pkp_form" id="discoAppearanceForm">
-    <h3>{translate key="plugins.generic.disco.metadataQuality"}</h3>
-    <p>{translate key="plugins.generic.disco.metadataQuality.description"}</p>
-    {fbvFormSection class="formButtons"}
-            {fbvElement type="button" class="pkp_helpers_align_left" id="previewButton" label="common.preview"}
-            {assign var=buttonId value="submitFormButton"|concat:"-"|uniqid}
-            {fbvElement type="submit" class="submitFormButton" id=$buttonId label="common.save"}
-    {/fbvFormSection}
+
+<h3>{translate key="plugins.generic.disco.metadataQuality"}</h3>
+<p>{translate key="plugins.generic.disco.metadataQuality.description"}</p>
+{assign var="metadataQualityArray" value=$categorizedRequirements["metadataQuality"]}
+<form class="pkp_form">
+    {foreach from=$metadataQualityArray key=requirement item=services}
+        {include file="{$discoItem}" category="metadataQuality" requirement=$requirement services=$services type="recommendation"}
+    {/foreach}
 </form>

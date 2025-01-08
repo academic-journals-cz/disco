@@ -11,9 +11,14 @@
 
 <h3>{translate key="plugins.generic.disco.seo"}</h3>
 <p>{translate key="plugins.generic.disco.seo.description"}</p>
-<form class="pkp_form">
+<form class="pkp_form" id="discoSeoForm">
     
     {foreach from=$seoArray key=requirement item=services}
-        {include file="{$discoItem}" category="seo" requirement=$requirement services=$services type="recommendation"}
+        {include file="{$discoItem}" category="generalRecommendations" requirement=$requirement services=$services type="recommendation"}
     {/foreach}
+{*    
+    {fbvFormSection class="formButtons"}
+    {assign var=buttonId value="submitFormButton"|concat:"-"|uniqid}
+    {fbvElement type="submit" class="submitFormButton" id=$buttonId label="common.save"}
+    {/fbvFormSection}*}
 </form>

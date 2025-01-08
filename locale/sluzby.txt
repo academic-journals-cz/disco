@@ -1,0 +1,33 @@
+
+msgid "plugins.generic.disco.scopus"
+msgstr "<a href='https://docs.google.com/document/d/1NqDxr63P1mfIDuuCvx0WsTouXO-bYQnOH6fmX4gk4l4/' target='_blank'>Scopus</a>" 
+
+msgid "plugins.generic.disco.ddh"
+msgstr "<a href='https://docs.google.com/document/d/1NqDxr63P1mfIDuuCvx0WsTouXO-bYQnOH6fmX4gk4l4/' target='_blank'>DDH</a>" 
+
+msgid "plugins.generic.disco.wos.esci"
+msgstr "<a href='https://docs.google.com/document/d/1q1axq6JFe9W4IJ4IK48CvNDaQ6gGXm6pOVSqRH9X-Os' target='_blank'>Web of Science (ESCI)</a>" 
+
+msgid "plugins.generic.disco.doaj"
+msgstr "<a href='https://docs.google.com/document/d/1TvTU6m0bq9goxoOvaXQ7eJ1D0QUjINmSS2cAgLU1lso/' target='_blank'>DOAJ</a>" 
+
+msgid "plugins.generic.disco.erihplus"
+msgstr "<a href='' target='_blank'>ERIH Plus</a>" 
+
+msgid "plugins.generic.disco.redalyc"
+msgstr "<a href='' target='_blank'>REDALYC</a>" 
+
+msgid "plugins.generic.disco.pubmed"
+msgstr "<a href='' target='_blank'>PubMed</a>" 
+
+msgid "plugins.generic.disco.crossref"
+msgstr "<a href='' target='_blank'>Crossref</a>" 
+
+msgid "plugins.generic.disco.gs"
+msgstr "<a href='' target='_blank'>Google Scholar</a>" 
+
+msgid "plugins.generic.disco.gotriple"
+msgstr "<a href='' target='_blank'>GoTriple</a>" 
+
+msgid "plugins.generic.disco.openaire"
+msgstr "<a href='' target='_blank'>OpenAIRE Graph</a>" 

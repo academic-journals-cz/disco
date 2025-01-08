@@ -7,12 +7,24 @@
 *
 * TODO text.
 *}
-<form class="pkp_form" id="discoAppearanceForm">
-    <h3>{translate key="plugins.generic.disco.landingPages"}</h3>
-    <p>{translate key="plugins.generic.disco.landingPages.description"}</p>
+
+<h3>{translate key="plugins.generic.disco.lpGalleys"}</h3>
+<p>{translate key="plugins.generic.disco.lpGalleys.description"}</p>
+{assign var="lpGalleysArray" value=$categorizedRequirements["lpGalleys"]}
+
+<form class="pkp_form" method="put" action="{$actionUrl}">
+
+    {csrf}
+    {if $discoId}
+        <input type="hidden" name="discoId" value="{$discoId|escape}" />
+    {/if}
+    <input type="hidden" name="category" value="lpGalleys" />
+    {foreach from=$lpGalleysArray key=requirement item=services}
+        {include file="{$discoItem}" category="lpGalleys" requirement=$requirement services=$services}
+    {/foreach}
+
     {fbvFormSection class="formButtons"}
-            {fbvElement type="button" class="pkp_helpers_align_left" id="previewButton" label="common.preview"}
-            {assign var=buttonId value="submitFormButton"|concat:"-"|uniqid}
-            {fbvElement type="submit" class="submitFormButton" id=$buttonId label="common.save"}
+    {assign var=buttonId value="submitFormButton"|concat:"-"|uniqid}
+    {fbvElement type="submit" class="submitFormButton" id=$buttonId label="common.save"}
     {/fbvFormSection}
 </form>

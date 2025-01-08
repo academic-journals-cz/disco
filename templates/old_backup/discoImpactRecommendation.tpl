@@ -7,15 +7,18 @@
 *
 * TODO text.
 *}
-
-{*{capture assign=actionUrl}{url router=$smarty.const.ROUTE_COMPONENT component="plugins.generic.disco.controllers.form.DiscoFormHandler" op="updateImpactRecommendationsCriteria" contextId=$contextId escape=false}       {/capture}*}
 {assign var="impactRecommendationsArray" value=$categorizedRequirements["impactRecommendations"]}
 
 <h3>{translate key="plugins.generic.disco.impactRecommendations"}</h3>
 <p>{translate key="plugins.generic.disco.impactRecommendations.description"}</p>
-<form class="pkp_form">
+<form class="pkp_form" id="discoImpactRecommendationsForm">
     
     {foreach from=$impactRecommendationsArray key=requirement item=services}
         {include file="{$discoItem}" category="impactRecommendations" requirement=$requirement services=$services type="recommendation"}
     {/foreach}
+    
+    {*{fbvFormSection class="formButtons"}
+    {assign var=buttonId value="submitFormButton"|concat:"-"|uniqid}
+    {fbvElement type="submit" class="submitFormButton" id=$buttonId label="common.save"}
+    {/fbvFormSection}*}
 </form>

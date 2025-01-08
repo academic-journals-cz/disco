@@ -13,22 +13,38 @@
   -->
 
 <schema version="0.2">
+    
+        <!--
+	 *
+	 * TABLE disco_plugin
+	 *
+	 -->
+	<table name="disco_plugin">
+		<field name="disco_id" type="I8">
+			<KEY/>
+			<AUTOINCREMENT/>
+		</field>
+		<field name="context_id" type="I8">
+			<NOTNULL/>
+		</field>
+		<descr>List of disco items for each context by categories</descr>
+	</table>
 	<!--
 	  *
 	  * TABLE disco_plugin_settings
 	  *
 	  -->
 	<table name="disco_plugin_settings">
-		<field name="disco_plugin_id" type="I8">
+                <field name="disco_id" type="I8">
 			<NOTNULL/>
 		</field>
-                <field name="context_id" type="I8">
+                <field name="locale" type="C2" size="14">
 			<NOTNULL/>
 		</field>
 		<field name="setting_name" type="C2" size="255">
 			<NOTNULL/>
 		</field>
-		<field name="setting_value" type="C2" size="255">
+		<field name="setting_value" type="X">
                     <NOTNULL/>
 		</field>
                 <field name="setting_type" type="C2" size="6">
@@ -37,8 +53,8 @@
 		</field>
 		<descr>Discoverability companion settings.</descr>
 		<index name="disco_plugin_settings_pkey">
-			<col>disco_plugin_id</col>
-			<col>context_id</col>
+			<col>disco_id</col>
+			<col>locale</col>
 			<col>setting_name</col>
 			<UNIQUE />
 		</index>
