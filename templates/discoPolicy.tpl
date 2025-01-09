@@ -23,7 +23,9 @@
     {/foreach}
 
     {fbvFormSection class="formButtons"}
+
     {assign var=buttonId value="submitFormButton"|concat:"-"|uniqid}
     {fbvElement type="submit" class="submitFormButton" id=$buttonId label="common.save"}
+
     {/fbvFormSection}
 </form>

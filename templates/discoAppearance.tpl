@@ -11,7 +11,6 @@
 
 <h3>{translate key="plugins.generic.disco.appearance"}</h3>
 <p>{translate key="plugins.generic.disco.appearance.description"}</p>
-
 {assign var="appearanceArray" value=$categorizedRequirements["appearance"]}
 
 <form class="pkp_form" method="put" action="{$actionUrl}">

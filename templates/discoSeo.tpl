@@ -12,8 +12,9 @@
 <h3>{translate key="plugins.generic.disco.seo"}</h3>
 <p>{translate key="plugins.generic.disco.seo.description"}</p>
 <form class="pkp_form">
-    
+
     {foreach from=$seoArray key=requirement item=services}
         {include file="{$discoItem}" category="seo" requirement=$requirement services=$services type="recommendation"}
     {/foreach}
 </form>
+

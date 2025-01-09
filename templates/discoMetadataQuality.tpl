@@ -8,6 +8,7 @@
 * TODO text.
 *}
 
+
 <h3>{translate key="plugins.generic.disco.metadataQuality"}</h3>
 <p>{translate key="plugins.generic.disco.metadataQuality.description"}</p>
 {assign var="metadataQualityArray" value=$categorizedRequirements["metadataQuality"]}
@@ -16,3 +17,4 @@
         {include file="{$discoItem}" category="metadataQuality" requirement=$requirement services=$services type="recommendation"}
     {/foreach}
 </form>
+

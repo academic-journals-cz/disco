@@ -10,6 +10,7 @@
 <form class="pkp_form">
     <h3>{translate key="plugins.generic.disco.results"}</h3>
     <p>{translate key="plugins.generic.disco.results.description"}</p>
+
     {foreach from=$resultsKnowledgeBase key=service item=results}
         <h3>{$results.name}</h3>   
         <div>
