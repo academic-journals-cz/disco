@@ -13,8 +13,8 @@
 <version>
 	<application>disco</application>
 	<type>plugins.generic</type>
-	<release>1.1.0.0</release>
-	<date>2024-06-26</date>
+	<release>3.3.0.0</release>
+	<date>2025-01-09</date>
     <lazy-load>1</lazy-load>
     <class>DiscoPlugin</class>
 </version>

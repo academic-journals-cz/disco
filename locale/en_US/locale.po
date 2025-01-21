@@ -1061,3 +1061,16 @@ msgstr "Score"
 
 msgid "plugins.generic.disco.results.description"
 msgstr "This page is designed to display scores for individual databases that require certain prerequisites for application submission, which are subsequently subject to evaluation. Since the Discoverability Companion tool is a self-assessment tool, it cannot guarantee that a journal will be evaluated by the service. The plugin serves only as an aid and knowledge base. Below, you will also find additional databases that may not have any evaluation criteria but are still worth being aware of."
+
+
+msgid "plugins.generic.disco.badges"
+msgstr "Badges"
+
+msgid "plugins.generic.disco.badges.description"
+msgstr " "
+
+msgid "plugins.generic.disco.badges.badgesAvailable"
+msgstr "Allow Badges in the footer of the pages."
+
+msgid "plugins.generic.disco.badges.badgesAvailable.description"
+msgstr "The badges will be shown as a part of the footer on the journal's pages"

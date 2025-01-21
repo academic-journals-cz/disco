@@ -24,7 +24,7 @@ class DiscoDAO extends DAO {
 	 * @param $contextId int (optional) Context ID
 	 */
 	function getById($discoId, $contextId = null) {
-		$params = array((int) $discoId);
+		$params = [(int) $discoId];
 		if ($contextId) $params[] = (int) $contextId;
 
 		$result = $this->retrieve(
@@ -33,12 +33,8 @@ class DiscoDAO extends DAO {
 			$params
 		);
 
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
-		return $returner;
+		$row = $result->current();
+		return $row ? $this->_fromRow((array) $row) : null;
 	}
         
 	/**
@@ -47,11 +43,11 @@ class DiscoDAO extends DAO {
 	 * @param $rangeInfo Object optional
 	 * @return DAOResultFactory
 	 */
-	function getByContextId($contextId, $rangeInfo = null) {
-		$result = $this->retrieveRange(
+	function getByContextId($contextId) {
+                $params = [(int) $contextId];
+		$result = $this->retrieve(
 			'SELECT * FROM disco_plugin WHERE context_id = ?',
-			(int) $contextId,
-			$rangeInfo
+                        $params
 		);
 
 		return new DAOResultFactory($result, $this, '_fromRow');
@@ -66,8 +62,7 @@ class DiscoDAO extends DAO {
 		$this->update(
 			'INSERT INTO disco_plugin (context_id) VALUES (?)',
 			array(
-				(int) $disco->getContextId(),
-//				$disco->getCategory()
+				(int) $disco->getContextId()
 			)
 		);
 
@@ -100,13 +95,13 @@ class DiscoDAO extends DAO {
 	function deleteById($discoId) {
 		$this->update(
 			'DELETE FROM disco_plugin WHERE disco_id = ?',
-			(int) $discoId
+			[(int) $discoId]
 		);
 
 		$this->update(
 			'DELETE FROM disco_plugin_settings WHERE disco_id = ?',
-			(int) $discoId
-		);
+			[(int) $discoId]		
+                );
 	}
         
         /**
@@ -153,7 +148,7 @@ class DiscoDAO extends DAO {
 	 * @return array
 	 */
 	function getAdditionalFieldNames() {
-		return array('persistantIdentification', 'scholarlyJournal', 'noCharges', 'openAuthorship', 'ownershipScience', 'openLicence', 'fullContentAvailable', 'functionalWebsite', 'journalUrl', 'qualityEnHomepage', 'aimsAndScopeDescribed', 'authorGuidelinesDescribed', 'bibliographicInformation', 'editorialBoardPage', 'contactDetailsAvailable', 'peerReviewDescribed', 'publicationEthicsDescribed', 'scholarlyArticles', 'fullBio', 'linkToFulltext', 'lpDoi', 'references', 'uniqueUrlArticles', 'authorsAffiliations', 'titlesAbstractsInEnglish', 'markingReferences', 'noAPC', 'apcDescribed', 'oaPolicyDescribed', 'copyrightTerms', 'periodicity', 'publishingHistory', 'timeliness', 'eIssn', 'journalTitle', 'machineReadableMetadataFormat', 'oaiPMHEnabled', 'usingDOIs', 'metadataFormatOpenAIRE', 'noRegistrationNeed', 'noEmbargoPeriod', 'journalPublisherNameAvailable');
+		return array('persistantIdentification', 'scholarlyJournal', 'noCharges', 'openAuthorship', 'ownershipScience', 'openLicence', 'fullContentAvailable', 'functionalWebsite', 'journalUrl', 'qualityEnHomepage', 'aimsAndScopeDescribed', 'authorGuidelinesDescribed', 'bibliographicInformation', 'editorialBoardPage', 'contactDetailsAvailable', 'peerReviewDescribed', 'publicationEthicsDescribed', 'scholarlyArticles', 'fullBio', 'linkToFulltext', 'lpDoi', 'references', 'uniqueUrlArticles', 'authorsAffiliations', 'titlesAbstractsInEnglish', 'markingReferences', 'noAPC', 'apcDescribed', 'oaPolicyDescribed', 'copyrightTerms', 'periodicity', 'publishingHistory', 'timeliness', 'eIssn', 'journalTitle', 'machineReadableMetadataFormat', 'oaiPMHEnabled', 'usingDOIs', 'metadataFormatOpenAIRE', 'noRegistrationNeed', 'noEmbargoPeriod', 'journalPublisherNameAvailable', 'badgesAvailable');
 	}
 
 	/**

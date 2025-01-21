@@ -11,6 +11,8 @@
  * @class DiscoMetadataQualityDAO
  * Operations for retrieving metadata quality information.
  */
+use PKP\db\DAOResultFactory;
+
 import('lib.pkp.classes.db.DAO');
 import('plugins.generic.disco.classes.disco');
 
@@ -62,14 +64,8 @@ class DiscoMetadataQualityDAO extends DAO {
             $params[] = $primaryLocale;
         }
 
-        
-//        if($publicationDate){
-//            $params[] = $publicationDate;
-//        }
-        
-//        error_log(print_r($params, true));
         $result = $this->retrieve(
-                'SELECT	COUNT(DISTINCT s.submission_id)
+                'SELECT	COUNT(DISTINCT s.submission_id) AS count
 			FROM    submissions s
 				LEFT JOIN publications p ON s.current_publication_id = p.publication_id
 				LEFT JOIN publication_settings ps ON p.publication_id = ps.publication_id'
@@ -89,12 +85,8 @@ class DiscoMetadataQualityDAO extends DAO {
                 $params
         );
 
-        $returner = null;
-        if ($result->RecordCount() != 0) {
-            $returner = $result->fields[0];
-        }
-        $result->Close();
-        return $returner;
+        $row = (array) $result->current();        
+        return $row ? $row["count"] : null;
     }
 
 }

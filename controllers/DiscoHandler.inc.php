@@ -12,6 +12,7 @@
  *
  *
  */
+
 import('classes.handler.Handler');
 
 class DiscoHandler extends Handler {
@@ -74,6 +75,7 @@ class DiscoHandler extends Handler {
             
             $redirectUrl = $request->getDispatcher()->url($request, ROUTE_PAGE, null, 'management', 'settings', array('website'), null, 'disco');
             return $request->redirectUrl($redirectUrl);
+
         } else {
             // Present any errors
             $redirectUrl = $request->getDispatcher()->url($request, ROUTE_PAGE, null, 'management', 'settings', array('website'), null, 'disco');

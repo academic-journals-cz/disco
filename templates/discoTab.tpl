@@ -1,5 +1,5 @@
 {**
-* templates/vdiscoTab.tpl
+* templates/discoTab.tpl
 *
 * Copyright (c) 2014-2020 Simon Fraser University
 * Copyright (c) 2003-2020 John Willinsky
@@ -76,6 +76,9 @@
             </tab>
             <tab id="disco_results" label="{translate key="plugins.generic.disco.results"}">
                 {include file="{$discoResults}"}
+            </tab>
+            <tab id="disco_badges" label="{translate key="plugins.generic.disco.badges"}">
+                {include file="{$discoBadges}"}
             </tab>
         </tabs>
 </tab>
