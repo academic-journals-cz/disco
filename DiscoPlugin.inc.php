@@ -194,7 +194,7 @@ class DiscoPlugin extends GenericPlugin {
     //
 
     /**
-     * @see templates/article/footer.tpl
+     * 
      */
     function callbackTemplateCommonPageFooter($hookName, $args) {
         $templateMgr = $args[1];
@@ -215,7 +215,7 @@ class DiscoPlugin extends GenericPlugin {
         }
         error_log(print_r($disco, true));
 
-        if ($disco->getBadgesAvailable()) {
+        if ($disco && $disco->getBadgesAvailable()) {
             $this->assignBadges();
             $bagesAvailability = $this->badgesAvailability($disco, $context);
             $templateMgr->assign("badgesAvailability", $bagesAvailability);
@@ -248,7 +248,9 @@ class DiscoPlugin extends GenericPlugin {
         $badgesAvailability = array();
 
         $automaticChecks = $this->getAutomaticChecks($context);
-        $variables = $this->getVariables($disco);
+        if($disco){
+            $variables = $this->getVariables($disco);
+        }
         
         $badgesAvailability["badgesAvailableContent"] = false;
         $badgesAvailability["badgesCommunityOwned"] = false;
