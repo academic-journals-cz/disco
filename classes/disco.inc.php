@@ -719,5 +719,21 @@ class Disco extends DataObject {
     function setJournalPublisherNameAvailable($journalPublisherNameAvailable) {
         return $this->setData('journalPublisherNameAvailable', $journalPublisherNameAvailable);
     }
+    
+    /**
+     * Get badges availability.
+     * @return boolean
+     */
+    function getBadgesAvailable() {
+        return $this->getData('badgesAvailable');
+    }
+
+    /**
+     * Set badges availability.
+     * @param $badgesAvailable boolean
+     */
+    function setBadgesAvailable($badgesAvailable) {
+        return $this->setData('badgesAvailable', $badgesAvailable);
+    }
 
 }

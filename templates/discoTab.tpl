@@ -77,5 +77,8 @@
             <tab id="disco_results" label="{translate key="plugins.generic.disco.results"}">
                 {include file="{$discoResults}"}
             </tab>
+            <tab id="disco_badges" label="{translate key="plugins.generic.disco.badges"}">
+                {include file="{$discoBadges}"}
+            </tab>
         </tabs>
 </tab>

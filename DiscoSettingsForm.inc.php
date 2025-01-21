@@ -1,22 +1,22 @@
 <?php
 
 /**
- * @file plugins/importexport/doaj/classes/form/DOAJSettingsForm.inc.php
+ * @file plugins/generic/disco/DiscoSettingsForm.inc.php
  *
  * Copyright (c) 2014-2020 Simon Fraser University
  * Copyright (c) 2003-2020 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class DOAJSettingsForm
- * @ingroup plugins_importexport_doaj
+ * @class DiscoSettingsForm
+ * @ingroup plugins_generic_disco
  *
- * @brief Form for journal managers to setup DOAJ plugin
+ * @brief Form for journal managers to setup Disco plugin
  */
 
 
 import('lib.pkp.classes.form.Form');
 
-class DOAJSettingsForm extends Form {
+class DiscoSettingsForm extends Form {
 
 	//
 	// Private properties
@@ -32,12 +32,12 @@ class DOAJSettingsForm extends Form {
 		return $this->_contextId;
 	}
 
-	/** @var CrossRefExportPlugin */
+	/** @var DiscoPlugin */
 	var $_plugin;
 
 	/**
 	 * Get the plugin.
-	 * @return CrossRefExportPlugin
+	 * @return DiscoPlugin
 	 */
 	function _getPlugin() {
 		return $this->_plugin;
@@ -49,7 +49,7 @@ class DOAJSettingsForm extends Form {
 	//
 	/**
 	 * Constructor
-	 * @param $plugin DOAJExportPlugin
+	 * @param $plugin DiscoPlugin
 	 * @param $contextId integer
 	 */
 	function __construct($plugin, $contextId) {
@@ -85,6 +85,15 @@ class DOAJSettingsForm extends Form {
 		$this->readUserVars(array_keys($this->getFormFields()));
 	}
 
+        /**
+	 * @copydoc Form::fetch()
+	 */
+	function fetch($request, $template = null, $display = false) {
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('pluginName', $this->_plugin->getName());
+		return parent::fetch($request, $template, $display);
+	}
+        
 	/**
 	 * @copydoc Form::execute()
 	 */
@@ -107,9 +116,7 @@ class DOAJSettingsForm extends Form {
 	 */
 	function getFormFields() {
 		return array(
-			'apiKey' => 'string',
-			'automaticRegistration' => 'bool',
-			'testMode' => 'bool'
+			'discoBadges' => 'bool'
 		);
 	}
 
@@ -119,7 +126,7 @@ class DOAJSettingsForm extends Form {
 	 * @return boolean
 	 */
 	function isOptional($settingName) {
-		return in_array($settingName, array('apiKey', 'automaticRegistration', 'testMode'));
+		return in_array($settingName, array('discoBadges'));
 	}
 
 }

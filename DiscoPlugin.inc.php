@@ -120,7 +120,10 @@ class DiscoPlugin extends GenericPlugin {
             DAORegistry::registerDAO('DiscoMetadataQualityDAO', $discoMetadataQualityDAO);
 
             HookRegistry::register('Template::Settings::website', array($this, 'callbackShowWebsiteSettingsTabs'));
-            HookRegistry::register('TemplateManager::display', array($this, 'addDiscoStyles'));
+            HookRegistry::register('TemplateManager::display', array($this, 'addDiscoStylesBackend'));
+            HookRegistry::register('TemplateManager::display', array($this, 'addDiscoStylesFrontend'));
+
+            HookRegistry::register('Templates::Common::Footer::PageFooter', array($this, 'callbackTemplateCommonPageFooter'));
 
             // Register the components this plugin implements to
             // permit administration of disco.
@@ -147,7 +150,7 @@ class DiscoPlugin extends GenericPlugin {
         $discoDao = DAORegistry::getDAO('DiscoDAO');
         $discoIterator = $discoDao->getByContextId($contextId);
         $disco = $discoIterator->next();
-        if($disco){
+        if ($disco) {
             $discoId = $disco->getId();
         }
         if ($discoId > 0) {
@@ -176,6 +179,9 @@ class DiscoPlugin extends GenericPlugin {
         $templateMgr->assign("discoPolicy", $this->getTemplateResource('discoPolicy.tpl'));
         $templateMgr->assign("discoSeo", $this->getTemplateResource('discoSeo.tpl'));
         $templateMgr->assign("discoItem", $this->getTemplateResource('discoItem.tpl'));
+        $templateMgr->assign("discoBadges", $this->getTemplateResource('discoBadges.tpl'));
+        $this->assignBadges();
+        $templateMgr->assign("badgesAvailability", $this->badgesAvailability($disco, $context));
 
         $output .= $templateMgr->fetch($this->getTemplateResource('discoTab.tpl'));
 
@@ -183,10 +189,123 @@ class DiscoPlugin extends GenericPlugin {
         return false;
     }
 
+    //
+    // View level hook implementations.
+    //
+
+    /**
+     * @see templates/article/footer.tpl
+     */
+    function callbackTemplateCommonPageFooter($hookName, $args) {
+        $templateMgr = $args[1];
+        $output = &$args[2];
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
+        $contextId = $context->getId();
+
+        // Get the disco settings
+        $discoDao = DAORegistry::getDAO('DiscoDAO');
+        $discoIterator = $discoDao->getByContextId($contextId);
+        $disco = $discoIterator->next();
+        if ($disco) {
+            $discoId = $disco->getId();
+        }
+        if ($discoId > 0) {
+            $this->_discoId = $discoId;
+        }
+        error_log(print_r($disco, true));
+
+        if ($disco->getBadgesAvailable()) {
+            $this->assignBadges();
+            $bagesAvailability = $this->badgesAvailability($disco, $context);
+            $templateMgr->assign("badgesAvailability", $bagesAvailability);
+            $output .= $templateMgr->fetch($this->getTemplateResource('badgesFooter.tpl'));
+        } else {
+            return false;
+        }
+
+        return false;
+    }
+
+    function assignBadges() {
+        $templateMgr = TemplateManager::getManager();
+        $badges = array("badgesAvailableContent" => $this->getTemplateResource('badges/availableContent.svg')
+        ,"badgesCommunityOwned" => $this->getTemplateResource('badges/communityOwned.svg')
+        ,"badgesDiamondJournal" => $this->getTemplateResource('badges/diamondJournal.svg')
+        ,"badgesDoiUsed" => $this->getTemplateResource('badges/doiUsed.svg')
+        ,"badgesGeographicalDiversity" => $this->getTemplateResource('badges/geographicalDiversity.svg')
+        ,"badgesNoApc" => $this->getTemplateResource('badges/noApc.svg')
+        ,"badgesOpenToAllAuthors" => $this->getTemplateResource('badges/openToAllAuthors.svg')
+        ,"badgesPlagiarismCheckImplemented" => $this->getTemplateResource('badges/plagiarismCheckImplemented.svg')
+        ,"badgesRegularPeriodicity" => $this->getTemplateResource('badges/regularPeriodicity.svg')
+        ,"badgesScholarlyJournal" => $this->getTemplateResource('badges/scholarlyJournal.svg'));
+        
+        $templateMgr->assign("badges", $badges);
+        return true;
+    }
+
+    function badgesAvailability($disco, $context) {
+        $badgesAvailability = array();
+
+        $automaticChecks = $this->getAutomaticChecks($context);
+        $variables = $this->getVariables($disco);
+        
+        $badgesAvailability["badgesAvailableContent"] = false;
+        $badgesAvailability["badgesCommunityOwned"] = false;
+        $badgesAvailability["badgesDiamondJournal"] = false;
+        $badgesAvailability["badgesDoiUsed"] = false;
+        $badgesAvailability["badgesGeographicalDiversity"] = false;
+        $badgesAvailability["badgesNoApc"] = false;
+        $badgesAvailability["badgesOpenToAllAuthors"] = false;
+        $badgesAvailability["badgesPlagiarismCheckImplemented"] = false;
+        $badgesAvailability["badgesRegularPeriodicity"] = false;
+        $badgesAvailability["badgesScholarlyJournal"] = false;
+
+        if ($variables["fullContentAvailable"] && $automaticChecks["appearance"]["fullContentAvailable"]){
+            $badgesAvailability["badgesAvailableContent"] = true;
+        }
+        
+        if ($variables["ownershipScience"]){
+            $badgesAvailability["badgesCommunityOwned"] = true;
+        }
+        
+        if($variables['persistantIdentification'] && $variables['scholarlyJournal'] && $variables['openLicence'] && $variables['noCharges'] && $variables['openAuthorship'] && $variables['ownershipScience']){
+            $badgesAvailability["badgesDiamondJournal"] = true;
+        }
+        
+        if ($variables["usingDOIs"] && $automaticChecks["metadataRequirements"]["usingDOIs"]){
+            $badgesAvailability["badgesDoiUsed"] = true;
+        }
+        
+        $badgesAvailability["badgesGeographicalDiversity"] = false;
+        
+        if ($variables["noApc"] || $variables["noCharges"]){
+            $badgesAvailability["badgesNoApc"] = true;
+        }
+        
+        if ($variables["openAuthorship"]){
+            $badgesAvailability["badgesOpenToAllAuthors"] = true;
+        }
+        
+        if ($automaticChecks["generalRecommendations"]["plagiarismCheck"]){
+            $badgesAvailability["badgesPlagiarismCheckImplemented"] = true;
+        }
+        
+        if ($variables["scholarlyJournal"]){
+            $badgesAvailability["badgesScholarlyJournal"] = true;
+        }
+        
+        if ($variables["periodicity"]){
+            $badgesAvailability["badgesRegularPeriodicity"] = true;
+        }
+        
+        return $badgesAvailability;
+    }
+
     /**
      * 
      */
-    function addDiscoStyles($hookName, $params) {
+    function addDiscoStylesBackend($hookName, $params) {
         $templateMgr = $params[0];
         $request = $this->getRequest();
         $discoStyles = $this->getStyleSheetURL($request, false) . DIRECTORY_SEPARATOR . 'disco.less';
@@ -199,28 +318,20 @@ class DiscoPlugin extends GenericPlugin {
         return false;
     }
 
-//        
-
     /**
-     * @copydoc Plugin::getActions()
+     * 
      */
-    public function getActions($request, $verb) {
-        $router = $request->getRouter();
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
-        return array_merge(
-                $this->getEnabled() ? array(
-            new LinkAction(
-                    'settings',
-                    new AjaxModal(
-                            $router->url($request, null, null, 'manage', null, array('verb' => 'settings', 'plugin' => $this->getName(), 'category' => 'generic')),
-                            $this->getDisplayName()
-                    ),
-                    __('manager.plugins.settings'),
-                    null
-            ),
-                ) : array(),
-                parent::getActions($request, $verb)
+    function addDiscoStylesFrontend($hookName, $params) {
+        $templateMgr = $params[0];
+        $request = $this->getRequest();
+        $discoStyles = $this->getStyleSheetURL($request, false) . DIRECTORY_SEPARATOR . 'discoFrontend.less';
+
+        $templateMgr->addStylesheet(
+                'DiscoStyles',
+                $discoStyles,
+                array('contexts' => 'frontend')
         );
+        return false;
     }
 
     function getMetadataQuality($contextId) {
@@ -341,7 +452,6 @@ class DiscoPlugin extends GenericPlugin {
         $automaticChecks["generalRecommendations"] = array(
             "plagiarismCheck" => $this->checkPlugin('generic', 'plagiarism', $contextId)
         );
-
         return $automaticChecks;
     }
 
@@ -532,6 +642,11 @@ class DiscoPlugin extends GenericPlugin {
             "unhideJScontent" => array(SERVICE_GOOGLE, SERVICE_BING, SERVICE_YAHOO, SERVICE_DUCKDUCKGO),
         );
 
+        /* Badges */
+        $categorizedRequirements["badges"] = array(
+            "badgesAvailable" => array(),
+        );
+
         return $categorizedRequirements;
     }
 
@@ -666,7 +781,7 @@ class DiscoPlugin extends GenericPlugin {
 
     public function checkPlugin($category, $pluginName, $contextId) {
         $plugin = PluginRegistry::loadPlugin($category, $pluginName, $contextId);
-        if ($plugin && $plugin->getCurrentVersion() && $plugin->getSetting($contextId, 'enabled')) {
+        if ($plugin->getCurrentVersion() && $plugin->getSetting($contextId, 'enabled')) {
             return true;
         } else {
             return false;
@@ -696,54 +811,59 @@ class DiscoPlugin extends GenericPlugin {
         $templateMgr = TemplateManager::getManager();
         $templateMgr->assign("contextId", $this->_contextId);
         if ($disco) {
-            $variables = array();
             $templateMgr->assign('discoId', $this->_discoId);
-            $variables['persistantIdentification'] = (bool) $disco->getPersistantIdentification();
-            $variables['scholarlyJournal'] = (bool) $disco->getScholarlyJournal();
-            $variables['noCharges'] = (bool) $disco->getNoCharges();
-            $variables['openAuthorship'] = (bool) $disco->getOpenAuthorship();
-            $variables['ownershipScience'] = (bool) $disco->getOwnershipScience();
-            $variables['openLicence'] = (bool) $disco->getOpenLicence();
-            $variables['fullContentAvailable'] = (bool) $disco->getFullContentAvailable();
-            $variables['functionalWebsite'] = (bool) $disco->getFunctionalWebsite();
-            $variables['journalUrl'] = (bool) $disco->getJournalUrl();
-            $variables['qualityEnHomepage'] = (bool) $disco->getQualityEnHomepage();
-            $variables['aimsAndScopeDescribed'] = (bool) $disco->getAimsAndScopeDescribed();
-            $variables['authorGuidelinesDescribed'] = (bool) $disco->getAuthorGuidelinesDescribed();
-            $variables['bibliographicInformation'] = (bool) $disco->getBibliographicInformation();
-            $variables['editorialBoardPage'] = (bool) $disco->getEditorialBoardPage();
-            $variables['contactDetailsAvailable'] = (bool) $disco->getContactDetailsAvailable();
-            $variables['peerReviewDescribed'] = (bool) $disco->getPeerReviewDescribed();
-            $variables['publicationEthicsDescribed'] = (bool) $disco->getPublicationEthicsDescribed();
-            $variables['scholarlyArticles'] = (bool) $disco->getScholarlyArticles();
-            $variables['fullBio'] = (bool) $disco->getFullBio();
-            $variables['linkToFulltext'] = (bool) $disco->getLinkToFulltext();
-            $variables['lpDoi'] = (bool) $disco->getLpDoi();
-            $variables['references'] = (bool) $disco->getReferences();
-            $variables['uniqueUrlArticles'] = (bool) $disco->getUniqueUrlArticles();
-            $variables['authorsAffiliations'] = (bool) $disco->getAuthorsAffiliations();
-            $variables['titlesAbstractsInEnglish'] = (bool) $disco->getTitlesAbstractsInEnglish();
-            $variables['markingReferences'] = (bool) $disco->getMarkingReferences();
-            $variables['noAPC'] = (bool) $disco->getNoAPC();
-            $variables['apcDescribed'] = (bool) $disco->getApcDescribed();
-            $variables['oaPolicyDescribed'] = (bool) $disco->getOaPolicyDescribed();
-            $variables['copyrightTerms'] = (bool) $disco->getCopyrightTerms();
-            $variables['periodicity'] = (bool) $disco->getPeriodicity();
-            $variables['publishingHistory'] = (bool) $disco->getPublishingHistory();
-            $variables['timeliness'] = (bool) $disco->getTimeliness();
-            $variables['eIssn'] = (bool) $disco->getEIssn();
-            $variables['journalTitle'] = (bool) $disco->getJournalTitle();
-            $variables['machineReadableMetadataFormat'] = (bool) $disco->getMachineReadableMetadataFormat();
-            $variables['oaiPMHEnabled'] = (bool) $disco->getOaiPMHEnabled();
-            $variables['usingDOIs'] = (bool) $disco->getUsingDOIs();
-            $variables['metadataFormatOpenAIRE'] = (bool) $disco->getMetadataFormatOpenAIRE();
-            $variables['noRegistrationNeed'] = (bool) $disco->getNoRegistrationNeed();
-            $variables['noEmbargoPeriod'] = (bool) $disco->getNoEmbargoPeriod();
-            $variables['journalPublisherNameAvailable'] = (bool) $disco->getJournalPublisherNameAvailable();
-
+            $variables = $this->getVariables($disco);
             $templateMgr->assign('variables', $variables);
         }
         return true;
+    }
+
+    function getVariables($disco) {
+        $variables = array();
+        $variables['persistantIdentification'] = (bool) $disco->getPersistantIdentification();
+        $variables['scholarlyJournal'] = (bool) $disco->getScholarlyJournal();
+        $variables['noCharges'] = (bool) $disco->getNoCharges();
+        $variables['openAuthorship'] = (bool) $disco->getOpenAuthorship();
+        $variables['ownershipScience'] = (bool) $disco->getOwnershipScience();
+        $variables['openLicence'] = (bool) $disco->getOpenLicence();
+        $variables['fullContentAvailable'] = (bool) $disco->getFullContentAvailable();
+        $variables['functionalWebsite'] = (bool) $disco->getFunctionalWebsite();
+        $variables['journalUrl'] = (bool) $disco->getJournalUrl();
+        $variables['qualityEnHomepage'] = (bool) $disco->getQualityEnHomepage();
+        $variables['aimsAndScopeDescribed'] = (bool) $disco->getAimsAndScopeDescribed();
+        $variables['authorGuidelinesDescribed'] = (bool) $disco->getAuthorGuidelinesDescribed();
+        $variables['bibliographicInformation'] = (bool) $disco->getBibliographicInformation();
+        $variables['editorialBoardPage'] = (bool) $disco->getEditorialBoardPage();
+        $variables['contactDetailsAvailable'] = (bool) $disco->getContactDetailsAvailable();
+        $variables['peerReviewDescribed'] = (bool) $disco->getPeerReviewDescribed();
+        $variables['publicationEthicsDescribed'] = (bool) $disco->getPublicationEthicsDescribed();
+        $variables['scholarlyArticles'] = (bool) $disco->getScholarlyArticles();
+        $variables['fullBio'] = (bool) $disco->getFullBio();
+        $variables['linkToFulltext'] = (bool) $disco->getLinkToFulltext();
+        $variables['lpDoi'] = (bool) $disco->getLpDoi();
+        $variables['references'] = (bool) $disco->getReferences();
+        $variables['uniqueUrlArticles'] = (bool) $disco->getUniqueUrlArticles();
+        $variables['authorsAffiliations'] = (bool) $disco->getAuthorsAffiliations();
+        $variables['titlesAbstractsInEnglish'] = (bool) $disco->getTitlesAbstractsInEnglish();
+        $variables['markingReferences'] = (bool) $disco->getMarkingReferences();
+        $variables['noAPC'] = (bool) $disco->getNoAPC();
+        $variables['apcDescribed'] = (bool) $disco->getApcDescribed();
+        $variables['oaPolicyDescribed'] = (bool) $disco->getOaPolicyDescribed();
+        $variables['copyrightTerms'] = (bool) $disco->getCopyrightTerms();
+        $variables['periodicity'] = (bool) $disco->getPeriodicity();
+        $variables['publishingHistory'] = (bool) $disco->getPublishingHistory();
+        $variables['timeliness'] = (bool) $disco->getTimeliness();
+        $variables['eIssn'] = (bool) $disco->getEIssn();
+        $variables['journalTitle'] = (bool) $disco->getJournalTitle();
+        $variables['machineReadableMetadataFormat'] = (bool) $disco->getMachineReadableMetadataFormat();
+        $variables['oaiPMHEnabled'] = (bool) $disco->getOaiPMHEnabled();
+        $variables['usingDOIs'] = (bool) $disco->getUsingDOIs();
+        $variables['metadataFormatOpenAIRE'] = (bool) $disco->getMetadataFormatOpenAIRE();
+        $variables['noRegistrationNeed'] = (bool) $disco->getNoRegistrationNeed();
+        $variables['noEmbargoPeriod'] = (bool) $disco->getNoEmbargoPeriod();
+        $variables['journalPublisherNameAvailable'] = (bool) $disco->getJournalPublisherNameAvailable();
+        $variables['badgesAvailable'] = (bool) $disco->getBadgesAvailable();
+        return $variables;
     }
 
 }
