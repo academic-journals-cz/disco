@@ -781,7 +781,7 @@ class DiscoPlugin extends GenericPlugin {
 
     public function checkPlugin($category, $pluginName, $contextId) {
         $plugin = PluginRegistry::loadPlugin($category, $pluginName, $contextId);
-        if ($plugin->getCurrentVersion() && $plugin->getSetting($contextId, 'enabled')) {
+        if ($plugin && $plugin->getCurrentVersion() && $plugin->getSetting($contextId, 'enabled')) {
             return true;
         } else {
             return false;
