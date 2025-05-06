@@ -158,14 +158,17 @@ class DiscoPlugin extends GenericPlugin {
             $aboutText = $currentContext->getLocalizedSetting('about');
 
             // Add own text to about context part
-            $aboutText .= __('plugins.generic.disco.about.openToAllAuthors', array('contextTitle' => $currentContext->getLocalizedData('name')));
-            if($disco->getOrganisationType()=="nonprofit"){
-                $organisationType = __('plugins.generic.disco.diamond.organisationType.nonProfit');
-            } else {
-                $organisationType = __('plugins.generic.disco.diamond.organisationType.public');
+            if ((bool) $disco->getOpenAuthorship()){
+                $aboutText .= __('plugins.generic.disco.about.openToAllAuthors', array('contextTitle' => $currentContext->getLocalizedData('name')));
+            }           
+            if ((bool) $disco->getOwnershipScience()){
+                if($disco->getOrganisationType()=="nonprofit"){
+                    $organisationType = __('plugins.generic.disco.diamond.organisationType.nonProfit');
+                } else {
+                    $organisationType = __('plugins.generic.disco.diamond.organisationType.public');
+                }
+                $aboutText .= __('plugins.generic.disco.about.communityOwned', array('contextTitle' => $currentContext->getLocalizedData('name'), 'publisherInstitution' => $currentContext->getData('publisherInstitution'), 'organisationType' => $organisationType));
             }
-            $aboutText .= __('plugins.generic.disco.about.communityOwned', array('contextTitle' => $currentContext->getLocalizedData('name'), 'publisherInstitution' => $currentContext->getData('publisherInstitution'), 'organisationType' => $organisationType));
-
             // Content update inside object
             $currentContext->setData('about', $aboutText, $currentLocale);
         }
