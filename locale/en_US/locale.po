@@ -125,19 +125,19 @@ msgid "plugins.generic.disco.diamond.openAuthorship"
 msgstr "5. Open to all authors" 
 
 msgid "plugins.generic.disco.diamond.openAuthorship.description"
-msgstr "Authorship in the journal should not be limited to any type of affiliation. Any author can submit an article that is in line with the aims and scope of the journal." 
+msgstr "<p>Authorship in the journal should not be limited to any type of affiliation. Any author can submit an article that is in line with the aims and scope of the journal.</p><p>After checking the checkbox and saving, a self-declaration text regarding openness to all authors will appear at the end of the \"About journal\" section.</p>" 
 
 msgid "plugins.generic.disco.diamond.ownershipScience"
 msgstr "6. Community-owned" 
 
 msgid "plugins.generic.disco.diamond.ownershipScience.description"
-msgstr "The journal title must be owned by public or not-for-profit organisations (or parts there of) whose mission includes performing or promoting research and scholarship These include but are not limited to research performing organisations (RPOs), research funding organisations (RFOs), organisations connected to RPOs (university libraries, university presses, faculties, and departments), research institutes, and scholarly societies.The journal should explain its ownership status on its webpage." 
+msgstr "<p>The journal title must be owned by public or not-for-profit organisations (or parts there of) whose mission includes performing or promoting research and scholarship These include but are not limited to research performing organisations (RPOs), research funding organisations (RFOs), organisations connected to RPOs (university libraries, university presses, faculties, and departments), research institutes, and scholarly societies.The journal should explain its ownership status on its webpage.</p><p>After checking the checkbox and saving, a self-declaration text about ownership will appear at the end of the \"About journal\" section.</p>" 
 
 msgid "plugins.generic.disco.appearance"
 msgstr "Appearance"
 
 msgid "plugins.generic.disco.appearance.description"
-msgstr "This section focuses on the journalâ€™s online presence and accessibility. Ensuring that your journal meets key criteria like having a functional website, a clear and accurate journal title, and a quality English homepage can significantly enhance its visibility. Here, youâ€™ll evaluate whether your journalâ€™s full content is available online, confirm the availability of an eISSN, and check if the journalâ€™s content is open access. Use this overview to identify improvements that could make your journal more discoverable to readers and indexing services."
+msgstr "This section focuses on the journal's online presence and accessibility. Ensuring that your journal meets key criteria like having a functional website, a clear and accurate journal title, and a quality English homepage can significantly enhance its visibility. Here, you'll evaluate whether your journal's full content is available online, confirm the availability of an eISSN, and check if the journal's content is open access. Use this overview to identify improvements that could make your journal more discoverable to readers and indexing services."
 
 msgid "plugins.generic.disco.appearance.functionalWebsite"
 msgstr "Functional website" 
@@ -216,7 +216,7 @@ msgid "plugins.generic.disco.journalDescription.contactDetailsAvailable"
 msgstr "Contact details available" 
 
 msgid "plugins.generic.disco.journalDescription.contactDetailsAvailable.description"
-msgstr "OJS check if the contact details are filled in. <br /> Contact details for the journalâ€™s primary editorial and production roles must be provided. Email should be publicly available." 
+msgstr "OJS check if the contact details are filled in. <br /> Contact details for the journal's primary editorial and production roles must be provided. Email should be publicly available." 
 
 msgid "plugins.generic.disco.journalDescription.editorialBoardPageExists"
 msgstr "Is editorial board field filled in OJS?" 
@@ -228,7 +228,7 @@ msgid "plugins.generic.disco.journalDescription.journalPublisherNameAvailable"
 msgstr "Journal's publisher name available on webpage" 
 
 msgid "plugins.generic.disco.journalDescription.journalPublisherNameAvailable.description"
-msgstr "OJS check if the journal's publisher name is filled in. <br />The publisher name must be clearly defined, and a verifiable, physical address (not P.O. Box) for the publisherâ€™s business offices must be provided. If there is a society affiliation or ownership, this should be stated, and verifiable contact information must be provided." 
+msgstr "OJS check if the journal's publisher name is filled in. <br />The publisher name must be clearly defined, and a verifiable, physical address (not P.O. Box) for the publisher's business offices must be provided. If there is a society affiliation or ownership, this should be stated, and verifiable contact information must be provided." 
 
 msgid "plugins.generic.disco.journalDescription.peerReviewDescribed"
 msgstr "Peer review process described" 
@@ -236,14 +236,14 @@ msgstr "Peer review process described"
 msgid "plugins.generic.disco.journalDescription.peerReviewDescribed.description"
 msgstr "The journal must provide a readily accessible, clear statement of its commitment to peer review and/or editorial oversight of all published content. Primary research articles must be subject to external peer review. <br />
 Published content must reflect adequate and effective peer review and/or editorial oversight. Signs of deficient peer review include, but are not limited to, articles that demonstrate lack of scholarly rigor or scientific validity, presence of articles outside the scope of the journal or irrelevant citations.<br />
-ERIH PLUS requires an explicit description of the journalâ€™s procedures for external/independent peer review. As a minimum, the journalâ€™s website must describe how the process ensures that reviewers are independent of the 
+ERIH PLUS requires an explicit description of the journal's procedures for external/independent peer review. As a minimum, the journal's website must describe how the process ensures that reviewers are independent of the 
 " 
 
 msgid "plugins.generic.disco.journalDescription.publicationEthicsDescribed"
 msgstr "Publication ethics well described" 
 
 msgid "plugins.generic.disco.journalDescription.publicationEthicsDescribed.description"
-msgstr "Publication ethics and publication malpractice statement has to be publicly available. <br /> The journal must be transparent about their ethical requirements for authors and published works. If the journal supports and uses one or more third-party organizationâ€™s principles (WAME, COPE, Declaration of Helsinki, etc.), either the full text of the guidelines should be presented and appropriately credited to the source, or a functioning link to the full text of the guideline should be provided." 
+msgstr "Publication ethics and publication malpractice statement has to be publicly available. <br /> The journal must be transparent about their ethical requirements for authors and published works. If the journal supports and uses one or more third-party organization's principles (WAME, COPE, Declaration of Helsinki, etc.), either the full text of the guidelines should be presented and appropriately credited to the source, or a functioning link to the full text of the guideline should be provided." 
 
 msgid "plugins.generic.disco.journalDescription.scholarlyArticles"
 msgstr "Original scholarly articles" 
@@ -273,7 +273,7 @@ msgid "plugins.generic.disco.lpGalleys.linkToFulltext"
 msgstr "A way to access the full-text of the content" 
 
 msgid "plugins.generic.disco.lpGalleys.linkToFulltext.description"
-msgstr "Itâ€™s acceptable for the full-text to be behind a login or paywall - this is fine as long as the landing page is accessible to everyone. A DOI can resolve to the HTML full-text of the content, and if this page includes the criteria above, a separate landing page is not necessary. Itâ€™s not good practice to link directly to a PDF however, as it will start downloading when the DOI is clicked." 
+msgstr "It's acceptable for the full-text to be behind a login or paywall - this is fine as long as the landing page is accessible to everyone. A DOI can resolve to the HTML full-text of the content, and if this page includes the criteria above, a separate landing page is not necessary. It's not good practice to link directly to a PDF however, as it will start downloading when the DOI is clicked." 
 
 msgid "plugins.generic.disco.lpGalleys.references"
 msgstr "Appropriate Citations to the Literature (References on the Landing Pages)" 
@@ -576,7 +576,7 @@ msgid "plugins.generic.disco.journalPolicy"
 msgstr "Journal policy"
 
 msgid "plugins.generic.disco.journalPolicy.description"
-msgstr "This category ensures transparency and accessibility by outlining the journalâ€™s policies. It covers details such as APC practices, open access policies (including Creative Commons or equivalent), copyright terms, and the absence of embargo periods. Additionally, it confirms whether users can freely access content without registration, emphasizing inclusivity and openness."
+msgstr "This category ensures transparency and accessibility by outlining the journal's policies. It covers details such as APC practices, open access policies (including Creative Commons or equivalent), copyright terms, and the absence of embargo periods. Additionally, it confirms whether users can freely access content without registration, emphasizing inclusivity and openness."
 
 msgid "plugins.generic.disco.journalPolicy.noAPC"
 msgstr "no-APC" 
@@ -588,7 +588,7 @@ msgid "plugins.generic.disco.journalPolicy.apcDescribed"
 msgstr "APC policy description"  
 
 msgid "plugins.generic.disco.journalPolicy.apcDescribed.description"
-msgstr "Fee policy should be described on the webpage. No matter if the journal has APCs or not.<p>DOAJ: If a journal doesnâ€™t have any charges, then this must be stated. <br/>ERIH Plus: Does the journal have an APC? If so, is it on the high or low end?</p>" 
+msgstr "Fee policy should be described on the webpage. No matter if the journal has APCs or not.<p>DOAJ: If a journal doesn't have any charges, then this must be stated. <br/>ERIH Plus: Does the journal have an APC? If so, is it on the high or low end?</p>" 
 
 msgid "plugins.generic.disco.journalPolicy.noRegistrationNeed"
 msgstr "Users don't need to register" 
@@ -702,13 +702,13 @@ msgid "plugins.generic.disco.impactRecommendations.citedAuthors"
 msgstr "Author Citation Analysis" 
 
 msgid "plugins.generic.disco.impactRecommendations.citedAuthors.description"
-msgstr "Most authors should have a discernible publication history in the Web of Science. Authorsâ€™ citation networks should be appropriate to the category and to journals of comparable scope." 
+msgstr "Most authors should have a discernible publication history in the Web of Science. Authors' citation networks should be appropriate to the category and to journals of comparable scope." 
 
 msgid "plugins.generic.disco.impactRecommendations.citedEditorialBoard"
 msgstr "Editorial Board Citation Analysis" 
 
 msgid "plugins.generic.disco.impactRecommendations.citedEditorialBoard.description"
-msgstr "Most Editorial Board Members should have a discernible publication history in the Web of Science. Editorial Board Membersâ€™ citation networks should be appropriate to the category and to journals of comparable scope." 
+msgstr "Most Editorial Board Members should have a discernible publication history in the Web of Science. Editorial Board Members' citation networks should be appropriate to the category and to journals of comparable scope." 
 
 msgid "plugins.generic.disco.impactRecommendations.citedness"
 msgstr "Citedness of journal articles" 
@@ -763,7 +763,7 @@ msgid "plugins.generic.disco.seo.crosslinks"
 msgstr "Meaningful cross-links" 
 
 msgid "plugins.generic.disco.seo.crosslinks.description"
-msgstr "Meaningful links between yourâ€™s and other related websites and providers of relevant content add value for visitors and can boost your ranking." 
+msgstr "Meaningful links between your's and other related websites and providers of relevant content add value for visitors and can boost your ranking." 
 
 msgid "plugins.generic.disco.seo.h1Title"
 msgstr "Journal Title in H1" 
@@ -775,7 +775,7 @@ msgid "plugins.generic.disco.seo.keyTerms"
 msgstr "Key terms" 
 
 msgid "plugins.generic.disco.seo.keyTerms.description"
-msgstr "When building your website's text and pages, itâ€™s a good idea to research and use key terms that your audience uses to search for your type of content." 
+msgstr "When building your website's text and pages, it's a good idea to research and use key terms that your audience uses to search for your type of content." 
 
 msgid "plugins.generic.disco.seo.noTextInImages"
 msgstr "Avoid text in images" 
@@ -787,7 +787,7 @@ msgid "plugins.generic.disco.seo.pageLoadingTime"
 msgstr "Improve page loading times" 
 
 msgid "plugins.generic.disco.seo.pageLoadingTime.description"
-msgstr "Page speed affects your SEO a lot. Maybe more than anything other than having fantastic content that directly addresses your usersâ€™ search queries. Over the past few years, Google has adjusted its algorithm to take user experience into account. One of the top factors for a good user experience is having a quick and responsive site." 
+msgstr "Page speed affects your SEO a lot. Maybe more than anything other than having fantastic content that directly addresses your users' search queries. Over the past few years, Google has adjusted its algorithm to take user experience into account. One of the top factors for a good user experience is having a quick and responsive site." 
 
 msgid "plugins.generic.disco.seo.readableURLs"
 msgstr "Readable URLs" 
@@ -826,10 +826,10 @@ msgid "plugins.generic.disco.seo.submitSitemap.description"
 msgstr "Google and Bing support this feature through Google Search Console and Bing Webmaster Tools.<p><a href="https://www.elegantthemes.com/blog/marketing/google-search-console" target="_blank">Learn more about Google Search Console</a></p><p><a href="https://www.elegantthemes.com/blog/wordpress/how-to-submit-your-xml-sitemap-to-bing-webmaster-tools" target="_blank">Learn more about Bing Webmaster Tools</a></p>" 
 
 msgid "plugins.generic.disco.seo.unhideJScontent"
-msgstr "Unhide content thatâ€™s behind JavaScript" 
+msgstr "Unhide content that's behind JavaScript" 
 
 msgid "plugins.generic.disco.seo.unhideJScontent.description"
-msgstr "Content thatâ€™s available only through JavaScript should be presented to non-JavaScript user agents and crawlers with noscript HTML elements." 
+msgstr "Content that's available only through JavaScript should be presented to non-JavaScript user agents and crawlers with noscript HTML elements." 
 
 msgid "plugins.generic.disco.results"
 msgstr "Results"
@@ -904,7 +904,7 @@ msgid "plugins.generic.disco.knowledgeBase.ceeol"
 msgstr "CEEOL"
 
 msgid "plugins.generic.disco.knowledgeBase.ceeol.description"
-msgstr "The Central and Eastern European Online Library (CEEOL) is a repository of full text indexed documents in the fields of Humanities and Social Science publications from and about Central and Eastern Europe.<p><strong>Joining Process</strong></p><p>Completion of the online application form and evaluation by the CEEOLâ€™s publisher support team.</p>"
+msgstr "The Central and Eastern European Online Library (CEEOL) is a repository of full text indexed documents in the fields of Humanities and Social Science publications from and about Central and Eastern Europe.<p><strong>Joining Process</strong></p><p>Completion of the online application form and evaluation by the CEEOL's publisher support team.</p>"
 
 msgid "plugins.generic.disco.knowledgeBase.ceeol.application"
 msgstr "Suggest for application"
@@ -913,7 +913,7 @@ msgid "plugins.generic.disco.knowledgeBase.core"
 msgstr "CORE"
 
 msgid "plugins.generic.disco.knowledgeBase.core.description"
-msgstr "CORE (COnnecting REpositories) provides a comprehensive bibliographic database of the worldâ€™s scholarly literature, collecting and indexing research from repositories and journals. It is also the worldâ€™s largest collection of full text open access research papers. CORE is a not-for-profit service dedicated to the open access mission and one of the signatories of the Principles of Open Scholarly Infrastructures.<p><strong>Joining Process</strong></p><p>Automatic harvest from a list of aggregators: <a href="https://core.ac.uk/data-providers/?q=&size=10" target="_blank">https://core.ac.uk/data-providers/?q=&size=10</a><br />Possibility to add a new data provider registration by completion of a form: <a target="_blank" href="https://core.ac.uk/benefits#join-core">https://core.ac.uk/benefits#join-core</a></p>"
+msgstr "CORE (COnnecting REpositories) provides a comprehensive bibliographic database of the world's scholarly literature, collecting and indexing research from repositories and journals. It is also the world's largest collection of full text open access research papers. CORE is a not-for-profit service dedicated to the open access mission and one of the signatories of the Principles of Open Scholarly Infrastructures.<p><strong>Joining Process</strong></p><p>Automatic harvest from a list of aggregators: <a href="https://core.ac.uk/data-providers/?q=&size=10" target="_blank">https://core.ac.uk/data-providers/?q=&size=10</a><br />Possibility to add a new data provider registration by completion of a form: <a target="_blank" href="https://core.ac.uk/benefits#join-core">https://core.ac.uk/benefits#join-core</a></p>"
 
 msgid "plugins.generic.disco.knowledgeBase.core.application"
 msgstr "Join CORE as a data provider"
@@ -952,7 +952,7 @@ msgid "plugins.generic.disco.knowledgeBase.erihplus"
 msgstr "ERIH+"
 
 msgid "plugins.generic.disco.knowledgeBase.erihplus.description"
-msgstr "ERIH+ is an online index holding bibliographic information on academic journals in the Social Sciences and Humanities (SSH), with a focus on quality journals across all European languages and countries. ERIH+ supports journalsâ€™ policies of openness and transparency in line with editorial best practices. Curation ensures that journals open access status and Plan S compliance is marked. ERIH+ offers an additional index of articles, which is an SSH subset of Dimensions collections, showing only articles having a DOI. Dimensions is a multidisciplinary database that brings together over 140 million publications.<p><strong>Joining Process</strong></p><p>New journals have to be submitted after creation of a user account: <a target="_blank" href="https://kanalregister.hkdir.no/publiseringskanaler/erihplus/login.action">https://kanalregister.hkdir.no/publiseringskanaler/erihplus/login.action</a><br />ERIH+ will not be evaluating journals submitted by publishers, members of the editorial board or others affiliated with a journal.</p>"
+msgstr "ERIH+ is an online index holding bibliographic information on academic journals in the Social Sciences and Humanities (SSH), with a focus on quality journals across all European languages and countries. ERIH+ supports journals' policies of openness and transparency in line with editorial best practices. Curation ensures that journals open access status and Plan S compliance is marked. ERIH+ offers an additional index of articles, which is an SSH subset of Dimensions collections, showing only articles having a DOI. Dimensions is a multidisciplinary database that brings together over 140 million publications.<p><strong>Joining Process</strong></p><p>New journals have to be submitted after creation of a user account: <a target="_blank" href="https://kanalregister.hkdir.no/publiseringskanaler/erihplus/login.action">https://kanalregister.hkdir.no/publiseringskanaler/erihplus/login.action</a><br />ERIH+ will not be evaluating journals submitted by publishers, members of the editorial board or others affiliated with a journal.</p>"
 
 msgid "plugins.generic.disco.knowledgeBase.erihplus.application"
 msgstr "Suggest for application"
@@ -961,7 +961,7 @@ msgid "plugins.generic.disco.knowledgeBase.gotriple"
 msgstr "GoTriple"
 
 msgid "plugins.generic.disco.knowledgeBase.gotriple.description"
-msgstr "GoTriple is a multilingual discovery platform for the social sciences and humanities (SSH). It provides a comprehensive access point for discovering and reusing research artifacts that are relevant to the wide variety of disciplines under the umbrella domain of SSH: publications and research data, project descriptions, authors and researcher profiles are automatically imported from aggregators and source providers, semantically enriched and linked in GoTriple.<p><strong>Joining Process</strong></p><p>If the publications are not already stored in GoTripleâ€™s data sources, the main option is to register a new data source through the dedicated interface: <a target="_blank" href="https://pipeline.gotriple.eu/user/login?destination=/">https://pipeline.gotriple.eu/user/login?destination=/</a></p>."
+msgstr "GoTriple is a multilingual discovery platform for the social sciences and humanities (SSH). It provides a comprehensive access point for discovering and reusing research artifacts that are relevant to the wide variety of disciplines under the umbrella domain of SSH: publications and research data, project descriptions, authors and researcher profiles are automatically imported from aggregators and source providers, semantically enriched and linked in GoTriple.<p><strong>Joining Process</strong></p><p>If the publications are not already stored in GoTriple's data sources, the main option is to register a new data source through the dedicated interface: <a target="_blank" href="https://pipeline.gotriple.eu/user/login?destination=/">https://pipeline.gotriple.eu/user/login?destination=/</a></p>."
 
 msgid "plugins.generic.disco.knowledgeBase.gotriple.application"
 msgstr "Become a content provider"
@@ -970,13 +970,13 @@ msgid "plugins.generic.disco.knowledgeBase.gs"
 msgstr "Google Scholar"
 
 msgid "plugins.generic.disco.knowledgeBase.gs.description"
-msgstr "Searchable bibliographic index that displays full text and metadata of scholarly literature across an array of publishing formats and disciplines.<p><strong>Joining process</strong></p><p>Google Scholar uses automated software, known as â€œrobotsâ€ or â€œcrawlersâ€, to fetch files for inclusion in the search results. The journalâ€™s website needs to be structured in a way that makes it possible to â€œcrawlâ€ in this manner. Automatic crawlers need to be able to discover and fetch the URLs of all articles, as well as to periodically refresh their content from the journal website.</p>"
+msgstr "Searchable bibliographic index that displays full text and metadata of scholarly literature across an array of publishing formats and disciplines.<p><strong>Joining process</strong></p><p>Google Scholar uses automated software, known as â€œrobotsâ€ or â€œcrawlersâ€, to fetch files for inclusion in the search results. The journal's website needs to be structured in a way that makes it possible to â€œcrawlâ€ in this manner. Automatic crawlers need to be able to discover and fetch the URLs of all articles, as well as to periodically refresh their content from the journal website.</p>"
 
 msgid "plugins.generic.disco.knowledgeBase.openaire"
 msgstr "OpenAIRE Graph"
 
 msgid "plugins.generic.disco.knowledgeBase.openaire.description"
-msgstr "The OpenAIRE Graph is an open resource that aggregates a collection of research data properties (metadata, links) available within the OpenAIRE Open Science infrastructure for funders, organizations, researchers, research communities and publishers. It is made available via datasets published on Zenodo and searchable via OpenAIRE EXPLORE.<p><strong>Joining Process</strong></p><p>If the publications are not already stored in OpenAIREâ€™s data source (full list of data sources here: <a target="_blank" href="https://explore.openaire.eu/search/find/dataproviders">https://explore.openaire.eu/search/find/dataproviders</a>), the main option is to register the data source via OpenAIRE PROVIDE (<a target="_blank" href="https://provide.openaire.eu/">https://provide.openaire.eu/</a>). The data source must be compliant with the OpenAIRE guidelines (<a target="_blank" href="https://guidelines.openaire.eu/">https://guidelines.openaire.eu/</a>).</p>"
+msgstr "The OpenAIRE Graph is an open resource that aggregates a collection of research data properties (metadata, links) available within the OpenAIRE Open Science infrastructure for funders, organizations, researchers, research communities and publishers. It is made available via datasets published on Zenodo and searchable via OpenAIRE EXPLORE.<p><strong>Joining Process</strong></p><p>If the publications are not already stored in OpenAIRE's data source (full list of data sources here: <a target="_blank" href="https://explore.openaire.eu/search/find/dataproviders">https://explore.openaire.eu/search/find/dataproviders</a>), the main option is to register the data source via OpenAIRE PROVIDE (<a target="_blank" href="https://provide.openaire.eu/">https://provide.openaire.eu/</a>). The data source must be compliant with the OpenAIRE guidelines (<a target="_blank" href="https://guidelines.openaire.eu/">https://guidelines.openaire.eu/</a>).</p>"
 
 msgid "plugins.generic.disco.knowledgeBase.openaire.application"
 msgstr "Suggest for application"
@@ -1036,7 +1036,7 @@ msgid "plugins.generic.disco.knowledgeBase.duckduckgo"
 msgstr "Search Engine: DuckDuckGo"
 
 msgid "plugins.generic.disco.knowledgeBase.duckduckgo.description"
-msgstr "DuckDuckGo stands out from its competitors for many other reasons than its fun name and branding. While they do have fantastic marketing, DuckDuckGo affords you a level of privacy that most other search engines donâ€™t, canâ€™t, or are unwilling to match. Furthermore, understanding DuckDuckGo Search Engine Optimization (SEO) will enable you to tap into a larger audience. If that sounds like something youâ€™d be interested in, letâ€™s talk about what makes DuckDuckGo unique and how you can optimize your website to appear in its search results!"
+msgstr "DuckDuckGo stands out from its competitors for many other reasons than its fun name and branding. While they do have fantastic marketing, DuckDuckGo affords you a level of privacy that most other search engines don't, can't, or are unwilling to match. Furthermore, understanding DuckDuckGo Search Engine Optimization (SEO) will enable you to tap into a larger audience. If that sounds like something you'd be interested in, let's talk about what makes DuckDuckGo unique and how you can optimize your website to appear in its search results!"
 
 msgid "plugins.generic.disco.knowledgeBase.redalyc"
 msgstr "REDALYC"
@@ -1051,7 +1051,7 @@ msgid "plugins.generic.disco.knowledgeBase.ddh"
 msgstr "Diamond Discovery Hub"
 
 msgid "plugins.generic.disco.knowledgeBase.ddh.description"
-msgstr "The Diamond Discovery Hub (DDH) will be a comprehensive registry of institutionally published and scholar-led Open Access Journals in Europe. It will be implemented as a responsive and WCAG (Web Content Accessibility Guidelines) compliant website with a SEO friendly UI. It will be scalable as well as easy to maintain and extend in the future. The DDH will be a service that provides Diamond journalsâ€™ data curated by an editorial team."
+msgstr "The Diamond Discovery Hub (DDH) will be a comprehensive registry of institutionally published and scholar-led Open Access Journals in Europe. It will be implemented as a responsive and WCAG (Web Content Accessibility Guidelines) compliant website with a SEO friendly UI. It will be scalable as well as easy to maintain and extend in the future. The DDH will be a service that provides Diamond journals' data curated by an editorial team."
 
 msgid "plugins.generic.disco.knowledgeBase.ddh.application"
 msgstr "Suggest for application"
@@ -1062,15 +1062,29 @@ msgstr "Score"
 msgid "plugins.generic.disco.results.description"
 msgstr "This page is designed to display scores for individual databases that require certain prerequisites for application submission, which are subsequently subject to evaluation. Since the Discoverability Companion tool is a self-assessment tool, it cannot guarantee that a journal will be evaluated by the service. The plugin serves only as an aid and knowledge base. Below, you will also find additional databases that may not have any evaluation criteria but are still worth being aware of."
 
-
 msgid "plugins.generic.disco.badges"
 msgstr "Badges"
 
 msgid "plugins.generic.disco.badges.description"
-msgstr " "
+msgstr ""
 
 msgid "plugins.generic.disco.badges.badgesAvailable"
 msgstr "Allow Badges in the footer of the pages."
 
 msgid "plugins.generic.disco.badges.badgesAvailable.description"
 msgstr "The badges will be shown as a part of the footer on the journal's pages"
+
+msgid "plugins.generic.disco.about.openToAllAuthors"
+msgstr "<h3>Open to all authors:</h3><p>{$contextTitle} is committed to openness and inclusivity in scholarly publishing without author-facing charges for reading or publishing. We welcome submissions from all authors, regardless of their institutional affiliation, geographical location, or academic status. Submissions only must align with the aims and scope of the journal and meet the required quality standards once the reviewing process is completed.</p>"
+
+msgid "plugins.generic.disco.about.communityOwned"
+msgstr "<h3>Community-owned:</h3><p>{$contextTitle} is owned by {$publisherInstitution}, a {$organisationType} institution/organisation dedicated to advancing research and scholarship. The journal’s ownership and governance structure reflect its mission to support open and accessible academic publishing. We confirm that any commercial service providers involved in our operations only deal with service-related aspects of journal publishing. All content-related aspects of publishing such as submission, peer review, acceptance, publication frequency and scope of the journal are controlled by the editors / the owners of the journal.</p>"
+
+msgid "plugins.generic.disco.diamond.organisationType"
+msgstr "Choose type of your institution/organisation:"
+
+msgid "plugins.generic.disco.diamond.organisationType.public"
+msgstr "public"
+
+msgid "plugins.generic.disco.diamond.organisationType.nonProfit"
+msgstr "not-for-profit"

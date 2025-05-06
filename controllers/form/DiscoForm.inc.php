@@ -97,7 +97,7 @@ class DiscoForm extends Form {
             $this->setData('noRegistrationNeed', $disco->getNoRegistrationNeed());
             $this->setData('noEmbargoPeriod', $disco->getNoEmbargoPeriod());
             $this->setData('badgesAvailable', $disco->getBadgesAvailable());
-
+            $this->setData('organisationType', $disco->getOrganisationType());
         }
     }
 
@@ -105,7 +105,7 @@ class DiscoForm extends Form {
      * Assign form data to user-submitted data.
      */
     function readInputData() {
-        $this->readUserVars(array('persistantIdentification', 'scholarlyJournal', 'noCharges', 'openAuthorship', 'ownershipScience', 'openLicence', 'fullContentAvailable', 'functionalWebsite', 'journalUrl', 'qualityEnHomepage', 'aimsAndScopeDescribed', 'authorGuidelinesDescribed', 'bibliographicInformation', 'editorialBoardPage', 'contactDetailsAvailable', 'peerReviewDescribed', 'publicationEthicsDescribed', 'scholarlyArticles', 'fullBio', 'linkToFulltext', 'lpDoi', 'references', 'uniqueUrlArticles', 'authorsAffiliations', 'titlesAbstractsInEnglish', 'markingReferences', 'noAPC', 'apcDescribed', 'oaPolicyDescribed', 'copyrightTerms', 'periodicity', 'publishingHistory', 'timeliness', 'eIssn', 'journalTitle', 'machineReadableMetadataFormat', 'oaiPMHEnabled', 'usingDOIs', 'metadataFormatOpenAIRE', 'noRegistrationNeed', 'noEmbargoPeriod', 'journalPublisherNameAvailable', 'badgesAvailable'));
+        $this->readUserVars(array('persistantIdentification', 'scholarlyJournal', 'noCharges', 'openAuthorship', 'ownershipScience', 'openLicence', 'fullContentAvailable', 'functionalWebsite', 'journalUrl', 'qualityEnHomepage', 'aimsAndScopeDescribed', 'authorGuidelinesDescribed', 'bibliographicInformation', 'editorialBoardPage', 'contactDetailsAvailable', 'peerReviewDescribed', 'publicationEthicsDescribed', 'scholarlyArticles', 'fullBio', 'linkToFulltext', 'lpDoi', 'references', 'uniqueUrlArticles', 'authorsAffiliations', 'titlesAbstractsInEnglish', 'markingReferences', 'noAPC', 'apcDescribed', 'oaPolicyDescribed', 'copyrightTerms', 'periodicity', 'publishingHistory', 'timeliness', 'eIssn', 'journalTitle', 'machineReadableMetadataFormat', 'oaiPMHEnabled', 'usingDOIs', 'metadataFormatOpenAIRE', 'noRegistrationNeed', 'noEmbargoPeriod', 'journalPublisherNameAvailable', 'badgesAvailable','organisationType'));
     }
 
     /**
@@ -144,6 +144,7 @@ class DiscoForm extends Form {
                 $disco->setNoCharges((bool) $this->getData('noCharges'));
                 $disco->setOpenAuthorship((bool) $this->getData('openAuthorship'));
                 $disco->setOwnershipScience((bool) $this->getData('ownershipScience'));  
+                $disco->setOrganisationType($this->getData('organisationType'));  
                 break;
             case "appearance":
                 $disco->setFullContentAvailable((bool) $this->getData('fullContentAvailable'));
