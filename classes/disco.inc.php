@@ -735,5 +735,21 @@ class Disco extends DataObject {
     function setBadgesAvailable($badgesAvailable) {
         return $this->setData('badgesAvailable', $badgesAvailable);
     }
+    
+    /**
+     * Get organisation typ.
+     * @return boolean
+     */
+    function getOrganisationType() {
+        return $this->getData('organisationType');
+    }
+
+    /**
+     * Set badges availability.
+     * @param $badgesAvailable boolean
+     */
+    function setOrganisationType($organisationType) {
+        return $this->setData('organisationType', $organisationType);
+    }
 
 }
