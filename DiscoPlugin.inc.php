@@ -823,7 +823,7 @@ class DiscoPlugin extends GenericPlugin {
             '|http[s]?://(www\.)?creativecommons.org/licenses/by-sa/3.0[/]?|'
         );
         foreach ($licenseKeyMap as $pattern) {
-            if (preg_match($pattern, $licenseUrl)) {
+            if ($licenseUrl && preg_match($pattern, $licenseUrl)) {
                 return true;
             }
         }
