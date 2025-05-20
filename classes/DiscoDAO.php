@@ -12,10 +12,14 @@
  * Operations for retrieving and modifying Disco objects.
  */
 
-import('lib.pkp.classes.db.DAO');
-import('plugins.generic.disco.classes.disco');
 
-class DiscoDAO extends DAO {
+namespace APP\plugins\generic\disco\classes;
+
+use PKP\db\DAOResultFactory;
+use APP\plugins\generic\disco\classes\Disco;
+
+
+class DiscoDAO extends \PKP\db\DAO {
 
            
     /**
@@ -139,9 +143,9 @@ class DiscoDAO extends DAO {
 	 * Get the insert ID for the last inserted disco.
 	 * @return int
 	 */
-	function getInsertId() {
-		return $this->_getInsertId('disco_plugin', 'disco_id');
-	}
+//	function getInsertId() {
+//		return $this->_getInsertId('disco_plugin', 'disco_id');
+//	}
 
 	/**
 	 * Get the additional field names.

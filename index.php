@@ -16,7 +16,7 @@
  *
  */
 
-require_once('DiscoPlugin.inc.php');
+require_once('DiscoPlugin.php');
 
 return new DiscoPlugin();
 

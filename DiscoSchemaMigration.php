@@ -11,10 +11,11 @@
  * @brief Describe database table structures.
  */
 
+namespace APP\plugins\generic\disco;
+
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Support\Facades\Schema;
 
 class DiscoSchemaMigration extends Migration {
         /**
@@ -23,13 +24,13 @@ class DiscoSchemaMigration extends Migration {
          */
         public function up() {
 			# disco
-			Capsule::schema()->create('disco_plugin', function (Blueprint $table) {
+			Schema::create('disco_plugin', function (Blueprint $table) {
 				$table->bigInteger('disco_id')->autoIncrement();
 				$table->bigInteger('context_id');
 			});
 
 			// disco_settings
-			Capsule::schema()->create('disco_plugin_settings', function (Blueprint $table) {
+			Schema::create('disco_plugin_settings', function (Blueprint $table) {
 				$table->bigInteger('disco_id');
 				$table->string('locale', 14)->default('');
 				$table->string('setting_name', 255);

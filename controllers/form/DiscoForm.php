@@ -13,9 +13,14 @@
  * Form for press managers to create and modify sidebar blocks
  *
  */
-import('lib.pkp.classes.form.Form');
 
-class DiscoForm extends Form {
+namespace APP\plugins\generic\disco\controllers\form;
+
+use APP\plugins\generic\disco\DiscoPlugin;
+use APP\template\TemplateManager;
+use PKP\db\DAORegistry;
+
+class DiscoForm extends \PKP\form\Form {
 
     /** @var int Context (press / journal) ID */
     var $_contextId;
@@ -32,15 +37,15 @@ class DiscoForm extends Form {
      * @param $contextId int Context ID
      * @param $discoPluginId int disco Setting ID (if any)
      */
-    function __construct($discoHandlerPlugin, $contextId, $discoPluginId = null, $category = null) {
-        parent::__construct($discoHandlerPlugin->getTemplateResource('discoTab.tpl'));
+    function __construct($discoPlugin, $contextId, $discoPluginId = null, $category = null) {
+        parent::__construct($discoPlugin->getTemplateResource('discoTab.tpl'));
 
         $this->_contextId = $contextId;
         $this->_discoId = $discoPluginId;
-        $this->_plugin = $discoHandlerPlugin;
+        $this->_plugin = $discoPlugin;
         $this->_category = $category;
         // Add form checks
-        $this->addCheck(new FormValidatorCSRF($this));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
     /**

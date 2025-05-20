@@ -33,7 +33,7 @@
     {rdelim});
     {rdelim});
 </script>
-{capture assign=actionUrl}{url router=$smarty.const.ROUTE_COMPONENT component="plugins.generic.disco.controllers.DiscoHandler" op="updateDisco" contextId=$contextId escape=false}       {/capture}
+{capture assign=actionUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="plugins.generic.disco.controllers.DiscoHandler" op="updateDisco" contextId=$contextId escape=false}       {/capture}
 
 
 <tab id="disco" label="{translate key="plugins.generic.disco.disco"}">

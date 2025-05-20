@@ -13,7 +13,25 @@
  * @brief Discoverability companion plugin
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+
+
+namespace APP\plugins\generic\disco;
+
+use APP\plugins\generic\disco\controllers\DiscoHandler;
+use APP\plugins\generic\disco\classes\DiscoDAO;
+use APP\plugins\generic\disco\classes\DiscoMetadataQualityDAO;
+
+use APP\core\Application;
+use PKP\core\JSONMessage;
+use APP\template\TemplateManager;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
+use PKP\plugins\GenericPlugin;
+use PKP\plugins\Hook;
+use PKP\core\Registry;
+use PKP\db\DAORegistry;
+use PKP\plugins\PluginRegistry;
+use PKP\facades\Locale;
 
 /*
  * Services links to knowledge base
@@ -112,27 +130,45 @@ class DiscoPlugin extends GenericPlugin {
             return false;
 
         if ($this->getEnabled()) {
+                      
             import('plugins.generic.disco.classes.DiscoDAO');
             $discoDao = new DiscoDAO();
             DAORegistry::registerDAO('DiscoDAO', $discoDao);
-
+            
             import('plugins.generic.disco.classes.DiscoMetadataQualityDAO');
             $discoMetadataQualityDAO = new DiscoMetadataQualityDAO();
             DAORegistry::registerDAO('DiscoMetadataQualityDAO', $discoMetadataQualityDAO);
 
-            HookRegistry::register('Template::Settings::website', array($this, 'callbackShowWebsiteSettingsTabs'));
-            HookRegistry::register('TemplateManager::display', array($this, 'addDiscoStylesBackend'));
-            HookRegistry::register('TemplateManager::display', array($this, 'addDiscoStylesFrontend'));
+            Hook::add('Template::Settings::website', array($this, 'callbackShowWebsiteSettingsTabs'));
+            Hook::add('TemplateManager::display', array($this, 'addDiscoStylesBackend'));
+            Hook::add('TemplateManager::display', array($this, 'addDiscoStylesFrontend'));
 
-            HookRegistry::register('Templates::Common::Footer::PageFooter', array($this, 'callbackTemplateCommonPageFooter'));
+            Hook::add('Templates::Common::Footer::PageFooter', array($this, 'callbackTemplateCommonPageFooter'));
             
-            HookRegistry::register('TemplateManager::display', array($this, 'addDiamondTexts'));
+            Hook::add('TemplateManager::display', array($this, 'addDiamondTexts'));
 
             // Register the components this plugin implements to
             // permit administration of disco.
-            HookRegistry::register('LoadComponentHandler', array($this, 'setupHandler'));
+            Hook::add('LoadComponentHandler', array($this, 'setupHandler'));
         }
+        
         return true;
+    }
+    
+    /**
+     * Permit requests to the disco handler
+     * @param $hookName string The name of the hook being invoked
+     * @param $params array The parameters to the invoked hook
+     */
+    function setupHandler($hookName, $params) {
+        $component = & $params[0];
+        $handler = & $params[2];
+        if ($component == 'plugins.generic.disco.controllers.DiscoHandler') {
+            // Allow the disco handler to get the plugin object
+            $handler = new DiscoHandler($this);
+            return true;
+        }
+        return false;
     }
 
     public function addDiamondTexts($hookName, $args) {
@@ -152,7 +188,7 @@ class DiscoPlugin extends GenericPlugin {
 
         // Get "about" page content
         $currentContext = $templateMgr->getTemplateVars('currentContext');
-        $currentLocale = AppLocale::getLocale();
+        $currentLocale = Locale::getLocale();
         
         error_log(print_r($currentContext,true));
         if ($currentContext) {
@@ -791,7 +827,6 @@ class DiscoPlugin extends GenericPlugin {
 	 * @copydoc Plugin::getInstallMigration()
 	 */
 	function getInstallMigration() {
-		$this->import('DiscoSchemaMigration');
 		return new DiscoSchemaMigration();
 	}
 
@@ -825,7 +860,7 @@ class DiscoPlugin extends GenericPlugin {
             '|http[s]?://(www\.)?creativecommons.org/licenses/by-sa/3.0[/]?|'
         );
         foreach ($licenseKeyMap as $pattern) {
-            if (preg_match($pattern, $licenseUrl)) {
+            if ($licenseUrl && preg_match($pattern, $licenseUrl)) {
                 return true;
             }
         }
@@ -841,22 +876,8 @@ class DiscoPlugin extends GenericPlugin {
         }
     }
 
-    /**
-     * Permit requests to the disco handler
-     * @param $hookName string The name of the hook being invoked
-     * @param $params array The parameters to the invoked hook
-     */
-    function setupHandler($hookName, $params) {
-        $component = & $params[0];
-        if ($component == 'plugins.generic.disco.controllers.DiscoHandler') {
-            // Allow the disco handler to get the plugin object
-            import($component);
-            DiscoHandler::setPlugin($this);
-            return true;
-        }
-        return false;
-    }
 
+ 
     /**
      * Initialize form data from current group group.
      */
@@ -922,3 +943,4 @@ class DiscoPlugin extends GenericPlugin {
     }
 
 }
+

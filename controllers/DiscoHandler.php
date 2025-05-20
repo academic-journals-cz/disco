@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file controllers/DiscoHandler.inc.php
+ * @file controllers/DiscoHandler.php
  *
  * Copyright (c) 2014-2020 Simon Fraser University
  * Copyright (c) 2003-2020 John Willinsky
@@ -13,30 +13,32 @@
  *
  */
 
-import('classes.handler.Handler');
+namespace APP\plugins\generic\disco\controllers;
 
-class DiscoHandler extends Handler {
 
-    static $plugin;
-    var $parentPlugin;
+use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\Role;
+use APP\plugins\generic\disco\controllers\form\DiscoForm;
+use APP\plugins\generic\disco\DiscoPlugin;
 
-    /**
-     * Set the static pages plugin.
-     * @param $plugin StaticPagesPlugin
-     */
-    static function setPlugin($plugin) {
-        self::$plugin = $plugin;
-    }
+class DiscoHandler extends \APP\handler\Handler 
+{
 
+    protected $plugin;
     /**
      * Constructor
      */
-    function __construct() {
+    public function __construct(DiscoPlugin $plugin) {
         parent::__construct();
         $this->addRoleAssignment(
-                array(ROLE_ID_MANAGER),
-                array('index', 'updateDisco', 'delete')
+                array(Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN),
+                array('updateDisco')
         );
+        $this->plugin = $plugin;
+    }
+    
+    static function setPlugin($plugin) {
+            self::$plugin = $plugin;
     }
 
     //
@@ -46,8 +48,7 @@ class DiscoHandler extends Handler {
     /**
      * @copydoc PKPHandler::authorize()
      */
-    function authorize($request, &$args, $roleAssignments) {
-        import('lib.pkp.classes.security.authorization.ContextAccessPolicy');
+    public function authorize($request, &$args, $roleAssignments) {
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
         return parent::authorize($request, $args, $roleAssignments);
     }
@@ -58,14 +59,15 @@ class DiscoHandler extends Handler {
      * @param $request PKPRequest
      * @return string Serialized JSON object
      */
-    function updateDisco($args, $request) {
+    public function updateDisco($args, $request) {
+        
         $discoId = $request->getUserVar('discoId');
         $category = $request->getUserVar('category');
         $context = $request->getContext();
         $this->setupTemplate($request);
         // Create and populate the form
-        import('plugins.generic.disco.controllers.form.DiscoForm');
-        $discoForm = new DiscoForm(self::$plugin, $context->getId(), $discoId, $category);
+        
+        $discoForm = new DiscoForm($this->plugin, $context->getId(), $discoId, $category);
         $discoForm->readInputData();
 
         // Check the results
@@ -82,23 +84,8 @@ class DiscoHandler extends Handler {
             return $request->redirectUrl($redirectUrl);;
         }
     }
+}
 
-    /**
-     * Delete a disco
-     * @param $args array
-     * @param $request PKPRequest
-     * @return string Serialized JSON object
-     */
-    function delete($args, $request) {
-        $discoId = $request->getUserVar('discoId');
-        $context = $request->getContext();
-
-        // Delete the static page
-        $discoDao = DAORegistry::getDAO('DiscoDAO');
-        $disco = $discoDao->getById($discoId, $context->getId());
-        $discoDao->deleteObject($disco);
-
-        return DAO::getDataChangedEvent();
-    }
-
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\plugins\generic\disco\controllers\DiscoHandler', '\DiscoHandler');
 }

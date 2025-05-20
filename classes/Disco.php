@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/disco.inc.php
+ * @file classes/disco.php
  *
  * Copyright (c) 2014-2020 Simon Fraser University
  * Copyright (c) 2003-2020 John Willinsky
@@ -11,7 +11,9 @@
  * @class Disco
  * Data object representing a disco object.
  */
-class Disco extends DataObject {
+namespace APP\plugins\generic\disco\classes;
+
+class Disco extends \PKP\core\DataObject {
 //
 // Get/set methods
 //
@@ -745,8 +747,8 @@ class Disco extends DataObject {
     }
 
     /**
-     * Set badges availability.
-     * @param $badgesAvailable boolean
+     * Set organisation typ.
+     * @param $organisationType boolean
      */
     function setOrganisationType($organisationType) {
         return $this->setData('organisationType', $organisationType);
