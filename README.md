@@ -60,4 +60,9 @@ If your Journal fulfil the requerements for evaluation or registration as a cont
 - **Knowledge Base** – The DISCO plugin is connected to the Knowledge Base via links, providing access to information about databases. **https://github.com/operas-eu/craft-oa-ScholIndexes-doc/**
 - **Database links** – DISCO provides direct links to registration forms for databases and indexing services.
 
+Credit
+---------------
+This plugin was developed at the [Masaryk University Press - Munipress](https://www.press.muni.cz), as part of its active participation in the [Craft-OA project](https://www.craft-oa.eu/).
+
+The development was initiated, coordinated, and technically supported by Munipress.
 
