@@ -76,8 +76,8 @@ class DiscoMetadataQualityDAO extends DAO {
                                 AND s.context_id = ?'
                 . ($publicationSettings != null ? ' AND ps.setting_name = ? AND TRIM(ps.setting_value) <> \'\' AND TRIM(ps.setting_value) IS NOT NULL' : '')
                 . ($locale ? ' AND ps.locale = ?' : '') 
-                . ($articleLocale ? ' AND TRIM(p.locale) <> \'\' AND TRIM(p.locale) IS NOT NULL' : '') 
-                . ($publicationDate ? ' AND TRIM(p.date_published) <> \'\' AND TRIM(p.locale) IS NOT NULL ' : '') 
+                . ($articleLocale ? ' AND TRIM(s.locale) <> \'\' AND TRIM(s.locale) IS NOT NULL' : '') 
+                . ($publicationDate ? ' AND TRIM(p.date_published) <> \'\' AND TRIM(s.locale) IS NOT NULL ' : '') 
                 . ($resourceType ? ' AND secs.setting_name = \'resourceType\' AND TRIM(secs.setting_value) <> \'\' AND TRIM(secs.setting_value) IS NOT NULL' : '')
                 . ($authors ? ' AND TRIM(a.email) <> \'\' AND TRIM(a.email) IS NOT NULL' : '')
                 . ($embargoPeriod ? ' AND i.open_access_date IS NOT NULL AND p.access_status = 0' : '')
