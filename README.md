@@ -35,7 +35,7 @@ Installing using a release from GitHub:
 1.	Download the latest compatible release from **https://github.com/munipress/disco/releases** and unzip it.
 2.	Move the **DISCO plugin** folder to the OJS **plugins/generic/** folder.
 3.	DISCO uses a database table to store responses. Run the update command from the command line in the OJS root folder: 
-**php tools/update.php update**
+**php tools/upgrade.php upgrade**
 4.	If you cannot run the update command, you can manually add the tables to your database. Use the MySQL query from the **mysql_query.sql** file.
 5.	Go to **Settings → Website → Plugins → Generic Plugin → DISCO Plugin** and enable the plugin.
 
