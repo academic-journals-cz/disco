@@ -1088,3 +1088,63 @@ msgstr "public"
 
 msgid "plugins.generic.disco.diamond.organisationType.nonProfit"
 msgstr "not-for-profit"
+
+msgid "plugins.generic.disco.badges.availableContent"
+msgstr "📖 Content Freely Available"
+
+msgid "plugins.generic.disco.badges.availableContent.description"
+msgstr "Articles and other content of the journal are accessible to the public without restrictions or paywalls."
+
+msgid "plugins.generic.disco.badges.communityOwned"
+msgstr "🌱 Community-Owned"
+
+msgid "plugins.generic.disco.badges.communityOwned.description"
+msgstr "The journal is managed and owned by an academic or professional community rather than a commercial publisher."
+
+msgid "plugins.generic.disco.badges.diamondJournal"
+msgstr "💎 Diamond Open Access"
+
+msgid "plugins.generic.disco.badges.diamondJournal.description"
+msgstr "The journal charges neither authors nor readers — it is fully funded by alternative means."
+
+msgid "plugins.generic.disco.badges.doiUsed"
+msgstr "🔗 DOI Assigned"
+
+msgid "plugins.generic.disco.badges.doiUsed.description"
+msgstr "Articles are assigned Digital Object Identifiers (DOIs) for persistent linking and easy citation."
+
+msgid "plugins.generic.disco.badges.geographicalDiversity"
+msgstr "🌍 Geographical Diversity"
+
+msgid "plugins.generic.disco.badges.geographicalDiversity.description"
+msgstr "The editorial board and authors come from various regions of the world, fostering inclusiveness and international collaboration."
+
+msgid "plugins.generic.disco.badges.noApc"
+msgstr "🚫 No Author Fees"
+
+msgid "plugins.generic.disco.badges.noApc.description"
+msgstr "Authors are not required to pay any fees to publish their articles in the journal."
+
+msgid "plugins.generic.disco.badges.openToAllAuthors"
+msgstr "✍️ Open to All Authors"
+
+msgid "plugins.generic.disco.badges.openToAllAuthors.description"
+msgstr "The journal welcomes submissions from all authors regardless of country, institutional affiliation, or status."
+
+msgid "plugins.generic.disco.badges.plagiarismCheckImplemented"
+msgstr "🔍 Plagiarism Check Implemented"
+
+msgid "plugins.generic.disco.badges.plagiarismCheckImplemented.description"
+msgstr "The journal uses tools to detect plagiarism and ensures the originality of published articles."
+
+msgid "plugins.generic.disco.badges.regularPeriodicity"
+msgstr "📅 Regular Publication Schedule"
+
+msgid "plugins.generic.disco.badges.regularPeriodicity.description"
+msgstr "The journal is published on a regular and predictable schedule, which enhances its credibility."
+
+msgid "plugins.generic.disco.badges.scholarlyJournal"
+msgstr "🎓 Scholarly Journal"
+
+msgid "plugins.generic.disco.badges.scholarlyJournal.description"
+msgstr "The journal meets academic publishing standards and contributes to the advancement of its disciplines."
