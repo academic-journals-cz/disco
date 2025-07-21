@@ -12,7 +12,6 @@
  *
  * @brief Discoverability companion plugin
  */
-
 import('lib.pkp.classes.plugins.GenericPlugin');
 
 /*
@@ -66,21 +65,30 @@ class DiscoPlugin extends GenericPlugin {
 
     /** @var int Context (press / journal) ID */
     var $_contextId;
-    var $_applicationLinks = array(
-        'base' => SERVICE_BASE_APPLICATION_LINK,
-        'ceeol' => SERVICE_CEEOL_APPLICATION_LINK,
-        'core' => SERVICE_CORE_APPLICATION_LINK,
-        'crossref' => SERVICE_CROSSREF_APPLICATION_LINK,
-        'ebsco' => SERVICE_EBSCO_APPLICATION_LINK,
-        'erihplus' => SERVICE_ERIHPLUS_APPLICATION_LINK,
-        'ddh' => SERVICE_DDH_APPLICATION_LINK,
-        'doaj' => SERVICE_DOAJ_APPLICATION_LINK,
-        'gotriple' => SERVICE_GOTRIPLE_APPLICATION_LINK,
-        'openaire' => SERVICE_OPENAIRE_APPLICATION_LINK,
-        'pubmed' => SERVICE_PUBMED_APPLICATION_LINK,
-        'redalyc' => SERVICE_REDALYC_APPLICATION_LINK,
-        'scopus' => SERVICE_SCOPUS_APPLICATION_LINK,
-        'wos' => SERVICE_WOS_APPLICATION_LINK
+    var $_categorizedRequirements = array();
+    
+    var $_knowledgeBase = array(
+        'base' => array("name" => SERVICE_BASE, "application" => SERVICE_BASE_APPLICATION_LINK),
+        'ceeol' => array("name" => SERVICE_CEEOL, "application" => SERVICE_CEEOL_APPLICATION_LINK, "requirements" => array('editorialBoardPage', 'authorsAffiliations', 'titlesAbstractsInEnglish')),
+        'core' => array("name" => SERVICE_CORE, "application" => SERVICE_CORE_APPLICATION_LINK),
+        'crossref' => array("name" => SERVICE_CROSSREF, "application" => SERVICE_CROSSREF_APPLICATION_LINK, "requirements" => array('fullBio', 'linkToFulltext', 'lpDoi', 'references', 'uniqueUrlArticles')),
+        'ebsco' => array("name" => SERVICE_EBSCO, "application" => SERVICE_EBSCO_APPLICATION_LINK),
+        'erihplus' => array("name" => SERVICE_ERIHPLUS, "application" => SERVICE_ERIHPLUS_APPLICATION_LINK, "requirements" => array('eIssn', 'aimsAndScopeDescribed', 'editorialBoardPage', 'peerReviewDescribed', 'publicationEthicsDescribed', 'authorsAffiliations', 'usingDOIs', 'titlesAbstractsInEnglish', 'apcDescribed', 'oaPolicyDescribed', 'publishingHistory')),
+        'ddh' => array("name" => SERVICE_DDH, "application" => SERVICE_DDH_APPLICATION_LINK, "requirements" => array('persistantIdentification', 'scholarlyJournal', 'openLicence', 'noCharges', 'openAuthorship', 'ownershipScience')),
+        'doaj' => array("name" => SERVICE_DOAJ, "application" => SERVICE_DOAJ_APPLICATION_LINK, "requirements" => array('journalUrl', 'eIssn', 'aimsAndScopeDescribed', 'authorGuidelinesDescribed', 'editorialBoardPage', 'contactDetailsAvailable', 'peerReviewDescribed', 'uniqueUrlArticles', 'apcDescribed', 'noRegistrationNeed', 'oaPolicyDescribed', 'copyrightTerms', 'noEmbargoPeriod', 'publishingHistory')),
+        'gotriple' => array("name" => SERVICE_GOTRIPLE, "application" => SERVICE_GOTRIPLE_APPLICATION_LINK, "requirements" => array('oaiPMHEnabled')),
+        'gs' => array("name" => SERVICE_GS, "requirements" => array('uniqueUrlArticles', 'machineReadableMetadataFormat', 'markingReferences')),
+        'openaire' => array("name" => SERVICE_OPENAIRE, "application" => SERVICE_OPENAIRE_APPLICATION_LINK, "requirements" => array('oaiPMHEnabled', 'metadataFormatOpenAIRE')),
+        'openalex' => array("name" => SERVICE_OPENALEX),
+        'pubmed' => array("name" => SERVICE_PUBMED, "application" => SERVICE_PUBMED_APPLICATION_LINK, "requirements" => array('journalUrl', 'aimsAndScopeDescribed', 'journalPublisherNameAvailable', 'authorsAffiliations', 'publishingHistory')),
+        'redalyc' => array("name" => SERVICE_REDALYC, "application" => SERVICE_REDALYC_APPLICATION_LINK, "requirements" => array('eIssn', 'journalTitle', 'aimsAndScopeDescribed', 'authorGuidelinesDescribed', 'editorialBoardPage', 'contactDetailsAvailable', 'journalPublisherNameAvailable', 'peerReviewDescribed', 'publicationEthicsDescribed', 'scholarlyArticles', 'noCharges', 'apcDescribed', 'oaPolicyDescribed', 'periodicity', 'publishingHistory')),
+        'semanticscholar' => array("name" => SERVICE_SEMANTIC_SCHOLAR),
+        'scopus' => array("name" => SERVICE_SCOPUS, "application" => SERVICE_SCOPUS_APPLICATION_LINK, "requirements" => array('fullContentAvailable', 'eIssn', 'qualityEnHomepage', 'aimsAndScopeDescribed', 'editorialBoardPage', 'peerReviewDescribed', 'publicationEthicsDescribed', 'periodicity')),
+        'wos' => array("name" => SERVICE_WOS, "application" => SERVICE_WOS_APPLICATION_LINK, "requirements" => array('fullContentAvailable', 'functionalWebsite', 'journalUrl', 'eIssn', 'journalTitle', 'aimsAndScopeDescribed', 'bibliographicInformation', 'editorialBoardPage', 'contactDetailsAvailable', 'journalPublisherNameAvailable', 'peerReviewDescribed', 'publicationEthicsDescribed', 'scholarlyArticles', 'authorsAffiliations', 'timeliness')),
+        'google' => array("name" => SERVICE_GOOGLE),
+        'bing' => array("name" => SERVICE_BING),
+        'yahoo' => array("name" => SERVICE_YAHOO),
+        'duckduckgo' => array("name" => SERVICE_DUCKDUCKGO)
     );
 
     /**
@@ -125,7 +133,7 @@ class DiscoPlugin extends GenericPlugin {
             HookRegistry::register('TemplateManager::display', array($this, 'addDiscoStylesFrontend'));
 
             HookRegistry::register('Templates::Common::Footer::PageFooter', array($this, 'callbackTemplateCommonPageFooter'));
-            
+
             HookRegistry::register('TemplateManager::display', array($this, 'addDiamondTexts'));
 
             // Register the components this plugin implements to
@@ -147,23 +155,24 @@ class DiscoPlugin extends GenericPlugin {
         $discoDao = DAORegistry::getDAO('DiscoDAO');
         $discoIterator = $discoDao->getByContextId($contextId);
         $disco = $discoIterator->next();
-        
-        if ($template !== "frontend/pages/about.tpl") return false;
+
+        if ($template !== "frontend/pages/about.tpl")
+            return false;
 
         // Get "about" page content
         $currentContext = $templateMgr->getTemplateVars('currentContext');
         $currentLocale = AppLocale::getLocale();
-        
+
         if ($currentContext) {
             $aboutText = $currentContext->getLocalizedSetting('about');
 
             // Add own text to about context part
-            
-            if ((bool) $disco->getOpenAuthorship()){
+
+            if ((bool) $disco->getOpenAuthorship()) {
                 $aboutText .= __('plugins.generic.disco.about.openToAllAuthors', array('contextTitle' => $currentContext->getLocalizedData('name')));
-            }           
-            if ((bool) $disco->getOwnershipScience()){
-                if($disco->getOrganisationType()=="nonprofit"){
+            }
+            if ((bool) $disco->getOwnershipScience()) {
+                if ($disco->getOrganisationType() == "nonprofit") {
                     $organisationType = __('plugins.generic.disco.diamond.organisationType.nonProfit');
                 } else {
                     $organisationType = __('plugins.generic.disco.diamond.organisationType.public');
@@ -176,13 +185,12 @@ class DiscoPlugin extends GenericPlugin {
 
         // Assign whole updated object to template
         $templateMgr->assign(array(
-            'currentContext' => $currentContext,            
+            'currentContext' => $currentContext,
         ));
 
         return false;
     }
 
-    
     /**
      * Extend the website settings tabs to include static pages
      * @param $hookName string The name of the invoked hook
@@ -201,7 +209,7 @@ class DiscoPlugin extends GenericPlugin {
         $discoDao = DAORegistry::getDAO('DiscoDAO');
         $discoIterator = $discoDao->getByContextId($contextId);
         $disco = $discoIterator->next();
-        if($disco) {
+        if ($disco) {
             $discoId = $disco->getId();
         }
         if ($discoId > 0) {
@@ -217,6 +225,7 @@ class DiscoPlugin extends GenericPlugin {
         $templateMgr->assign("ojsSettings", $this->getOJSSettings());
         $templateMgr->assign("automaticChecks", $automaticChecks);
         $templateMgr->assign("resultsKnowledgeBase", $this->getResultsKnowledgeBase($disco, $automaticChecks));
+        $templateMgr->assign("requirementsCategory", $this->getRequirementsCategory());
         $templateMgr->assign("discoAppearance", $this->getTemplateResource('discoAppearance.tpl'));
         $templateMgr->assign("discoDiamond", $this->getTemplateResource('discoDiamond.tpl'));
         $templateMgr->assign("discoGeneralRecommendation", $this->getTemplateResource('discoGeneralRecommendation.tpl'));
@@ -240,7 +249,17 @@ class DiscoPlugin extends GenericPlugin {
         return false;
     }
 
-   /**
+    function getRequirementsCategory() {
+        $requirementsCategory = array();
+        foreach ($this->_categorizedRequirements as $category => $requiremens) {
+            foreach ($requiremens as $requirement => $values) {
+                $requirementsCategory[$requirement] = $category;
+            }
+        }
+        return $requirementsCategory;
+    }
+
+    /**
      * 
      */
     function callbackTemplateCommonPageFooter($hookName, $args) {
@@ -276,16 +295,16 @@ class DiscoPlugin extends GenericPlugin {
     function assignBadges() {
         $templateMgr = TemplateManager::getManager();
         $badges = array("badgesAvailableContent" => $this->getTemplateResource('badges/availableContent.svg')
-        ,"badgesCommunityOwned" => $this->getTemplateResource('badges/communityOwned.svg')
-        ,"badgesDiamondJournal" => $this->getTemplateResource('badges/diamondJournal.svg')
-        ,"badgesDoiUsed" => $this->getTemplateResource('badges/doiUsed.svg')
-        ,"badgesGeographicalDiversity" => $this->getTemplateResource('badges/geographicalDiversity.svg')
-        ,"badgesNoApc" => $this->getTemplateResource('badges/noApc.svg')
-        ,"badgesOpenToAllAuthors" => $this->getTemplateResource('badges/openToAllAuthors.svg')
-        ,"badgesPlagiarismCheckImplemented" => $this->getTemplateResource('badges/plagiarismCheckImplemented.svg')
-        ,"badgesRegularPeriodicity" => $this->getTemplateResource('badges/regularPeriodicity.svg')
-        ,"badgesScholarlyJournal" => $this->getTemplateResource('badges/scholarlyJournal.svg'));
-        
+            , "badgesCommunityOwned" => $this->getTemplateResource('badges/communityOwned.svg')
+            , "badgesDiamondJournal" => $this->getTemplateResource('badges/diamondJournal.svg')
+            , "badgesDoiUsed" => $this->getTemplateResource('badges/doiUsed.svg')
+            , "badgesGeographicalDiversity" => $this->getTemplateResource('badges/geographicalDiversity.svg')
+            , "badgesNoApc" => $this->getTemplateResource('badges/noApc.svg')
+            , "badgesOpenToAllAuthors" => $this->getTemplateResource('badges/openToAllAuthors.svg')
+            , "badgesPlagiarismCheckImplemented" => $this->getTemplateResource('badges/plagiarismCheckImplemented.svg')
+            , "badgesRegularPeriodicity" => $this->getTemplateResource('badges/regularPeriodicity.svg')
+            , "badgesScholarlyJournal" => $this->getTemplateResource('badges/scholarlyJournal.svg'));
+
         $templateMgr->assign("badges", $badges);
         return true;
     }
@@ -294,10 +313,10 @@ class DiscoPlugin extends GenericPlugin {
         $badgesAvailability = array();
 
         $automaticChecks = $this->getAutomaticChecks($context);
-        if($disco){
+        if ($disco) {
             $variables = $this->getVariables($disco);
         }
-        
+
         $badgesAvailability["badgesAvailableContent"] = false;
         $badgesAvailability["badgesCommunityOwned"] = false;
         $badgesAvailability["badgesDiamondJournal"] = false;
@@ -309,44 +328,44 @@ class DiscoPlugin extends GenericPlugin {
         $badgesAvailability["badgesRegularPeriodicity"] = false;
         $badgesAvailability["badgesScholarlyJournal"] = false;
 
-        if ($variables["fullContentAvailable"] && $automaticChecks["appearance"]["fullContentAvailable"]){
+        if ($variables["fullContentAvailable"] && $automaticChecks["appearance"]["fullContentAvailable"]) {
             $badgesAvailability["badgesAvailableContent"] = true;
         }
-        
-        if ($variables["ownershipScience"]){
+
+        if ($variables["ownershipScience"]) {
             $badgesAvailability["badgesCommunityOwned"] = true;
         }
-        
-        if($variables['persistantIdentification'] && $variables['scholarlyJournal'] && $variables['openLicence'] && $variables['noCharges'] && $variables['openAuthorship'] && $variables['ownershipScience']){
+
+        if ($variables['persistantIdentification'] && $variables['scholarlyJournal'] && $variables['openLicence'] && $variables['noCharges'] && $variables['openAuthorship'] && $variables['ownershipScience']) {
             $badgesAvailability["badgesDiamondJournal"] = true;
         }
-        
-        if ($variables["usingDOIs"] && $automaticChecks["metadataRequirements"]["usingDOIs"]){
+
+        if ($variables["usingDOIs"] && $automaticChecks["metadataRequirements"]["usingDOIs"]) {
             $badgesAvailability["badgesDoiUsed"] = true;
         }
-        
+
         $badgesAvailability["badgesGeographicalDiversity"] = false;
-        
-        if ($variables["noApc"] || $variables["noCharges"]){
+
+        if ($variables["noApc"] || $variables["noCharges"]) {
             $badgesAvailability["badgesNoApc"] = true;
         }
-        
-        if ($variables["openAuthorship"]){
+
+        if ($variables["openAuthorship"]) {
             $badgesAvailability["badgesOpenToAllAuthors"] = true;
         }
-        
-        if ($automaticChecks["generalRecommendations"]["plagiarismCheck"]){
+
+        if ($automaticChecks["generalRecommendations"]["plagiarismCheck"]) {
             $badgesAvailability["badgesPlagiarismCheckImplemented"] = true;
         }
-        
-        if ($variables["scholarlyJournal"]){
+
+        if ($variables["scholarlyJournal"]) {
             $badgesAvailability["badgesScholarlyJournal"] = true;
         }
-        
-        if ($variables["periodicity"]){
+
+        if ($variables["periodicity"]) {
             $badgesAvailability["badgesRegularPeriodicity"] = true;
         }
-        
+
         return $badgesAvailability;
     }
 
@@ -366,7 +385,7 @@ class DiscoPlugin extends GenericPlugin {
         return false;
     }
 
-     /**
+    /**
      * 
      */
     function addDiscoStylesFrontend($hookName, $params) {
@@ -415,7 +434,7 @@ class DiscoPlugin extends GenericPlugin {
 //        $metadataQuality["articleEndPage"] =;
 //        $metadataQuality["articleStartPage"] =;
 //        $metadataQuality["audience"] =;
-        
+
         return $metadataQuality;
     }
 
@@ -551,7 +570,7 @@ class DiscoPlugin extends GenericPlugin {
             "persistantIdentification" => array(SERVICE_DDH),
             "scholarlyJournal" => array(SERVICE_DDH),
             "openLicence" => array(SERVICE_DDH),
-            "noCharges" => array(SERVICE_DDH),
+            "noCharges" => array(SERVICE_DDH, SERVICE_REDALYC),
             "openAuthorship" => array(SERVICE_DDH),
             "ownershipScience" => array(SERVICE_DDH),
         );
@@ -636,7 +655,7 @@ class DiscoPlugin extends GenericPlugin {
 
         /* Journal policy */
         $categorizedRequirements["journalPolicy"] = array(
-            "noAPC" => array(SERVICE_REDALYC, SERVICE_DDH),
+            //"noAPC" => array(SERVICE_REDALYC, SERVICE_DDH),
             "apcDescribed" => array(SERVICE_REDALYC, SERVICE_DDH, SERVICE_DOAJ, SERVICE_ERIHPLUS),
             "noRegistrationNeed" => array(SERVICE_DOAJ),
             "oaPolicyDescribed" => array(SERVICE_DOAJ, SERVICE_REDALYC, SERVICE_ERIHPLUS),
@@ -696,41 +715,21 @@ class DiscoPlugin extends GenericPlugin {
             "badgesAvailable" => array(),
         );
 
-        
+        $this->_categorizedRequirements = $categorizedRequirements;
         return $categorizedRequirements;
     }
 
     function getResultsKnowledgeBase($disco, $automaticChecks) {
-        $knowledgeBase = array();
-        $knowledgeBase['base'] = array("name" => SERVICE_BASE, "application" => $this->_applicationLinks['base']);
-        $knowledgeBase['ceeol'] = array("name" => SERVICE_CEEOL);
-        $knowledgeBase['core'] = array("name" => SERVICE_CORE, "application" => $this->_applicationLinks['core']);
-        $knowledgeBase['crossref'] = array("name" => SERVICE_CROSSREF);
-        $knowledgeBase['ebsco'] = array("name" => SERVICE_EBSCO);
-        $knowledgeBase['erihplus'] = array("name" => SERVICE_ERIHPLUS);
-        $knowledgeBase['ddh'] = array("name" => SERVICE_DDH);
-        $knowledgeBase['doaj'] = array("name" => SERVICE_DOAJ);
-        $knowledgeBase['gotriple'] = array("name" => SERVICE_GOTRIPLE);
-        $knowledgeBase['gs'] = array("name" => SERVICE_GS);
-        $knowledgeBase['openaire'] = array("name" => SERVICE_OPENAIRE);
-        $knowledgeBase['openalex'] = array("name" => SERVICE_OPENALEX);
-        $knowledgeBase['pubmed'] = array("name" => SERVICE_PUBMED);
-        $knowledgeBase['redalyc'] = array("name" => SERVICE_REDALYC);
-        $knowledgeBase['semanticscholar'] = array("name" => SERVICE_SEMANTIC_SCHOLAR);
-        $knowledgeBase['scopus'] = array("name" => SERVICE_SCOPUS);
-        $knowledgeBase['wos'] = array("name" => SERVICE_WOS);
-        $knowledgeBase['google'] = array("name" => SERVICE_GOOGLE);
-        $knowledgeBase['bing'] = array("name" => SERVICE_BING);
-        $knowledgeBase['yahoo'] = array("name" => SERVICE_YAHOO);
-        $knowledgeBase['duckduckgo'] = array("name" => SERVICE_DUCKDUCKGO);
+        $knowledgeBase = $this->_knowledgeBase;
 
         if ($disco) {
-            $databases = array("ddh", "doaj", "erihplus", "scopus", "redalyc", "pubmed", "crossref", "gs", "gotriple", "openaire", "wos", "ceeol");
+            $databases = array_keys($this->_knowledgeBase);
             foreach ($databases as $database) {
-                $score = $this->countScoreForDatabase($database, $disco, $automaticChecks);
-                $knowledgeBase[$database]["score"] = $score[0] . " / " . $score[1];
-                if ($score[0] == $score[1] && array_key_exists($database, $this->_applicationLinks)) {
-                    $knowledgeBase[$database]["application"] = $this->_applicationLinks[$database];
+                if (array_key_exists("requirements", $knowledgeBase[$database])) {
+                    $score = $this->countScoreForDatabase($database, $disco, $automaticChecks);
+                    $knowledgeBase[$database]["score"] = $score["score"];
+                    $knowledgeBase[$database]["count"] = $score["count"];
+                    $knowledgeBase[$database]["fulfilledCriteria"] = $score["fulfilledCriteria"];
                 }
             }
         }
@@ -739,59 +738,56 @@ class DiscoPlugin extends GenericPlugin {
     }
 
     function countScoreForDatabase($database, $disco, $automaticChecks) {
-        $variables = array(
-            'erihplus' => array('eIssn', 'aimsAndScopeDescribed', 'editorialBoardPage', 'peerReviewDescribed', 'publicationEthicsDescribed', 'authorsAffiliations', 'usingDOIs', 'titlesAbstractsInEnglish', 'apcDescribed', 'oaPolicyDescribed', 'publishingHistory'),
-            'scopus' => array('fullContentAvailable', 'eIssn', 'qualityEnHomepage', 'aimsAndScopeDescribed', 'editorialBoardPage', 'peerReviewDescribed', 'publicationEthicsDescribed', 'periodicity'),
-            'redalyc' => array('eIssn', 'journalTitle', 'aimsAndScopeDescribed', 'authorGuidelinesDescribed', 'editorialBoardPage', 'contactDetailsAvailable', 'journalPublisherNameAvailable', 'peerReviewDescribed', 'publicationEthicsDescribed', 'scholarlyArticles', 'noAPC', 'apcDescribed', 'oaPolicyDescribed', 'periodicity', 'publishingHistory'),
-            'pubmed' => array('journalUrl', 'aimsAndScopeDescribed', 'journalPublisherNameAvailable', 'authorsAffiliations', 'publishingHistory'),
-            'crossref' => array('fullBio', 'linkToFulltext', 'lpDoi', 'references', 'uniqueUrlArticles'),
-            'gs' => array('uniqueUrlArticles', 'machineReadableMetadataFormat', 'markingReferences'),
-            'gotriple' => array('oaiPMHEnabled'),
-            'openaire' => array('oaiPMHEnabled', 'metadataFormatOpenAIRE'),
-            'wos' => array('fullContentAvailable', 'functionalWebsite', 'journalUrl', 'eIssn', 'journalTitle', 'aimsAndScopeDescribed', 'bibliographicInformation', 'editorialBoardPage', 'contactDetailsAvailable', 'journalPublisherNameAvailable', 'peerReviewDescribed', 'publicationEthicsDescribed', 'scholarlyArticles', 'authorsAffiliations', 'timeliness'),
-            'ceeol' => array('editorialBoardPage', 'authorsAffiliations', 'titlesAbstractsInEnglish'),
-            'ddh' => array('persistantIdentification', 'scholarlyJournal', 'openLicence', 'noCharges', 'openAuthorship', 'ownershipScience', 'noAPC', 'apcDescribed'),
-            'doaj' => array('journalUrl', 'eIssn', 'aimsAndScopeDescribed', 'authorGuidelinesDescribed', 'editorialBoardPage', 'contactDetailsAvailable', 'peerReviewDescribed', 'uniqueUrlArticles', 'apcDescribed', 'noRegistrationNeed', 'oaPolicyDescribed', 'copyrightTerms', 'noEmbargoPeriod', 'publishingHistory')
-        );
-        $scoreFromAutomaticChecks = $this->scoreFromAutomaticChecks($variables[$database], $automaticChecks);
-        $scoreFromSelfAssessment = $this->scoreFromSelfAssessment($variables[$database], $disco);
-        return array($scoreFromAutomaticChecks[0] + $scoreFromSelfAssessment[0], $scoreFromAutomaticChecks[1] + $scoreFromSelfAssessment[1]);
+        $output = array();
+        $variables = $this->_knowledgeBase[$database]["requirements"];
+        $scoreFromAutomaticChecks = $this->scoreFromAutomaticChecks($variables, $automaticChecks);
+        $scoreFromSelfAssessment = $this->scoreFromSelfAssessment($variables, $disco);
+
+        $output["score"] = $scoreFromAutomaticChecks["score"] + $scoreFromSelfAssessment["score"];
+        $output["count"] = $scoreFromAutomaticChecks["count"] + $scoreFromSelfAssessment["count"];
+        $output["fulfilledCriteria"] = array_merge($scoreFromAutomaticChecks["fulfilledCriteria"], $scoreFromSelfAssessment["fulfilledCriteria"]);
+        $output["requirements"] = $variables;
+        return $output;
     }
 
     function scoreFromAutomaticChecks($variables, $automaticChecks) {
         $score = 0;
         $count = 0;
+        $fulfilledCriteria = array();
         foreach ($automaticChecks as $category => $requirements) {
             foreach ($requirements as $requirement => $value) {
                 if (array_key_exists($requirement, $variables)) {
                     $count++;
                     if ($value) {
+                        $fulfilledCriteria[] = $requirement;
                         $score++;
                     }
                 }
             }
         }
-        return array($score, $count);
+        return array("score" => (int) $score, "count" => (int) $count, "fulfilledCriteria" => $fulfilledCriteria);
     }
 
     function scoreFromSelfAssessment($variables, $disco) {
         $score = 0;
         $count = sizeof($variables);
+        $fulfilledCriteria = array();
         foreach ($variables as $variable) {
             if ($disco->getData($variable)) {
+                $fulfilledCriteria[] = $variable;
                 $score++;
             }
         }
-        return array($score, $count);
+        return array("score" => (int) $score, "count" => (int) $count, "fulfilledCriteria" => $fulfilledCriteria);
     }
 
     /**
-	 * @copydoc Plugin::getInstallMigration()
-	 */
-	function getInstallMigration() {
-		$this->import('DiscoSchemaMigration');
-		return new DiscoSchemaMigration();
-	}
+     * @copydoc Plugin::getInstallMigration()
+     */
+    function getInstallMigration() {
+        $this->import('DiscoSchemaMigration');
+        return new DiscoSchemaMigration();
+    }
 
     /**
      * Get the JavaScript URL for this plugin.
@@ -830,7 +826,7 @@ class DiscoPlugin extends GenericPlugin {
         return false;
     }
 
-    public function checkPlugin($category, $pluginName, $contextId) {
+    function checkPlugin($category, $pluginName, $contextId) {
         $plugin = PluginRegistry::loadPlugin($category, $pluginName, $contextId);
         if ($plugin && $plugin->getCurrentVersion() && $plugin->getSetting($contextId, 'enabled')) {
             return true;
@@ -868,8 +864,8 @@ class DiscoPlugin extends GenericPlugin {
         }
         return true;
     }
-    
-     function getVariables($disco) {
+
+    function getVariables($disco) {
         $variables = array();
         $variables['persistantIdentification'] = (bool) $disco->getPersistantIdentification();
         $variables['scholarlyJournal'] = (bool) $disco->getScholarlyJournal();
@@ -897,7 +893,7 @@ class DiscoPlugin extends GenericPlugin {
         $variables['authorsAffiliations'] = (bool) $disco->getAuthorsAffiliations();
         $variables['titlesAbstractsInEnglish'] = (bool) $disco->getTitlesAbstractsInEnglish();
         $variables['markingReferences'] = (bool) $disco->getMarkingReferences();
-        $variables['noAPC'] = (bool) $disco->getNoAPC();
+        //$variables['noAPC'] = (bool) $disco->getNoAPC();
         $variables['apcDescribed'] = (bool) $disco->getApcDescribed();
         $variables['oaPolicyDescribed'] = (bool) $disco->getOaPolicyDescribed();
         $variables['copyrightTerms'] = (bool) $disco->getCopyrightTerms();
@@ -914,7 +910,7 @@ class DiscoPlugin extends GenericPlugin {
         $variables['noEmbargoPeriod'] = (bool) $disco->getNoEmbargoPeriod();
         $variables['journalPublisherNameAvailable'] = (bool) $disco->getJournalPublisherNameAvailable();
         $variables['badgesAvailable'] = (bool) $disco->getBadgesAvailable();
-        
+
         $variables['organisationType'] = $disco->getOrganisationType();
         return $variables;
     }
