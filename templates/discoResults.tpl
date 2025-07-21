@@ -15,10 +15,10 @@
         <h3>{$results.name}</h3>   
         <div>
             
-            {if array_key_exists("score", $results) && $results["score"]}
-                <div class ="results_score" íd="results_score_{$service}"><strong>{translate key="plugins.generic.disco.score"}:</strong> {$results.score}</div>
+            {if array_key_exists("count", $results) && $results["count"]}
+                <div class ="results_score" íd="results_score_{$service}"><strong>{translate key="plugins.generic.disco.score"}:</strong> {$results["score"]}/{$results["count"]}</div>
             {/if}
-            {if array_key_exists("application", $results) && $results["application"]}
+            {if array_key_exists("application", $results) && $results["application"] && $results["score"] == $results["count"]}
                 <div class ="results_application" íd="results_application_{$service}">
                     <a href="{$results.application}" target="_blank" class="pkpBadge pkpBadge--button pkpBadge--submission"> {translate key="plugins.generic.disco.knowledgeBase.{$service}.application"}</a>
                 </div>
@@ -30,6 +30,15 @@
                 <span class="toggle-text">More information</span>
             </a>
             <div id="info_{$service}" class="info-content" style="display: none;">
+                {if array_key_exists("requirements", $results)}
+                    <h3>{translate key="plugins.generic.disco.requirements"}</h3>
+                    <ul>
+                        {foreach from=$results["requirements"] item=requirement}                            
+                                <li class="results_requiremens {if !in_array($requirement, $results["fulfilledCriteria"])}not_fulfilled{/if}">{translate key="plugins.generic.disco.{$requirementsCategory[$requirement]}.{$requirement}"} ({translate key="plugins.generic.disco.{$requirementsCategory[$requirement]}"})</li>
+                        {/foreach}
+                    </ul>
+                {/if}
+                <h3>{translate key="plugins.generic.disco.serviceDescription"}</h3>
                 {translate key="plugins.generic.disco.knowledgeBase.{$service}.description"}
             </div>
         </div>
