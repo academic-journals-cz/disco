@@ -154,7 +154,6 @@ class DiscoPlugin extends GenericPlugin {
         $currentContext = $templateMgr->getTemplateVars('currentContext');
         $currentLocale = AppLocale::getLocale();
         
-        error_log(print_r($currentContext,true));
         if ($currentContext) {
             $aboutText = $currentContext->getLocalizedSetting('about');
 
@@ -261,7 +260,6 @@ class DiscoPlugin extends GenericPlugin {
         if ($discoId > 0) {
             $this->_discoId = $discoId;
         }
-        error_log(print_r($disco, true));
 
         if ($disco && $disco->getBadgesAvailable()) {
             $this->assignBadges();
