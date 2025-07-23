@@ -33,38 +33,6 @@ class Disco extends DataObject {
     }
 
     /**
-     * Get category
-     * @return string
-     */
-//    function getCategory() {
-//        return $this->getData('category');
-//    }
-
-    /**
-     * Set category
-     * @param $category string
-     */
-//    function setCategory($category) {
-//        return $this->setData('category', $category);
-//    }
-
-    /**
-     * Get name.
-     * @return boolean
-     */
-    function getPersistantIdentification() {
-        return $this->getData('persistantIdentification');
-    }
-
-    /**
-     * Set name.
-     * @param $persistantIdentification boolean
-     */
-    function setPersistantIdentification($persistantIdentification) {
-        return $this->setData('persistantIdentification', $persistantIdentification);
-    }
-
-    /**
      * Get name.
      * @return boolean
      */
@@ -90,7 +58,7 @@ class Disco extends DataObject {
 
     /**
      * Set name.
-     * @param $scholarlyJournal boolean
+     * @param $openLicence boolean
      */
     function setOpenLicence($openLicence) {
         return $this->setData('openLicence', $openLicence);
