@@ -562,7 +562,7 @@ class DiscoPlugin extends GenericPlugin {
 
     function getOJSSettings() {
         $ojsSettings = array();
-        $ojsSettings["fullContentAvailable"] = array("publishingMode", "ccLicense");
+        $ojsSettings["fullContentAvailable"] = array("enabled", "ccLicense","publishingMode");
         $ojsSettings["eIssn"] = array("eIssn");
         $ojsSettings["openLicence"] = array("ccLicence", "publishingMode");
         $ojsSettings["journalTitle"] = array("journalTitle");
@@ -580,7 +580,7 @@ class DiscoPlugin extends GenericPlugin {
         $ojsSettings["publisher"] = array("publisher");
         $ojsSettings["journalTitle"] = array("journalTitle");
         $ojsSettings["apcDescribed"] = array("about");
-        $ojsSettings["noRegistrationNeed"] = array("siteAccess");
+        $ojsSettings["noRegistrationNeed"] = array("enabled","siteAccess");
         $ojsSettings["oaPolicyDescribed"] = array("about");
         $ojsSettings["copyrightTerms"] = array("copyrightNote", "copyrightHolder");
         $ojsSettings["noEmbargoPeriod"] = array("publishingMode");
