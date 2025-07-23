@@ -131,7 +131,6 @@ class DiscoDAO extends \PKP\db\DAO {
 	function _fromRow($row) {
 		$disco = $this->newDataObject();
 		$disco->setId($row['disco_id']);
-//		$disco->setCategory($row['category']);
 		$disco->setContextId($row['context_id']);
 
 		$this->getDataObjectSettings('disco_plugin_settings', 'disco_id', $row['disco_id'], $disco);
@@ -139,20 +138,13 @@ class DiscoDAO extends \PKP\db\DAO {
 		return $disco;
 	}
         
-        /**
-	 * Get the insert ID for the last inserted disco.
-	 * @return int
-	 */
-//	function getInsertId() {
-//		return $this->_getInsertId('disco_plugin', 'disco_id');
-//	}
 
 	/**
 	 * Get the additional field names.
 	 * @return array
 	 */
 	function getAdditionalFieldNames() {
-		return array('persistantIdentification', 'scholarlyJournal', 'noCharges', 'openAuthorship', 'ownershipScience', 'openLicence', 'fullContentAvailable', 'functionalWebsite', 'journalUrl', 'qualityEnHomepage', 'aimsAndScopeDescribed', 'authorGuidelinesDescribed', 'bibliographicInformation', 'editorialBoardPage', 'contactDetailsAvailable', 'peerReviewDescribed', 'publicationEthicsDescribed', 'scholarlyArticles', 'fullBio', 'linkToFulltext', 'lpDoi', 'references', 'uniqueUrlArticles', 'authorsAffiliations', 'titlesAbstractsInEnglish', 'markingReferences', 'noAPC', 'apcDescribed', 'oaPolicyDescribed', 'copyrightTerms', 'periodicity', 'publishingHistory', 'timeliness', 'eIssn', 'journalTitle', 'machineReadableMetadataFormat', 'oaiPMHEnabled', 'usingDOIs', 'metadataFormatOpenAIRE', 'noRegistrationNeed', 'noEmbargoPeriod', 'journalPublisherNameAvailable', 'badgesAvailable','organisationType');
+		return array('scholarlyJournal', 'noCharges', 'openAuthorship', 'ownershipScience', 'openLicence', 'fullContentAvailable', 'functionalWebsite', 'journalUrl', 'qualityEnHomepage', 'aimsAndScopeDescribed', 'authorGuidelinesDescribed', 'bibliographicInformation', 'editorialBoardPage', 'contactDetailsAvailable', 'peerReviewDescribed', 'publicationEthicsDescribed', 'scholarlyArticles', 'fullBio', 'linkToFulltext', 'lpDoi', 'references', 'uniqueUrlArticles', 'authorsAffiliations', 'titlesAbstractsInEnglish', 'markingReferences', 'noAPC', 'apcDescribed', 'oaPolicyDescribed', 'copyrightTerms', 'periodicity', 'publishingHistory', 'timeliness', 'eIssn', 'journalTitle', 'machineReadableMetadataFormat', 'oaiPMHEnabled', 'usingDOIs', 'metadataFormatOpenAIRE', 'noRegistrationNeed', 'noEmbargoPeriod', 'journalPublisherNameAvailable', 'badgesAvailable','organisationType');
 	}
 
 	/**

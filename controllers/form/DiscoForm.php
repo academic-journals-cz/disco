@@ -59,7 +59,6 @@ class DiscoForm extends \PKP\form\Form {
             $discoDao = DAORegistry::getDAO('DiscoDAO');
             $disco = $discoDao->getById($this->_discoId, $this->_contextId);
             $this->setData('discoId', $this->_discoId);
-            $this->setData('persistantIdentification', (bool) $disco->getPersistantIdentification());
             $this->setData('scholarlyJournal', (bool) $disco->getScholarlyJournal());
             $this->setData('openLicence', (bool) $disco->getOpenLicence());
             $this->setData('noCharges', (bool) $disco->getNoCharges());
@@ -110,7 +109,7 @@ class DiscoForm extends \PKP\form\Form {
      * Assign form data to user-submitted data.
      */
     function readInputData() {
-        $this->readUserVars(array('persistantIdentification', 'scholarlyJournal', 'noCharges', 'openAuthorship', 'ownershipScience', 'openLicence', 'fullContentAvailable', 'functionalWebsite', 'journalUrl', 'qualityEnHomepage', 'aimsAndScopeDescribed', 'authorGuidelinesDescribed', 'bibliographicInformation', 'editorialBoardPage', 'contactDetailsAvailable', 'peerReviewDescribed', 'publicationEthicsDescribed', 'scholarlyArticles', 'fullBio', 'linkToFulltext', 'lpDoi', 'references', 'uniqueUrlArticles', 'authorsAffiliations', 'titlesAbstractsInEnglish', 'markingReferences', 'noAPC', 'apcDescribed', 'oaPolicyDescribed', 'copyrightTerms', 'periodicity', 'publishingHistory', 'timeliness', 'eIssn', 'journalTitle', 'machineReadableMetadataFormat', 'oaiPMHEnabled', 'usingDOIs', 'metadataFormatOpenAIRE', 'noRegistrationNeed', 'noEmbargoPeriod', 'journalPublisherNameAvailable', 'badgesAvailable','organisationType'));
+        $this->readUserVars(array('scholarlyJournal', 'noCharges', 'openAuthorship', 'ownershipScience', 'openLicence', 'fullContentAvailable', 'functionalWebsite', 'journalUrl', 'qualityEnHomepage', 'aimsAndScopeDescribed', 'authorGuidelinesDescribed', 'bibliographicInformation', 'editorialBoardPage', 'contactDetailsAvailable', 'peerReviewDescribed', 'publicationEthicsDescribed', 'scholarlyArticles', 'fullBio', 'linkToFulltext', 'lpDoi', 'references', 'uniqueUrlArticles', 'authorsAffiliations', 'titlesAbstractsInEnglish', 'markingReferences', 'noAPC', 'apcDescribed', 'oaPolicyDescribed', 'copyrightTerms', 'periodicity', 'publishingHistory', 'timeliness', 'eIssn', 'journalTitle', 'machineReadableMetadataFormat', 'oaiPMHEnabled', 'usingDOIs', 'metadataFormatOpenAIRE', 'noRegistrationNeed', 'noEmbargoPeriod', 'journalPublisherNameAvailable', 'badgesAvailable','organisationType'));
     }
 
     /**
@@ -143,7 +142,7 @@ class DiscoForm extends \PKP\form\Form {
         }       
         switch($this->_category){
             case "diamond":
-                $disco->setPersistantIdentification((bool) $this->getData('persistantIdentification'));
+                $disco->setEIssn((bool) $this->getData('eIssn'));
                 $disco->setScholarlyJournal((bool) $this->getData('scholarlyJournal'));
                 $disco->setOpenLicence((bool) $this->getData('openLicence'));
                 $disco->setNoCharges((bool) $this->getData('noCharges'));
@@ -154,8 +153,7 @@ class DiscoForm extends \PKP\form\Form {
             case "appearance":
                 $disco->setFullContentAvailable((bool) $this->getData('fullContentAvailable'));
                 $disco->setFunctionalWebsite((bool) $this->getData('functionalWebsite'));
-                $disco->setJournalUrl((bool) $this->getData('journalUrl'));
-                $disco->setEIssn((bool) $this->getData('eIssn'));
+                $disco->setJournalUrl((bool) $this->getData('journalUrl'));                
                 $disco->setJournalTitle((bool) $this->getData('journalTitle'));
                 $disco->setQualityEnHomepage((bool) $this->getData('qualityEnHomepage'));
                 break;

@@ -38,6 +38,9 @@ msgstr "Journal Settings->Masthead->Journal Identity->Journal Title"
 msgid "plugins.generic.disco.settings.eIssn"
 msgstr "Journal Settings->Masthead->Publishing Details->Online ISSN"
 
+msgid "plugins.generic.disco.settings.openLicence"
+msgstr "Journal Settings->Masthead->Publishing Details->Online ISSN"
+
 msgid "plugins.generic.disco.settings.authorGuidelines"
 msgstr "Workflow Settings->Submission->Author Guidelines"
 
@@ -89,12 +92,6 @@ msgstr "Discoverability companion"
 
 msgid "plugins.generic.disco.description.long"
 msgstr "Editors use the Plugin Discoverability companion to check various criteria and gain an overview of their journals. The requirements of aggregators, indexing databases, or search engines are divided into several sections. Some criteria are evaluated automatically, some editors must check themselves in a simple checklist, and others serve only as recommendations. Check to see if your journal could be more visible and learn how to achieve that."
-
-msgid "plugins.generic.disco.diamond.persistantIdentification"
-msgstr "Persistent identification" 
-
-msgid "plugins.generic.disco.diamond.persistantIdentification.description"
-msgstr "The journal should have a valid and confirmed ISSN (<a href="https://www.issn.org/">https://www.issn.org/</a>)." 
 
 
 msgid "plugins.generic.disco.diamond.scholarlyJournal"
@@ -151,10 +148,10 @@ msgstr "Journal URL"
 msgid "plugins.generic.disco.appearance.journalUrl.description"
 msgstr "<p>Where both online and print editions are available, it is mandatory to provide the journal URL and full-text access details of current content.</p><p>The journal must have its dedicated URL and homepage that is accessible from any location.</p>" 
 
-msgid "plugins.generic.disco.appearance.eIssn"
-msgstr "eISSN" 
+msgid "plugins.generic.disco.diamond.eIssn"
+msgstr "Persistent identification (eISSN)" 
 
-msgid "plugins.generic.disco.appearance.eIssn.description"
+msgid "plugins.generic.disco.diamond.eIssn.description"
 msgstr "<p>The journal must have a registered ISSN that is verifiable on the ISSN database (https://portal.issn.org/) and is clearly and consistently displayed on all journal platforms (electronic and/or print). If both print and electronic ISSNs are present, both should be provided.</p><p>ERIH PLUS requires a valid ISSN code, confirmed by the International ISSN Portal. Be advised that journals with ISSN codes listed as assigned to a publication but not yet confirmed or free ISSN will not be processed.</p>"
 
 msgid "plugins.generic.disco.appearance.fullContentAvailable"
@@ -828,62 +825,69 @@ msgstr "Content that's available only through JavaScript should be presented to 
 msgid "plugins.generic.disco.results"
 msgstr "Results"
 
-msgid "plugins.generic.disco.diamond.openLicence.autocheck"
-msgstr "OJS checks if the journal is enabled, publishing mode is set up to Open Access, and the CC License is chosen."
 
-msgid "plugins.generic.disco.appearance.fullContentAvailable.autocheck"
-msgstr "OJS checks if the journal is enabled, publishing mode is set up to Open Access, and the CC License is chosen."
+msgid "plugins.generic.disco.ccLicence.autocheck"
+msgstr "OJS check: The CC License is set up."
 
-msgid "plugins.generic.disco.appearance.eIssn.autocheck"
-msgstr "OJS checks if the Online ISSN is set up."
+msgid "plugins.generic.disco.publishingMode.autocheck"
+msgstr "OJS check: The Publishing Mode is set to Open Access."
 
-msgid "plugins.generic.disco.appearance.journalTitle.autocheck"
-msgstr "OJS checks if the Journal's Title is set up."
+msgid "plugins.generic.disco.onlineIssn.autocheck"
+msgstr "OJS check: The Online ISSN is filled in."
 
-msgid "plugins.generic.disco.journalDescription.authorGuidelinesDescribed.autocheck"
-msgstr "OJS checks if the Author Guidelines field is filled in."
+msgid "plugins.generic.disco.enabled.autocheck"
+msgstr "OJS check: The Journal is enabled to appear publicly on the site"
 
-msgid "plugins.generic.disco.journalDescription.editorialBoardPage.autocheck"
-msgstr "OJS checks if the Editorial Team field is filled in."
+msgid "plugins.generic.disco.journalTitle.autocheck"
+msgstr "OJS check: The Journal's Title is set up."
 
-msgid "plugins.generic.disco.journalDescription.contactDetailsAvailable.autocheck"
-msgstr "OJS checks if the mailing address, main author contact, and email are filled in."
+msgid "plugins.generic.disco.authorGuidelinesDescribed.autocheck"
+msgstr "OJS check: The Author Guidelines field is filled in."
 
-msgid "plugins.generic.disco.journalDescription.journalPublisherNameAvailable.autocheck"
-msgstr "OJS checks if the publisher name is filled in."
+msgid "plugins.generic.disco.editorialBoardPage.autocheck"
+msgstr "OJS check: Editorial Team is filled in."
 
-msgid "plugins.generic.disco.metadataRequirements.machineReadableMetadataFormat.autocheck"
-msgstr "OJS checks if the Dublin Core Meta Plugin and Google Scholar Plugin are enabled."
+msgid "plugins.generic.disco.contactName.autocheck"
+msgstr "OJS check: Contact Name is set up."
 
-msgid "plugins.generic.disco.metadataRequirements.oaiPMHEnabled.autocheck"
-msgstr "OJS checks if the OAI PMH is enabled."
+msgid "plugins.generic.disco.contactEmail.autocheck"
+msgstr "OJS check: Contact Email is set up."
 
-msgid "plugins.generic.disco.metadataRequirements.usingDOIs.autocheck"
-msgstr "OJS checks if the Public identifier DOI plugin is enabled."
+msgid "plugins.generic.disco.mailingAddress.autocheck"
+msgstr "OJS check: Mailing Address is set up."
 
-msgid "plugins.generic.disco.metadataRequirements.metadataFormatOpenAIRE.autocheck"
-msgstr "OJS checks if the OpenAIRE standard plugin is enabled."
+msgid "plugins.generic.disco.journalPublisherNameAvailable.autocheck"
+msgstr "OJS check: The Publisher Name is set up."
 
-msgid "plugins.generic.disco.metadataQuality.publisher.autocheck"
-msgstr "OJS checks if the publisher name is filled in."
+msgid "plugins.generic.disco.dublinCore.autocheck"
+msgstr "OJS check: The Dublin Core Meta Plugin is enabled."
 
-msgid "plugins.generic.disco.metadataQuality.journalTitle.autocheck"
-msgstr "OJS checks if the Journal's Title is set up."
+msgid "plugins.generic.disco.googleSchoolar.autocheck"
+msgstr "OJS check: The Google Scholar Plugin is enabled."
 
-msgid "plugins.generic.disco.journalPolicy.noRegistrationNeed.autocheck"
-msgstr "OJS checks if the Journal is enabled and Publishing Mode is set up to Open Access."
+msgid "plugins.generic.disco.oaiPMHEnabled.autocheck"
+msgstr "OJS check: The OAI PMH is enabled."
 
-msgid "plugins.generic.disco.journalPolicy.oaPolicyDescribed.autocheck"
-msgstr "OJS checks if the CC license is chosen."
+msgid "plugins.generic.disco.usingDOIs.autocheck"
+msgstr "OJS check: The Public identifier DOI plugin is enabled."
 
-msgid "plugins.generic.disco.journalPolicy.copyrightTerms.autocheck"
-msgstr "OJS checks if the Copyright Notice field for authors is filled in."
+msgid "plugins.generic.disco.metadataFormatOpenAIRE.autocheck"
+msgstr "OJS check: The OpenAIRE standard plugin is enabled."
 
-msgid "plugins.generic.disco.journalPolicy.noEmbargoPeriod.autocheck"
-msgstr "OJS checks if there are no embargo settings in Publishing mode."
+msgid "plugins.generic.disco.publisher.autocheck"
+msgstr "OJS check: The Publisher Name is filled in."
 
-msgid "plugins.generic.disco.generalRecommendations.plagiarismCheck.autocheck"
-msgstr "OJS checks if the Plagiarism Plugin is enabled."
+msgid "plugins.generic.disco.noRegistrationNeed.autocheck"
+msgstr "OJS check: No registration for readers needed"
+
+msgid "plugins.generic.disco.copyrightTerms.autocheck"
+msgstr "OJS check: The Copyright Notice for authors is filled in."
+
+msgid "plugins.generic.disco.noEmbargoPeriod.autocheck"
+msgstr "OJS check: No embargo settings in Publishing mode."
+
+msgid "plugins.generic.disco.plagiarismCheck.autocheck"
+msgstr "OJS check: The Plagiarism Plugin is enabled."
 
 msgid "plugins.generic.disco.knowledgeBase.base"
 msgstr "BASE"
