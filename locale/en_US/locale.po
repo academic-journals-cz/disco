@@ -38,8 +38,11 @@ msgstr "Journal Settings->Masthead->Journal Identity->Journal Title"
 msgid "plugins.generic.disco.settings.eIssn"
 msgstr "Journal Settings->Masthead->Publishing Details->Online ISSN"
 
-msgid "plugins.generic.disco.settings.openLicence"
-msgstr "Journal Settings->Masthead->Publishing Details->Online ISSN"
+msgid "plugins.generic.disco.settings.enabled"
+msgstr "Administration->Hosted Journals->[Journal]->Enable"
+
+msgid "plugins.generic.disco.settings.ccLicence"
+msgstr "Distribution Settings->License->License"
 
 msgid "plugins.generic.disco.settings.authorGuidelines"
 msgstr "Workflow Settings->Submission->Author Guidelines"
@@ -71,6 +74,9 @@ msgstr "Website Settings->Plugins->Generic Plugins->Google Scholar Indexing Plug
 msgid "plugins.generic.disco.settings.pluginOpenAIRE"
 msgstr "Website Settings->Plugins->Generic Plugins->OpenAIRE Standard"
 
+msgid "plugins.generic.disco.settings.plagiarism"
+msgstr "Website Settings->Plugins->Generic Plugins->iThenticate Plagiarism Detector Plugin"
+
 msgid "plugins.generic.disco.settings.siteAccess"
 msgstr "Site Access Options->Site Access & View Article Content options"
 
@@ -80,9 +86,6 @@ msgstr "Workflow Settings->Submission->Author Guidelines->Copyright Notice"
 
 msgid "plugins.generic.disco.settings.publishingMode"
 msgstr "Distribution Settings->Access->Publishing Mode"
-
-msgid "plugins.generic.disco.settings.ccLicense"
-msgstr "Distribution Settings->License->License"
 
 msgid "plugins.generic.disco.settings.copyrightHolder"
 msgstr "Distribution Settings->License->Copyright Holder"
