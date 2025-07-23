@@ -74,7 +74,7 @@ class DiscoPlugin extends GenericPlugin {
         'crossref' => array("name" => SERVICE_CROSSREF, "application" => SERVICE_CROSSREF_APPLICATION_LINK, "requirements" => array('fullBio', 'linkToFulltext', 'lpDoi', 'references', 'uniqueUrlArticles')),
         'ebsco' => array("name" => SERVICE_EBSCO, "application" => SERVICE_EBSCO_APPLICATION_LINK),
         'erihplus' => array("name" => SERVICE_ERIHPLUS, "application" => SERVICE_ERIHPLUS_APPLICATION_LINK, "requirements" => array('eIssn', 'aimsAndScopeDescribed', 'editorialBoardPage', 'peerReviewDescribed', 'publicationEthicsDescribed', 'authorsAffiliations', 'usingDOIs', 'titlesAbstractsInEnglish', 'apcDescribed', 'oaPolicyDescribed', 'publishingHistory')),
-        'ddh' => array("name" => SERVICE_DDH, "application" => SERVICE_DDH_APPLICATION_LINK, "requirements" => array('persistantIdentification', 'scholarlyJournal', 'openLicence', 'noCharges', 'openAuthorship', 'ownershipScience')),
+        'ddh' => array("name" => SERVICE_DDH, "application" => SERVICE_DDH_APPLICATION_LINK, "requirements" => array('eIssn', 'scholarlyJournal', 'openLicence', 'noCharges', 'openAuthorship', 'ownershipScience')),
         'doaj' => array("name" => SERVICE_DOAJ, "application" => SERVICE_DOAJ_APPLICATION_LINK, "requirements" => array('journalUrl', 'eIssn', 'aimsAndScopeDescribed', 'authorGuidelinesDescribed', 'editorialBoardPage', 'contactDetailsAvailable', 'peerReviewDescribed', 'uniqueUrlArticles', 'apcDescribed', 'noRegistrationNeed', 'oaPolicyDescribed', 'copyrightTerms', 'noEmbargoPeriod', 'publishingHistory')),
         'gotriple' => array("name" => SERVICE_GOTRIPLE, "application" => SERVICE_GOTRIPLE_APPLICATION_LINK, "requirements" => array('oaiPMHEnabled')),
         'gs' => array("name" => SERVICE_GS, "requirements" => array('uniqueUrlArticles', 'machineReadableMetadataFormat', 'markingReferences')),
@@ -83,7 +83,7 @@ class DiscoPlugin extends GenericPlugin {
         'pubmed' => array("name" => SERVICE_PUBMED, "application" => SERVICE_PUBMED_APPLICATION_LINK, "requirements" => array('journalUrl', 'aimsAndScopeDescribed', 'journalPublisherNameAvailable', 'authorsAffiliations', 'publishingHistory')),
         'redalyc' => array("name" => SERVICE_REDALYC, "application" => SERVICE_REDALYC_APPLICATION_LINK, "requirements" => array('eIssn', 'journalTitle', 'aimsAndScopeDescribed', 'authorGuidelinesDescribed', 'editorialBoardPage', 'contactDetailsAvailable', 'journalPublisherNameAvailable', 'peerReviewDescribed', 'publicationEthicsDescribed', 'scholarlyArticles', 'noCharges', 'apcDescribed', 'oaPolicyDescribed', 'periodicity', 'publishingHistory')),
         'semanticscholar' => array("name" => SERVICE_SEMANTIC_SCHOLAR),
-        'scopus' => array("name" => SERVICE_SCOPUS, "application" => SERVICE_SCOPUS_APPLICATION_LINK, "requirements" => array('fullContentAvailable', 'eIssn', 'qualityEnHomepage', 'aimsAndScopeDescribed', 'editorialBoardPage', 'peerReviewDescribed', 'publicationEthicsDescribed', 'periodicity')),
+        'scopus' => array("name" => SERVICE_SCOPUS, "application" => SERVICE_SCOPUS_APPLICATION_LINK, "requirements" => array('eIssn', 'qualityEnHomepage', 'aimsAndScopeDescribed', 'editorialBoardPage', 'peerReviewDescribed', 'publicationEthicsDescribed', 'periodicity')),
         'wos' => array("name" => SERVICE_WOS, "application" => SERVICE_WOS_APPLICATION_LINK, "requirements" => array('fullContentAvailable', 'functionalWebsite', 'journalUrl', 'eIssn', 'journalTitle', 'aimsAndScopeDescribed', 'bibliographicInformation', 'editorialBoardPage', 'contactDetailsAvailable', 'journalPublisherNameAvailable', 'peerReviewDescribed', 'publicationEthicsDescribed', 'scholarlyArticles', 'authorsAffiliations', 'timeliness')),
         'google' => array("name" => SERVICE_GOOGLE),
         'bing' => array("name" => SERVICE_BING),
@@ -336,7 +336,7 @@ class DiscoPlugin extends GenericPlugin {
             $badgesAvailability["badgesCommunityOwned"] = true;
         }
 
-        if ($variables['persistantIdentification'] && $variables['scholarlyJournal'] && $variables['openLicence'] && $variables['noCharges'] && $variables['openAuthorship'] && $variables['ownershipScience']) {
+        if ($variables['eIssn'] && $variables['scholarlyJournal'] && $variables['openLicence'] && $variables['noCharges'] && $variables['openAuthorship'] && $variables['ownershipScience']) {
             $badgesAvailability["badgesDiamondJournal"] = true;
         }
 
@@ -475,49 +475,49 @@ class DiscoPlugin extends GenericPlugin {
 
         /* Diamond criteria */
         $automaticChecks["diamond"] = array(
-            "openLicence" => ($enabled && $publishingMode == 0 && $this->licenceTest($licenseUrl)) ? true : false,
+            "eIssn" => array("onlineIssn" => ($onlineIssn ? true : false)),
+            "openLicence" => array("ccLicence" => ($this->licenceTest($licenseUrl) ? true : false), "publishingMode" => $publishingMode == 0 ? true : false)
         );
 
         /* Appearance */
         $automaticChecks["appearance"] = array(
-            "fullContentAvailable" => ($enabled && $publishingMode == 0 && $this->licenceTest($licenseUrl)) ? true : false,
-            "eIssn" => $onlineIssn ? true : false,
-            "journalTitle" => $name ? true : false,
+            "fullContentAvailable" => array("enabled" => $enabled, "ccLicence" => ($this->licenceTest($licenseUrl) ? true : false), "publishingMode" => $publishingMode == 0 ? true : false),
+            "journalTitle" => array("journalTitle" => $name ? true : false),
         );
 
         /* Journal description */
         $automaticChecks["journalDescription"] = array(
-            "authorGuidelinesDescribed" => $authorGuidelines ? true : false,
-            "editorialBoardPage" => $editorialTeam ? true : false,
-            "contactDetailsAvailable" => ($contactName && $contactEmail && $mailingAddress) ? true : false,
-            "journalPublisherNameAvailable" => $publisherInstitution ? true : false,
+            "authorGuidelinesDescribed" => array("authorGuidelinesDescribed" => $authorGuidelines ? true : false),
+            "editorialBoardPage" => array("editorialBoardPage" => $editorialTeam ? true : false),
+            "contactDetailsAvailable" => array("contactName" => $contactName ? true : false, "contactEmail" => $contactEmail ? true : false, "mailingAddress" => $mailingAddress ? true : false) ,
+            "journalPublisherNameAvailable" => array("journalPublisherNameAvailable" => $publisherInstitution ? true : false),
         );
 
         /* Metadata Requirements */
         $automaticChecks["metadataRequirements"] = array(
-            "machineReadableMetadataFormat" => ($this->checkPlugin('generic', 'dublinCoreMeta', $contextId) && $this->checkPlugin('generic', 'googleScholar', $contextId)),
-            "oaiPMHEnabled" => $enableOai,
-            "usingDOIs" => $this->checkPlugin('pubIds', 'doi', $contextId),
-            "metadataFormatOpenAIRE" => $this->checkPlugin('generic', 'openAIREstandard', $contextId),
+            "machineReadableMetadataFormat" => array("dublinCore" => $this->checkPlugin('generic', 'dublinCoreMeta', $contextId), "googleSchoolar" => $this->checkPlugin('generic', 'googleScholar', $contextId)),
+            "oaiPMHEnabled" => array("oaiPMHEnabled" => $enableOai),
+            "usingDOIs" => array("usingDOIs" => $this->checkPlugin('pubIds', 'doi', $contextId)),
+            "metadataFormatOpenAIRE" => array("metadataFormatOpenAIRE" => $this->checkPlugin('generic', 'openAIREstandard', $contextId)),
         );
 
         /* Metadata Quality */
         $automaticChecks["metadataQuality"] = array(
-            "publisher" => $publisherInstitution ? true : false,
-            "journalTitle" => $name ? true : false,
+            "publisher" => array("publisher" => $publisherInstitution ? true : false),
+            "journalTitle" => array("journalTitle" => $name ? true : false),
         );
 
         /* Journal policy */
         $automaticChecks["journalPolicy"] = array(
-            "noRegistrationNeed" => ($enabled && $publishingMode == 0) ? true : false,
-            "oaPolicyDescribed" => $this->licenceTest($licenseUrl),
-            "copyrightTerms" => $copyrightNotice ? true : false,
-            "noEmbargoPeriod" => ($publishingMode == 1 && $delayedOpenAccessDuration && $delayedOpenAccessDuration > 0) ? false : true
+            "noRegistrationNeed" => array("enabled" => $enabled, "publishingMode" => $publishingMode == 0 ? true : false),
+            "oaPolicyDescribed" => array("ccLicence" => ($this->licenceTest($licenseUrl) ? true : false)),
+            "copyrightTerms" => array("copyrightTerms" => $copyrightNotice ? true : false),
+            "noEmbargoPeriod" => array("noEmbargoPeriod" => ($publishingMode == 1 && $delayedOpenAccessDuration && $delayedOpenAccessDuration > 0) ? false : true)
         );
 
         /* General Recommendations */
         $automaticChecks["generalRecommendations"] = array(
-            "plagiarismCheck" => $this->checkPlugin('generic', 'plagiarism', $contextId)
+            "plagiarismCheck" => array("plagiarismCheck" => $this->checkPlugin('generic', 'plagiarism', $contextId))
         );
 
         return $automaticChecks;
@@ -527,6 +527,7 @@ class DiscoPlugin extends GenericPlugin {
         $ojsSettings = array();
         $ojsSettings["fullContentAvailable"] = array("publishingMode", "ccLicense");
         $ojsSettings["eIssn"] = array("eIssn");
+        $ojsSettings["openLicence"] = array("ccLicence", "publishingMode");
         $ojsSettings["journalTitle"] = array("journalTitle");
         $ojsSettings["aimsAndScopeDescribed"] = array("about");
         $ojsSettings["authorGuidelinesDescribed"] = array("authorGuidelines");
@@ -567,7 +568,7 @@ class DiscoPlugin extends GenericPlugin {
 
         /* Diamond criteria */
         $categorizedRequirements["diamond"] = array(
-            "persistantIdentification" => array(SERVICE_DDH),
+            "eIssn" => array(SERVICE_DDH, SERVICE_WOS_ESCI, SERVICE_SCOPUS, SERVICE_ERIHPLUS, SERVICE_REDALYC, SERVICE_DOAJ),
             "scholarlyJournal" => array(SERVICE_DDH),
             "openLicence" => array(SERVICE_DDH),
             "noCharges" => array(SERVICE_DDH, SERVICE_REDALYC),
@@ -577,7 +578,7 @@ class DiscoPlugin extends GenericPlugin {
 
         /* Appearance */
         $categorizedRequirements["appearance"] = array(
-            "fullContentAvailable" => array(SERVICE_WOS_ESCI, SERVICE_SCOPUS),
+            "fullContentAvailable" => array(SERVICE_WOS_ESCI),
             "functionalWebsite" => array(SERVICE_WOS_ESCI),
             "journalUrl" => array(SERVICE_WOS_ESCI, SERVICE_DOAJ, SERVICE_PUBMED),
             "eIssn" => array(SERVICE_WOS_ESCI, SERVICE_SCOPUS, SERVICE_ERIHPLUS, SERVICE_REDALYC, SERVICE_DOAJ),
@@ -600,7 +601,6 @@ class DiscoPlugin extends GenericPlugin {
 
         /* Landing Pages / Galleys */
         $categorizedRequirements["lpGalleys"] = array(
-//            "dataInJats" => array(),
             "fullBio" => array(SERVICE_CROSSREF),
             "linkToFulltext" => array(SERVICE_CROSSREF),
             "lpDoi" => array(SERVICE_CROSSREF),
@@ -613,7 +613,6 @@ class DiscoPlugin extends GenericPlugin {
             "authorsAffiliations" => array(SERVICE_WOS_ESCI, SERVICE_ERIHPLUS, SERVICE_PUBMED, SERVICE_CEEOL),
             "machineReadableMetadataFormat" => array(SERVICE_GS),
             "oaiPMHEnabled" => array(SERVICE_GOTRIPLE, SERVICE_OPENAIRE),
-//            "systemLanguageCheck" => array(),
             "usingDOIs" => array(SERVICE_ERIHPLUS),
             "titlesAbstractsInEnglish" => array(SERVICE_ERIHPLUS, SERVICE_CEEOL),
             "markingReferences" => array(SERVICE_GS),
@@ -655,7 +654,6 @@ class DiscoPlugin extends GenericPlugin {
 
         /* Journal policy */
         $categorizedRequirements["journalPolicy"] = array(
-            //"noAPC" => array(SERVICE_REDALYC, SERVICE_DDH),
             "apcDescribed" => array(SERVICE_REDALYC, SERVICE_DDH, SERVICE_DOAJ, SERVICE_ERIHPLUS),
             "noRegistrationNeed" => array(SERVICE_DOAJ),
             "oaPolicyDescribed" => array(SERVICE_DOAJ, SERVICE_REDALYC, SERVICE_ERIHPLUS),
@@ -730,6 +728,7 @@ class DiscoPlugin extends GenericPlugin {
                     $knowledgeBase[$database]["score"] = $score["score"];
                     $knowledgeBase[$database]["count"] = $score["count"];
                     $knowledgeBase[$database]["fulfilledCriteria"] = $score["fulfilledCriteria"];
+                    $knowledgeBase[$database]["autocheckedCriteria"] = $score["autocheckedCriteria"];
                 }
             }
         }
@@ -745,8 +744,8 @@ class DiscoPlugin extends GenericPlugin {
 
         $output["score"] = $scoreFromAutomaticChecks["score"] + $scoreFromSelfAssessment["score"];
         $output["count"] = $scoreFromAutomaticChecks["count"] + $scoreFromSelfAssessment["count"];
-        $output["fulfilledCriteria"] = array_merge($scoreFromAutomaticChecks["fulfilledCriteria"], $scoreFromSelfAssessment["fulfilledCriteria"]);
-        $output["requirements"] = $variables;
+        $output["autocheckedCriteria"] = $scoreFromAutomaticChecks["autocheckedCriteria"];
+        $output["fulfilledCriteria"] = $scoreFromSelfAssessment["fulfilledCriteria"];
         return $output;
     }
 
@@ -754,18 +753,24 @@ class DiscoPlugin extends GenericPlugin {
         $score = 0;
         $count = 0;
         $fulfilledCriteria = array();
-        foreach ($automaticChecks as $category => $requirements) {
-            foreach ($requirements as $requirement => $value) {
-                if (array_key_exists($requirement, $variables)) {
-                    $count++;
-                    if ($value) {
-                        $fulfilledCriteria[] = $requirement;
-                        $score++;
+        foreach ($automaticChecks as $category => $requirementsList) {            
+            foreach ($requirementsList as $requirement => $autochecks) {
+                foreach ($autochecks as $variable => $value) {
+                    if (in_array($requirement, $variables)) {
+                        $count++;
+                        $fulfilledCriteria[$requirement][$variable] = $value;
+                        if ($value) {
+                            
+                            $score++;
+                        }
                     }
                 }
             }
         }
-        return array("score" => (int) $score, "count" => (int) $count, "fulfilledCriteria" => $fulfilledCriteria);
+        $output["score"] = (int) $score;
+        $output["count"] = (int) $count;
+        $output["autocheckedCriteria"] = $fulfilledCriteria;        
+        return $output;
     }
 
     function scoreFromSelfAssessment($variables, $disco) {
@@ -867,7 +872,6 @@ class DiscoPlugin extends GenericPlugin {
 
     function getVariables($disco) {
         $variables = array();
-        $variables['persistantIdentification'] = (bool) $disco->getPersistantIdentification();
         $variables['scholarlyJournal'] = (bool) $disco->getScholarlyJournal();
         $variables['noCharges'] = (bool) $disco->getNoCharges();
         $variables['openAuthorship'] = (bool) $disco->getOpenAuthorship();
@@ -893,7 +897,6 @@ class DiscoPlugin extends GenericPlugin {
         $variables['authorsAffiliations'] = (bool) $disco->getAuthorsAffiliations();
         $variables['titlesAbstractsInEnglish'] = (bool) $disco->getTitlesAbstractsInEnglish();
         $variables['markingReferences'] = (bool) $disco->getMarkingReferences();
-        //$variables['noAPC'] = (bool) $disco->getNoAPC();
         $variables['apcDescribed'] = (bool) $disco->getApcDescribed();
         $variables['oaPolicyDescribed'] = (bool) $disco->getOaPolicyDescribed();
         $variables['copyrightTerms'] = (bool) $disco->getCopyrightTerms();

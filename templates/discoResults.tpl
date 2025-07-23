@@ -14,7 +14,7 @@
     {foreach from=$resultsKnowledgeBase key=service item=results}
         <h3>{$results.name}</h3>   
         <div>
-            
+
             {if array_key_exists("count", $results) && $results["count"]}
                 <div class ="results_score" íd="results_score_{$service}"><strong>{translate key="plugins.generic.disco.score"}:</strong> {$results["score"]}/{$results["count"]}</div>
             {/if}
@@ -34,7 +34,12 @@
                     <h3>{translate key="plugins.generic.disco.requirements"}</h3>
                     <ul>
                         {foreach from=$results["requirements"] item=requirement}                            
-                                <li class="results_requiremens {if !in_array($requirement, $results["fulfilledCriteria"])}not_fulfilled{/if}">{translate key="plugins.generic.disco.{$requirementsCategory[$requirement]}.{$requirement}"} ({translate key="plugins.generic.disco.{$requirementsCategory[$requirement]}"})</li>
+                            <li class="results_requiremens {if !in_array($requirement, $results["fulfilledCriteria"])}not_fulfilled{/if}">{translate key="plugins.generic.disco.{$requirementsCategory[$requirement]}.{$requirement}"} ({translate key="plugins.generic.disco.{$requirementsCategory[$requirement]}"})</li>
+                            
+                            {foreach from=$results["autocheckedCriteria"][$requirement] key=autoCheck item=value}      
+                                <li class="results_requiremens {if !$value}not_fulfilled{/if}">{translate key="plugins.generic.disco.{$autoCheck}.autocheck"}</li>
+
+                            {/foreach}
                         {/foreach}
                     </ul>
                 {/if}
