@@ -57,7 +57,7 @@ msgid "plugins.generic.disco.settings.publisher"
 msgstr "Journal Settings->Masthead->Publishing Details"
 
 msgid "plugins.generic.disco.settings.ethics"
-msgstr "The best way to set up the page for Publication ethics is to use the <strong>Custom Page</strong> option through <strong>Add item</strong> in the <strong>Website Settings->Setup->Navigation</strong>. You can create the new page with the specific URL there."
+msgstr "The best way to set up the page for Publication ethics is to use the <strong>Custom Page</strong> option through <strong>Add item</strong> in the <strong>Website Settings->Setup->Navigation</strong>. You can create new page with specific URL there."
 
 msgid "plugins.generic.disco.settings.oai"
 msgstr "Distribution Settings->Access->Enable OAI"
@@ -94,7 +94,7 @@ msgid "plugins.generic.disco.disco"
 msgstr "Discoverability companion"
 
 msgid "plugins.generic.disco.description.long"
-msgstr "Editors use the Plugin Discoverability companion to check various criteria and gain an overview of their journals. The requirements of aggregators, indexing databases, or search engines are divided into several sections. Some criteria are evaluated automatically, some editors must check themselves in a simple checklist, and others serve only as recommendations. Check to see if your journal could be more visible and learn how to achieve that."
+msgstr "<p>Editors can use the Discoverability Companion plugin to review key criteria and get an overall picture of their journal’s visibility.</p><p>Requirements from aggregators, indexing databases, and search engines are grouped into several sections. Some criteria are checked automatically, others require a quick manual review using a simple checklist, and some are provided as recommendations.</p><p>Use the plugin to see if your journal could be more visible and find out what steps you can take to improve it.</p>"
 
 
 msgid "plugins.generic.disco.diamond.scholarlyJournal"
@@ -107,7 +107,7 @@ msgid "plugins.generic.disco.diamond"
 msgstr "Diamond criteria"
 
 msgid "plugins.generic.disco.diamond.description"
-msgstr "The Diamond OA criteria for journals are a set of <strong>operational criteria</strong> that allow for a binary classification between Diamond OA journals (journals that fulfil all these criteria)and non-Diamond OA journals (journals that do not fulfil all these criteria)<br />Below are the 6 criteria as defined by the task force in collaboration with the community<br /><br />"
+msgstr "The Diamond OA criteria for journals are a set of <strong>operational criteria</strong> that allow for a binary classification between Diamond OA journals (journals that fulfil all these criteria) and non-Diamond OA journals (journals that do not fulfil all these criteria)<br />Below are the 6 criteria as defined by the Craft-OA task force in collaboration with the community<br /><br />"
 
 msgid "plugins.generic.disco.diamond.openLicence"
 msgstr "Open Access with open licenses" 
@@ -125,13 +125,13 @@ msgid "plugins.generic.disco.diamond.openAuthorship"
 msgstr "Open to all authors" 
 
 msgid "plugins.generic.disco.diamond.openAuthorship.description"
-msgstr "<p>Authorship in the journal should not be limited to any type of affiliation. Any author can submit an article that is in line with the aims and scope of the journal.</p><p>After checking the checkbox and saving, a self-declaration text regarding openness to all authors will appear at the end of the \"About journal\" section.</p>" 
+msgstr "<p>Authorship in the journal should not be limited to any type of affiliation. Any author can submit an article that is in line with the aims and scope of the journal.</p><p>After checking the checkbox and saving, a self-declaration text defined by Dimond Discovery Hub regarding openness to all authors will appear at the end of the \"About journal\" section.</p>" 
 
 msgid "plugins.generic.disco.diamond.ownershipScience"
 msgstr "Community-owned" 
 
 msgid "plugins.generic.disco.diamond.ownershipScience.description"
-msgstr "<p>The journal title must be owned by public or not-for-profit organisations (or parts there of) whose mission includes performing or promoting research and scholarship These include but are not limited to research performing organisations (RPOs), research funding organisations (RFOs), organisations connected to RPOs (university libraries, university presses, faculties, and departments), research institutes, and scholarly societies. The journal should explain its ownership status on its webpage.</p><p>After checking the checkbox and saving, a self-declaration text about ownership will appear at the end of the \"About journal\" section.</p>" 
+msgstr "<p>The journal title must be owned by public or not-for-profit organisations (or parts there of) whose mission includes performing or promoting research and scholarship. These include but are not limited to research performing organisations (RPOs), research funding organisations (RFOs), organisations connected to RPOs (university libraries, university presses, faculties, and departments), research institutes, and scholarly societies. The journal should explain its ownership status on its webpage.</p><p>After checking the checkbox and saving, a self-declaration text about ownership  defined by Dimond Discovery Hub  will appear at the end of the \"About journal\" section.</p>" 
 
 msgid "plugins.generic.disco.appearance"
 msgstr "Appearance"
@@ -149,19 +149,19 @@ msgid "plugins.generic.disco.appearance.journalUrl"
 msgstr "Journal URL" 
 
 msgid "plugins.generic.disco.appearance.journalUrl.description"
-msgstr "<p>Where both online and print editions are available, it is mandatory to provide the journal URL and full-text access details of current content.</p><p>The journal must have its dedicated URL and homepage that is accessible from any location.</p>" 
+msgstr "<p>If both online and print editions are available, you must provide the journal's URL and details about how to access the current full-text content online.</p><p>The journal must have its own dedicated URL and a homepage that is publicly accessible without restrictions.</p>" 
 
 msgid "plugins.generic.disco.diamond.eIssn"
 msgstr "Persistent identification (eISSN)" 
 
 msgid "plugins.generic.disco.diamond.eIssn.description"
-msgstr "<p>The journal must have a registered ISSN that is verifiable on the ISSN database (https://portal.issn.org/) and is clearly and consistently displayed on all journal platforms (electronic and/or print). If both print and electronic ISSNs are present, both should be provided.</p><p>ERIH PLUS requires a valid ISSN code, confirmed by the International ISSN Portal. Be advised that journals with ISSN codes listed as assigned to a publication but not yet confirmed or free ISSN will not be processed.</p>"
+msgstr "<p>The journal must have a registered ISSN that can be verified in the ISSN database (https://portal.issn.org/), and it should be clearly and consistently displayed across all journal platforms (electronic and/or print). If both print and electronic ISSNs exist, both must be provided.</p><p>ERIH PLUS requires a valid ISSN confirmed in the International ISSN Portal. Please note that journals with ISSNs marked as “assigned but not yet confirmed” or with free/unofficial ISSNs will not be processed.</p>"
 
 msgid "plugins.generic.disco.appearance.fullContentAvailable"
 msgstr "Full journal published content available (is the journal available?) - OA" 
 
 msgid "plugins.generic.disco.appearance.fullContentAvailable.description"
-msgstr "Is your journal Open Access and fully available online for free without any kind of registration" 
+msgstr "Is your journal Open Access, with all content freely accessible online and without requiring registration?" 
 
 msgid "plugins.generic.disco.appearance.journalTitle"
 msgstr "Journal Title" 
@@ -191,13 +191,13 @@ msgid "plugins.generic.disco.journalDescription.aimsAndScopeDescribed"
 msgstr "Page with aims and scope" 
 
 msgid "plugins.generic.disco.journalDescription.aimsAndScopeDescribed.description"
-msgstr "The journal must have a well-defined scope and statement of purpose showing focus and coherence. Published content must be consistent with the title and stated scope of the journal, and where relevant, the special issue in which it is published. <br /> Who is the journal intended for?" 
+msgstr "<p>The journal must have a clearly defined scope and statement of purpose that reflect its focus and coherence.</p><p>Published content should align with the journal’s title and stated scope—and, where applicable, with the theme of the special issue in which it appears.</p><p>Who is the journal intended for? Consider your target audience: researchers, practitioners, students, or a specific scholarly community.</p>" 
 
 msgid "plugins.generic.disco.journalDescription.authorGuidelinesDescribed"
 msgstr "Guidelines for Authors are well described" 
 
 msgid "plugins.generic.disco.journalDescription.authorGuidelinesDescribed.description"
-msgstr "Instructions for authors are properly described, preferably in English language." 
+msgstr "Clear and comprehensive author guidelines should be provided, preferably in English." 
 
 msgid "plugins.generic.disco.journalDescription.bibliographicInformation"
 msgstr "Bibliographic Information in Roman Script" 
@@ -209,14 +209,13 @@ msgid "plugins.generic.disco.journalDescription.editorialBoardPage"
 msgstr "Editorial board with affiliation details" 
 
 msgid "plugins.generic.disco.journalDescription.editorialBoardPage.description"
-msgstr "Editorial Board Members must be identifiable and available for contact. Names and institutional affiliations - including country/region - of all members of the editorial team are required (such as Editor-in-Chief, Editorial Board Members, Associate Editors, Regional Editors, etc.). These details must also be provided for Guest Editors of special issues. Persistent digital identifiers (such as ResearcherID or ORCID) or links to institutional profiles may be provided to specify the identity and affiliation of Editorial Board Members.
-ERIH PLUS requires that the members of the academic editorial board are listed, along with their affiliations (universities or other independent research institutions)." 
+msgstr "<p>Editorial board members must be identifiable and contactable.</p><p>The names and institutional affiliations—including country or region—of all members of the editorial team (e.g., Editor-in-Chief, Editorial Board Members, Associate Editors, Regional Editors) must be provided. This also applies to Guest Editors of special issues. </p><p>To help verify identity and affiliation, persistent digital identifiers (such as ORCID or ResearcherID) or links to institutional profiles may also be included.</p>" 
 
 msgid "plugins.generic.disco.journalDescription.contactDetailsAvailable"
 msgstr "Contact details available" 
 
 msgid "plugins.generic.disco.journalDescription.contactDetailsAvailable.description"
-msgstr "OJS checks if the contact details are filled in. <br /> Contact details for the journal's primary editorial and production roles must be provided. Email should be publicly available." 
+msgstr "<p>OJS checks whether contact details have been provided. </p><p>Contact information for the journal’s key editorial and production roles must be included, and a publicly accessible email address should be available.</p>" 
 
 msgid "plugins.generic.disco.journalDescription.editorialBoardPageExists"
 msgstr "Is the editorial board field filled in OJS?" 
@@ -249,7 +248,7 @@ msgid "plugins.generic.disco.journalDescription.scholarlyArticles"
 msgstr "Original scholarly articles" 
 
 msgid "plugins.generic.disco.journalDescription.scholarlyArticles.description"
-msgstr "The journal must contain primarily original scholarly material. The academic level of the research reported should be appropriate to a graduate, post-doctoral, and/or professional research audience.<br />Redalyc: From each instalment, at least 75% of all contributions must be original research outcomes as well as other significant contributions and novel to the journal's particular field. (BCA)." 
+msgstr "<p>The journal should primarily publish original scholarly material.</p><p>The academic level of the research should be suitable for a graduate, post-doctoral, and/or professional research audience.</p><p>Redalyc requirement: In each issue, at least 75% of the contributions must be original research results or other significant, novel contributions relevant to the journal’s specific field. (BCA)</p>" 
 
 msgid "plugins.generic.disco.lpGalleys"
 msgstr "Landing Pages / Galleys"
@@ -267,31 +266,31 @@ msgid "plugins.generic.disco.lpGalleys.lpDoi"
 msgstr "The DOI is displayed as a URL" 
 
 msgid "plugins.generic.disco.lpGalleys.lpDoi.description"
-msgstr "So that if a reader wishes to cite this item, they can just copy and paste the DOI link (learn more about Crossref <a href="https://www.crossref.org/display-guidelines" target="_blank">DOI display guidelines</a>)" 
+msgstr "This allows readers to easily copy and paste the DOI link when citing the item. (Learn more about Crossref’s <a href="https://www.crossref.org/display-guidelines" target="_blank">DOI display guidelines</a>)" 
 
 msgid "plugins.generic.disco.lpGalleys.linkToFulltext"
 msgstr "A way to access the full-text of the content" 
 
 msgid "plugins.generic.disco.lpGalleys.linkToFulltext.description"
-msgstr "It's acceptable for the full-text to be behind a login or paywall - this is fine as long as the landing page is accessible to everyone. A DOI can resolve to the HTML full-text of the content, and if this page includes the criteria above, a separate landing page is not necessary. It's not good practice to link directly to a PDF, however, as it will start downloading when the DOI is clicked." 
+msgstr "It is acceptable for the full text to be behind a login or paywall, provided that the landing page is accessible to everyone. A DOI can link directly to the HTML full-text page, and if this page includes the necessary information (as outlined above), a separate landing page is not required. However, it is not recommended to link directly to a PDF, as clicking the DOI will trigger an automatic download." 
 
 msgid "plugins.generic.disco.lpGalleys.references"
 msgstr "Appropriate Citations to the Literature (References on the Landing Pages)" 
 
 msgid "plugins.generic.disco.lpGalleys.references.description"
-msgstr "It is expected that articles will appropriately acknowledge the surrounding literature for the topic." 
+msgstr "Articles are expected to properly acknowledge relevant literature related to their topic." 
 
 msgid "plugins.generic.disco.lpGalleys.fullBio"
 msgstr "Full bibliographic information" 
 
 msgid "plugins.generic.disco.lpGalleys.fullBio.description"
-msgstr "So that the user can verify they have been delivered to the correct item by DOI." 
+msgstr "This helps users verify that the DOI leads to the correct item." 
 
 msgid "plugins.generic.disco.lpGalleys.uniqueUrlArticles"
 msgstr "Unique URL per Article (Landing Pages) and each Galleys" 
 
 msgid "plugins.generic.disco.lpGalleys.uniqueUrlArticles.description"
-msgstr "Each article must be available as an individual, full-text article. One unique URL per article: (HTML or PDF, as a minimum).<br/> It will be effectively indexed when each article has its URL." 
+msgstr "Each article must be available as a complete, individual full-text item, with one unique URL per article (HTML or PDF at minimum). <br/>Effective indexing relies on each article having its own distinct URL." 
 
 
 msgid "plugins.generic.disco.metadataRequirements"
@@ -359,7 +358,7 @@ msgid "plugins.generic.disco.metadataQuality"
 msgstr "Metadata Quality"
 
 msgid "plugins.generic.disco.metadataQuality.description"
-msgstr "An overview of the metadata requirements for various databases and services. Users can find a list of key metadata fields and their importance in enhancing visibility and increasing the chances of successful indexing. The page serves as a reference guide, helping users understand which metadata is essential for specific databases and supporting their proper utilization."
+msgstr "An overview of metadata requirements for various databases and services. <br />This page provides a list of key metadata fields and explains their role in improving visibility and increasing the chances of successful indexing. It serves as a reference guide to help users understand which metadata elements are essential for specific databases and how to apply them effectively. "
 
 msgid "plugins.generic.disco.metadataQuality.accessRights"
 msgstr "Access Rights" 
@@ -371,7 +370,7 @@ msgid "plugins.generic.disco.metadataQuality.alternateIdentifier"
 msgstr "Alternate Identifier" 
 
 msgid "plugins.generic.disco.metadataQuality.alternateIdentifier.description"
-msgstr "Typically persistent identifier (for example: DOI, Handle, PURL, Ã¢â‚¬Â¦)<p>OpenAIRE: <strong>Recommended / Optional</strong></p><p><a href="https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_alternativeidentifier.html" target="_blank">https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_alternativeidentifier.html</a></p>" 
+msgstr "Typically persistent identifier (for example: DOI, Handle, PURL)<p>OpenAIRE: <strong>Recommended / Optional</strong></p><p><a href="https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_alternativeidentifier.html" target="_blank">https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_alternativeidentifier.html</a></p>" 
 
 msgid "plugins.generic.disco.metadataQuality.articleEndPage"
 msgstr "Article End Page / Citation End Page" 
@@ -389,13 +388,13 @@ msgid "plugins.generic.disco.metadataQuality.audience"
 msgstr "Audience" 
 
 msgid "plugins.generic.disco.metadataQuality.audience.description"
-msgstr "A class of entity for whom the resource is intended or useful.<p>OpenAIRE: <strong>Recommended / Optional</strong></p><p><a href="https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_audience.html" target="_blank">https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_audience.html</a></p>" 
+msgstr "For whom the resource is intended or useful? <p>OpenAIRE: <strong>Recommended / Optional</strong></p><p><a href="https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_audience.html" target="_blank">https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_audience.html</a></p>" 
 
 msgid "plugins.generic.disco.metadataQuality.authors"
 msgstr "Creators / Authors" 
 
 msgid "plugins.generic.disco.metadataQuality.authors.description"
-msgstr "The authors of the publication are listed in priority order. May be a corporate/institutional or personal name.<p>OpenAIRE: <strong>Required</strong></p><p><a href="https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_creator.html#dci-creator" target="_blank">https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_creator.html#dci-creator</a></p>" 
+msgstr "The authors of the publication are listed in order of priority. This may be a personal name or a corporate/institutional name.<p>OpenAIRE: <strong>Required</strong></p><p><a href="https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_creator.html#dci-creator" target="_blank">https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_creator.html#dci-creator</a></p>" 
 
 msgid "plugins.generic.disco.metadataQuality.contributors"
 msgstr "Contributor" 
@@ -437,7 +436,7 @@ msgid "plugins.generic.disco.metadataQuality.geoLocation"
 msgstr "Geo Location" 
 
 msgid "plugins.generic.disco.metadataQuality.geoLocation.description"
-msgstr "Spatial region or named place where the data was gathered or about which the data is focused.<p>OpenAIRE: <strong>Recommended / Optional</strong></p><p><a href="https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_geolocation.html" target="_blank">https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_geolocation.html</a></p>" 
+msgstr "The geographic area or named location where the data was collected or which the data describes.<p>OpenAIRE: <strong>Recommended / Optional</strong></p><p><a href="https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_geolocation.html" target="_blank">https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_geolocation.html</a></p>" 
 
 msgid "plugins.generic.disco.metadataQuality.issueNumber"
 msgstr "Issue number / Citation Issue" 
@@ -473,7 +472,7 @@ msgid "plugins.generic.disco.metadataQuality.publicationDate"
 msgstr "Publication Date" 
 
 msgid "plugins.generic.disco.metadataQuality.publicationDate.description"
-msgstr "A date associated with an event in the life cycle of the resource. Typically, Date will be associated with the creation or availability of the resource. Recommended best practice for encoding the date value is defined in a profile of ISO 8601 [W3CDTF] and follows the YYYY-MM-DD format.<p>OpenAIRE: <strong>Required</strong></p><p><a href="https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_publicationdate.html#dci-datepublication" target="_blank">https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_publicationdate.html#dci-datepublication</a></p>" 
+msgstr "Typically, Date will be associated with the creation or availability of the resource. Recommended best practice for encoding the date value is defined in a profile of ISO 8601 [W3CDTF] and follows the YYYY-MM-DD format.<p>OpenAIRE: <strong>Required</strong></p><p><a href="https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_publicationdate.html#dci-datepublication" target="_blank">https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_publicationdate.html#dci-datepublication</a></p>" 
 
 msgid "plugins.generic.disco.metadataQuality.publisher"
 msgstr "Publisher" 
@@ -491,13 +490,13 @@ msgid "plugins.generic.disco.metadataQuality.resourceIdentifier"
 msgstr "Resource Identifier" 
 
 msgid "plugins.generic.disco.metadataQuality.resourceIdentifier.description"
-msgstr "Practically a stable, persistent URL. <p>OpenAIRE: <strong>Required</strong></p><p><a href="https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_resourceidentifier.html#dci-identifier" target="_blank">https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_resourceidentifier.html#dci-identifier</a></p>" 
+msgstr "Typically a stable, persistent URL. <p>OpenAIRE: <strong>Required</strong></p><p><a href="https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_resourceidentifier.html#dci-identifier" target="_blank">https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_resourceidentifier.html#dci-identifier</a></p>" 
 
 msgid "plugins.generic.disco.metadataQuality.resourceType"
 msgstr "Resource Type" 
 
 msgid "plugins.generic.disco.metadataQuality.resourceType.description"
-msgstr "The type of scientific output the resource is a manifestation of. It describes the genre of the resource.<p>OpenAIRE: <strong>Required</strong></p><p><a href="https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_publicationtype.html#aire-resourcetype" target="_blank">https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_publicationtype.html#aire-resourcetype</a></p><p>In OJS you should use <a href="https://github.com/munipress/openAIREstandard" target="_blank">openAIREstandard plugin</a></p>" 
+msgstr "Indicates the type of scientific output the resource represents. It describes the genre or form of the resource. <p>OpenAIRE: <strong>Required</strong></p><p><a href="https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_publicationtype.html#aire-resourcetype" target="_blank">https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_publicationtype.html#aire-resourcetype</a></p><p>In OJS you should use <a href="https://github.com/munipress/openAIREstandard" target="_blank">openAIREstandard plugin</a></p>" 
 
 msgid "plugins.generic.disco.metadataQuality.resourceVersion"
 msgstr "Resource Version" 
@@ -533,11 +532,11 @@ msgid "plugins.generic.disco.metadataQuality.abstract"
 msgstr "Description" 
 
 msgid "plugins.generic.disco.metadataQuality.abstract.description"
-msgstr "This element is used for a textual description of the content. <p>OpenAIRE: <strong>Required</strong></p><p><a href="https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_description.html#dc-description" target="_blank">https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_description.html#dc-description</a></p>"
+msgstr "A brief description of the content in plain text. <p>OpenAIRE: <strong>Required</strong></p><p><a href="https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_description.html#dc-description" target="_blank">https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_description.html#dc-description</a></p>"
 
 
 msgid "plugins.generic.disco.metadataQuality.title.countCheck"
-msgstr "The number of articles with titles in the journal's primary localization filled in."
+msgstr "The number of articles with titles filled in, in the journal’s primary localization."
 
 msgid "plugins.generic.disco.metadataQuality.authors.countCheck"
 msgstr "The number of articles with at least one affiliated author."
@@ -546,13 +545,13 @@ msgid "plugins.generic.disco.metadataQuality.publicationDate.countCheck"
 msgstr "The number of articles with a publication date filled in."
 
 msgid "plugins.generic.disco.metadataQuality.resourceType.countCheck"
-msgstr "The number of articles in sections with filled in resource types."
+msgstr "The number of articles in sections with the resource type field filled in"
 
 msgid "plugins.generic.disco.metadataQuality.abstract.countCheck"
 msgstr "The number of articles with abstracts in the journal's primary localization filled in."
 
 msgid "plugins.generic.disco.metadataQuality.embargoPeriodDate.countCheck"
-msgstr "The number of articles in issues with embargo period dates that are not immediately open access."
+msgstr "The number of articles published in issues with embargo periods, meaning they are not immediately open access."
 
 msgid "plugins.generic.disco.metadataQuality.language.countCheck"
 msgstr "The number of articles with primary localization filled in."
@@ -561,13 +560,13 @@ msgid "plugins.generic.disco.metadataQuality.alternateIdentifier.countCheck"
 msgstr "The number of articles with DOIs connected."
 
 msgid "plugins.generic.disco.metadataQuality.source.countCheck"
-msgstr "The number of articles with a source in the journal's primary localization filled in."
+msgstr "The number of articles that have the source field filled in, using the journal’s primary localization."
 
 msgid "plugins.generic.disco.metadataQuality.licenseCondition.countCheck"
-msgstr "The number of articles with alicense type filled in."
+msgstr "The number of articles with the license type field filled in."
 
 msgid "plugins.generic.disco.metadataQuality.coverage.countCheck"
-msgstr "The number of articles with a coverage in the journal's primary localization filled in."
+msgstr "The number of articles that have coverage information filled in, in the journal’s primary localization."
 
 msgid "plugins.generic.disco.metadataQuality.size.countCheck"
 msgstr "The number of articles with pages filled in."
@@ -582,7 +581,7 @@ msgid "plugins.generic.disco.journalPolicy.apcDescribed"
 msgstr "APC policy description"  
 
 msgid "plugins.generic.disco.journalPolicy.apcDescribed.description"
-msgstr "The fee policy should be described on the webpage. No matter if the journal has APCs or not.<p>DOAJ: If a journal doesn't have any charges, then this must be stated. <br/>ERIH Plus: Does the journal have an APC? If so, is it on the high or low end?</p>" 
+msgstr "The fee policy should be clearly described on the webpage, regardless of whether the journal charges APCs or not.</p>" 
 
 msgid "plugins.generic.disco.journalPolicy.noRegistrationNeed"
 msgstr "Users don't need to register" 
@@ -618,7 +617,7 @@ msgid "plugins.generic.disco.regularity.periodicity"
 msgstr "Regular periodicity" 
 
 msgid "plugins.generic.disco.regularity.periodicity.description"
-msgstr "Journal has to publish on a regular basis. No delays or interruptions in the publication schedule.<p>REDALYC: Instalments must be published on time according to the publication schedule (monthly, bimonthly, quarterly). If periodical, a period exceeding three months without publishing new articles online will be disadvantageous.</p>" 
+msgstr "The journal must publish on a regular schedule, without delays or interruptions. <p>REDALYC: Instalments must be published on time according to the publication schedule (monthly, bimonthly, quarterly). If periodical, a period exceeding three months without publishing new articles online will be disadvantageous.</p>" 
 
 msgid "plugins.generic.disco.regularity.publishingHistory"
 msgstr "Publishing history" 
@@ -666,7 +665,7 @@ msgid "plugins.generic.disco.generalRecommendations.statementsValidity"
 msgstr "Validity of Statements" 
 
 msgid "plugins.generic.disco.generalRecommendations.statementsValidity.description"
-msgstr "Published content should demonstrate adherence to the policies declared by the journal. All information displayed on the journal website should be accurate and up to date. It is not the intention of our review to enforce ethical and plagiarism standards. " 
+msgstr "Published content should demonstrate adherence to the policies declared by the journal. All information displayed on the journal website should be accurate and up to date." 
 
 msgid "plugins.generic.disco.generalRecommendations.internalSystemInUse"
 msgstr "Internal system in use (OJS / Lodel /...)" 
@@ -678,13 +677,13 @@ msgid "plugins.generic.disco.generalRecommendations.plagiarismCheck"
 msgstr "Plagiarism check implemented" 
 
 msgid "plugins.generic.disco.generalRecommendations.plagiarismCheck.description"
-msgstr "Use of a plagiarism checking service is highly recommended but not required for inclusion in DOAJ." 
+msgstr "Use of a plagiarism checking service is highly recommended but not required for inclusion to DOAJ or any other services?" 
 
 msgid "plugins.generic.disco.impactRecommendations"
 msgstr "Impact Recommendations"
 
 msgid "plugins.generic.disco.impactRecommendations.description"
-msgstr "This category focuses on enhancing the journal's academic influence and reputation. It focuses on the geographical diversity of authors and the editorial board, analyzes citation metrics for both authors and board members, assesses the citedness of journal articles, and emphasizes the significance of the content's academic contribution to its field."
+msgstr "This category focuses on enhancing the journal's academic influence and reputation. It highlights the geographical diversity of authors and the editorial board, analyzes citation metrics for both authors and board members, assesses the citedness of journal articles, and emphasizes the significance of the content's academic contribution to its field."
 
 msgid "plugins.generic.disco.impactRecommendations.authorsDiversity"
 msgstr "Diversity in the geographical distribution of authors" 
@@ -708,7 +707,7 @@ msgid "plugins.generic.disco.impactRecommendations.citedness"
 msgstr "Citedness of journal articles" 
 
 msgid "plugins.generic.disco.impactRecommendations.citedness.description"
-msgstr "Most selective indices contain the most impactful journals in their discipline. In the comparative citation analysis, both the number and the sources of the citations to the journal are taken into consideration. The stability of citation activity is also considered, as we are looking not only at the influence of a journal in a given year but also the sustainability of that influence." 
+msgstr "<p>Most selective indices include the highest-impact journals within a given discipline. </p><p>Comparative citation analysis takes into account both the number of citations a journal receives and the sources of those citations. It also considers the stability of citation activity over time, reflecting not only a journal’s influence in a particular year but also the sustainability of that influence.</p>" 
 
 msgid "plugins.generic.disco.impactRecommendations.contentSignificance"
 msgstr "Content Significance / Academic contribution to the field" 
@@ -733,73 +732,67 @@ msgid "plugins.generic.disco.seo.accurateTitles"
 msgstr "Accurate page titles " 
 
 msgid "plugins.generic.disco.seo.accurateTitles.description"
-msgstr "Choose terms for your page titles that match the content of your documents. Users are more likely to click a link if the title matches their search." 
+msgstr "Page titles should accurately reflect the content of the documents. Clear, content-matching titles improve visibility in search results and increase the likelihood of user engagement." 
 
 msgid "plugins.generic.disco.seo.altTextImages"
 msgstr "ALT text for images" 
 
 msgid "plugins.generic.disco.seo.altTextImages.description"
-msgstr "ALT text improves the searchability of the image content of your pages. It also makes your pages more accessible to text-only browsers and visually impaired site visitors." 
-
-msgid "plugins.generic.disco.seo.articlesInHtml"
-msgstr "" 
-
-msgid "plugins.generic.disco.seo.articlesInHtml.description"
-msgstr "" 
+msgstr "ALT text improves the discoverability of image content on web pages and enhances accessibility for users relying on text-only browsers or assistive technologies." 
 
 msgid "plugins.generic.disco.seo.covers"
 msgstr "Issues' / Journal's cover" 
 
 msgid "plugins.generic.disco.seo.covers.description"
-msgstr "Helps users with "by image" searching." 
+msgstr "Support visual discovery by enabling “search by image” functionality in search engines." 
 
 msgid "plugins.generic.disco.seo.crosslinks"
 msgstr "Meaningful cross-links" 
 
 msgid "plugins.generic.disco.seo.crosslinks.description"
-msgstr "Meaningful links between your website and other related websites and providers of relevant content add value for visitors and can boost your ranking." 
+msgstr "Meaningful cross-links between the journal’s website and related websites or content providers enhance user value and contribute to better search engine ranking." 
 
 msgid "plugins.generic.disco.seo.h1Title"
 msgstr "Journal Title in H1" 
 
 msgid "plugins.generic.disco.seo.h1Title.description"
-msgstr "Helps the search engines to correctly identify the page title." 
+msgstr "The use of the &lt;h1&gt; tag for the journal title helps search engines correctly interpret and index the main title of the page." 
 
 msgid "plugins.generic.disco.seo.keyTerms"
-msgstr "Key terms" 
+msgstr "Key terms in meta tags" 
 
 msgid "plugins.generic.disco.seo.keyTerms.description"
-msgstr "When building your website's text and pages, it's a good idea to research and use key terms that your audience uses to search for your type of content." 
+msgstr "Incorporating terms commonly used by the target audience when searching improves content alignment with user queries and increases search visibility." 
 
 msgid "plugins.generic.disco.seo.noTextInImages"
 msgstr "Avoid text in images" 
 
 msgid "plugins.generic.disco.seo.noTextInImages.description"
-msgstr "Keep relevant text and links in HTML. Encoding your text in graphics or image maps can prevent search engines from finding the text or following links to your website's other pages." 
+msgstr "Relevant text and links presented in HTML format ensure they are visible to search engines, as text embedded in images or image maps may not be indexed properly." 
 
 msgid "plugins.generic.disco.seo.pageLoadingTime"
-msgstr "Improve page loading times" 
+msgstr "Page loading times" 
 
 msgid "plugins.generic.disco.seo.pageLoadingTime.description"
-msgstr "Page speed affects your SEO a lot. Maybe more than anything other than having fantastic content that directly addresses your users' search queries. Over the past few years, Google has adjusted its algorithm to take user experience into account. One of the top factors for a good user experience is having a quick and responsive site." 
+msgstr "Faster page loading times contribute significantly to search engine optimization (SEO) by improving the user experience, a key factor considered in ranking algorithms." 
 
 msgid "plugins.generic.disco.seo.readableURLs"
 msgstr "Readable URLs" 
 
 msgid "plugins.generic.disco.seo.readableURLs.description"
-msgstr "Use URLs that represent the content pages, instead of numeric or otherwise cryptic URLs." 
+msgstr "URLs that reflect the structure and content of the page – rather than numerical or ambiguous formats – are easier for both users and search engines to interpret." 
 
 msgid "plugins.generic.disco.seo.robotsFile"
 msgstr "Robots.txt file" 
 
 msgid "plugins.generic.disco.seo.robotsFile.description"
-msgstr "Create robots.txt file for search engines.<p> <a href="https://developers.google.com/search/docs/crawling-indexing/robots/intro" target="_blank">Introduction to robots.txt file.</a></p>" 
+msgstr "Directs search engine crawlers on how to access and index the website. Create robots.txt file for search engines.<p> <a href="https://developers.google.com/search/docs/crawling-indexing/robots/intro" target="_blank">Introduction to robots.txt file.</a></p>" 
 
 msgid "plugins.generic.disco.seo.robotsMetadata"
 msgstr "Robots Metadata" 
 
 msgid "plugins.generic.disco.seo.robotsMetadata.description"
-msgstr "Use a "Description" meta-tag and write your description accurately and carefully. After the title, the description is the most important draw for users. Make sure the document title and description attract the interest of the user as well as match the content on your site." 
+msgstr "A well-crafted meta description supports visibility in search results and increases the likelihood of user engagement. The description should align with the document title and accurately reflect the content." 
 
 msgid "plugins.generic.disco.seo.seoCompliant"
 msgstr "Check your page SEO compliance" 
@@ -817,13 +810,13 @@ msgid "plugins.generic.disco.seo.submitSitemap"
 msgstr "Submit Your Sitemap to Multiple Search Engines" 
 
 msgid "plugins.generic.disco.seo.submitSitemap.description"
-msgstr "Google and Bing support this feature through Google Search Console and Bing Webmaster Tools.<p><a href="https://www.elegantthemes.com/blog/marketing/google-search-console" target="_blank">Learn more about Google Search Console</a></p><p><a href="https://www.elegantthemes.com/blog/wordpress/how-to-submit-your-xml-sitemap-to-bing-webmaster-tools" target="_blank">Learn more about Bing Webmaster Tools</a></p>" 
+msgstr "Search engines like Google and Bing allow sitemap submission via dedicated tools: <p><a href="https://www.elegantthemes.com/blog/marketing/google-search-console" target="_blank">Learn more about Google Search Console</a></p><p><a href="https://www.elegantthemes.com/blog/wordpress/how-to-submit-your-xml-sitemap-to-bing-webmaster-tools" target="_blank">Learn more about Bing Webmaster Tools</a></p>" 
 
 msgid "plugins.generic.disco.seo.unhideJScontent"
 msgstr "Unhide content that's behind JavaScript" 
 
 msgid "plugins.generic.disco.seo.unhideJScontent.description"
-msgstr "Content that's available only through JavaScript should be presented to non-JavaScript user agents and crawlers with noscript HTML elements." 
+msgstr "Content rendered only through JavaScript should be made accessible to non-JavaScript user agents and crawlers by using <noscript> HTML elements." 
 
 msgid "plugins.generic.disco.results"
 msgstr "Results"
@@ -896,7 +889,7 @@ msgid "plugins.generic.disco.knowledgeBase.base"
 msgstr "BASE"
 
 msgid "plugins.generic.disco.knowledgeBase.base.description"
-msgstr "Indexes the metadata of all kinds of academically relevant resources - journals, institutional repositories, digital collections, etc. - which provide an OAI interface and use OAI-PMH for providing their contents.<p><strong>Joining Process</strong></p><p>Suggest an OAI-PMH via an online form on the BASE website and Automated collection of OAI-PMH repository listed in directories</p>"
+msgstr "BASE indexes the metadata of all types of academically relevant resources—such as journals, institutional repositories, and digital collections—that provide an OAI interface and use the OAI-PMH protocol to share their content."
 
 msgid "plugins.generic.disco.knowledgeBase.base.application"
 msgstr "Become a content provider"
@@ -905,7 +898,7 @@ msgid "plugins.generic.disco.knowledgeBase.ceeol"
 msgstr "CEEOL"
 
 msgid "plugins.generic.disco.knowledgeBase.ceeol.description"
-msgstr "The Central and Eastern European Online Library (CEEOL) is a repository of full text indexed documents in the fields of Humanities and Social Science publications from and about Central and Eastern Europe.<p><strong>Joining Process</strong></p><p>Completion of the online application form and evaluation by the CEEOL's publisher support team.</p>"
+msgstr "The Central and Eastern European Online Library (CEEOL) is a repository of full-text indexed documents covering Humanities and Social Sciences publications from and about Central and Eastern Europe.<p><strong>Joining Process</strong></p><p>Completion of the online application form and evaluation by the CEEOL's publisher support team.</p>"
 
 msgid "plugins.generic.disco.knowledgeBase.ceeol.application"
 msgstr "Suggest for the application"
@@ -914,7 +907,7 @@ msgid "plugins.generic.disco.knowledgeBase.core"
 msgstr "CORE"
 
 msgid "plugins.generic.disco.knowledgeBase.core.description"
-msgstr "CORE (COnnecting REpositories) provides a comprehensive bibliographic database of the world's scholarly literature, collecting and indexing research from repositories and journals. It is also the world's largest collection of full text open access research papers. CORE is a not-for-profit service dedicated to the open access mission and one of the signatories of the Principles of Open Scholarly Infrastructures.<p><strong>Joining Process</strong></p><p>Automatic harvest from a list of aggregators: <a href="https://core.ac.uk/data-providers/?q=&size=10" target="_blank">https://core.ac.uk/data-providers/?q=&size=10</a><br />Possibility to add a new data provider registration by completion of a form: <a target="_blank" href="https://core.ac.uk/benefits#join-core">https://core.ac.uk/benefits#join-core</a></p>"
+msgstr "CORE (COnnecting REpositories) provides a comprehensive bibliographic database of the world's scholarly literature, collecting and indexing research from repositories and journals. It is also the world's largest collection of full text open access research papers. <p><strong>Joining Process</strong></p><p>Automatic harvest from a list of aggregators: <a href="https://core.ac.uk/data-providers/?q=&size=10" target="_blank">https://core.ac.uk/data-providers/?q=&size=10</a><br />Possibility to add a new data provider registration by completion of a form: <a target="_blank" href="https://core.ac.uk/benefits#join-core">https://core.ac.uk/benefits#join-core</a></p>"
 
 msgid "plugins.generic.disco.knowledgeBase.core.application"
 msgstr "Join CORE as a data provider"
@@ -923,7 +916,7 @@ msgid "plugins.generic.disco.knowledgeBase.crossref"
 msgstr "Crossref"
 
 msgid "plugins.generic.disco.knowledgeBase.crossref.description"
-msgstr "Crossref is a membership organization with 19K members from commercial and institutional publishing. Crossref's main service is the linking of citing and cited publications. Participating publishers register Crossref DOIs and submit metadata of their own publications.<p><strong>Joining Process</strong></p><p>Membership is required to be registered by Crossref. Membership is open to either publishers or service providers.<br />Members can then issue Crossref DOIs for their users. DOI generation can vary from one service to another: automated/on-demand generation, for any content/specific content, etc.</p>"
+msgstr "Crossref is a membership organization with 19K members from commercial and institutional publishing. Crossref's main service is the linking of citing and cited publications. Participating publishers register Crossref DOIs and submit metadata of their own publications.<p><strong>Joining Process</strong></p><p>Membership is required to be registered by Crossref. Membership is open to either publishers or service providers.<br />Members can then assign Crossref DOIs to their content. DOI generation methods may vary between services—for example, automated or on-demand, and for all content or specific types only.</p>"
 
 msgid "plugins.generic.disco.knowledgeBase.crossref.application"
 msgstr "Became a member"
@@ -932,7 +925,7 @@ msgid "plugins.generic.disco.knowledgeBase.ebsco"
 msgstr "EBSCO"
 
 msgid "plugins.generic.disco.knowledgeBase.ebsco.description"
-msgstr "EBSCO is a provider of research databases, e-journals, and e-package subscription and acquisition management tools, and a provider of library technology and e-books. It provides its services to universities, colleges, hospitals, corporations, government, and public libraries worldwide. EBSCOHost is a closed service that provides access to full-text and includes EBSCO eBook Collection, EBSCO Academic Collection, and EBSCO eBook Open Access Collection. EBSCO Discovery Service (EDS) is another service providing bibliographic information about publications. EBSCO provides other services, such as AtoZ or Academic Search Ultimate. While operating mostly for institutions like libraries and universities, EBSCO also operates directly with journals and e-books publishers.<p><strong>Joining Process</strong></p><p>Publishers first contact the EBSCO Publishers Operation team to learn about indexing conditions and process at: <a target="_blank" href="https://www.ebsco.com/publishers-partnerships/journal-subscription-services/support">https://www.ebsco.com/publishers-partnerships/journal-subscription-services/support</a>.</p><p>First indexing request through a webform: <a target="_blank" href="https://www.ebsco.com/publishers-partnerships/full-text-licensed-databases-contact-form">https://www.ebsco.com/publishers-partnerships/full-text-licensed-databases-contact-form</a></p>"
+msgstr "EBSCO provides research databases, e-journals, e-books, and library management tools to institutions worldwide. Its services include EBSCOHost (full-text access), EBSCO Discovery Service (bibliographic info), and others like AtoZ. EBSCO works mainly with libraries and universities, as well as directly with publishers. EBSCO provides other services, such as AtoZ or Academic Search Ultimate. While operating mostly for institutions like libraries and universities, EBSCO also operates directly with journals and e-books publishers.<p><strong>Joining Process</strong></p><p>Publishers first contact the EBSCO Publishers Operation team to learn about indexing conditions and process at: <a target="_blank" href="https://www.ebsco.com/publishers-partnerships/journal-subscription-services/support">https://www.ebsco.com/publishers-partnerships/journal-subscription-services/support</a>.</p><p>First indexing request through a webform: <a target="_blank" href="https://www.ebsco.com/publishers-partnerships/full-text-licensed-databases-contact-form">https://www.ebsco.com/publishers-partnerships/full-text-licensed-databases-contact-form</a></p>"
 
 msgid "plugins.generic.disco.knowledgeBase.ebsco.application"
 msgstr "Suggest for application"
@@ -941,7 +934,7 @@ msgid "plugins.generic.disco.knowledgeBase.semanticscholar"
 msgstr "Semantic Scholar"
 
 msgid "plugins.generic.disco.knowledgeBase.semanticscholar.description"
-msgstr "Semantic Scholar provides free, AI-driven search and discovery tools and open resources for the global research community. It indexes over 200 million academic papers sourced from publisher partnerships, data providers, and web crawls. AI features allow for abstract and citation analysis.<p><strong>Joining Process</strong></p><p>Semantic scholar mostly operates with big publishers and repositories.<br />Fully automated indexing process upon a list of academic publishers, data providers, and aggregators.<br />Possibility to submit as an author an article request by following this guide: <a target="_blank" href="https://www.semanticscholar.org/faq/add-papers-author-page">https://www.semanticscholar.org/faq/add-papers-author-page</a></p>"
+msgstr "Semantic Scholar provides free, AI-driven search and discovery tools and open resources for the global research community. It indexes over 200 million academic papers sourced from publisher partnerships, data providers, and web crawls. AI features allow for abstract and citation analysis.<p><strong>Joining Process</strong></p><p>Semantic scholar mostly operates with big publishers and repositories.<br />Fully automated indexing process upon a list of academic publishers, data providers, and aggregators.<br />Authors can submit article requests by following this guide:: <a target="_blank" href="https://www.semanticscholar.org/faq/add-papers-author-page">https://www.semanticscholar.org/faq/add-papers-author-page</a></p>"
 
 msgid "plugins.generic.disco.knowledgeBase.doaj"
 msgstr "DOAJ"
@@ -956,7 +949,7 @@ msgid "plugins.generic.disco.knowledgeBase.erihplus"
 msgstr "ERIH+"
 
 msgid "plugins.generic.disco.knowledgeBase.erihplus.description"
-msgstr "ERIH+ is an online index holding bibliographic information on academic journals in the Social Sciences and Humanities (SSH), with a focus on quality journals across all European languages and countries. ERIH+ supports journals' policies of openness and transparency in line with editorial best practices. Curation ensures that journals' open access status and Plan S compliance are marked. ERIH+ offers an additional index of articles, which is an SSH subset of Dimensions collections, showing only articles having a DOI. Dimensions is a multidisciplinary database that brings together over 140 million publications.<p><strong>Joining Process</strong></p><p>New journals have to be submitted after creation of a user account: <a target="_blank" href="https://kanalregister.hkdir.no/publiseringskanaler/erihplus/login.action">https://kanalregister.hkdir.no/publiseringskanaler/erihplus/login.action</a><br />ERIH+ will not be evaluating journals submitted by publishers, members of the editorial board or others affiliated with a journal.</p>"
+msgstr "ERIH+ is an online index of quality Social Sciences and Humanities journals across Europe, promoting openness and editorial best practices. It marks journals’ open access status and Plan S compliance. ERIH+ also indexes articles with DOIs from the Dimensions database, which covers over 140 million publications.<p><strong>Joining Process</strong></p><p>New journals have to be submitted after creation of a user account: <a target="_blank" href="https://kanalregister.hkdir.no/publiseringskanaler/erihplus/login.action">https://kanalregister.hkdir.no/publiseringskanaler/erihplus/login.action</a><br />ERIH+ will not be evaluating journals submitted by publishers, members of the editorial board or others affiliated with a journal.</p>"
 
 msgid "plugins.generic.disco.knowledgeBase.erihplus.application"
 msgstr "Suggest for application"
@@ -965,7 +958,7 @@ msgid "plugins.generic.disco.knowledgeBase.gotriple"
 msgstr "GoTriple"
 
 msgid "plugins.generic.disco.knowledgeBase.gotriple.description"
-msgstr "GoTriple is a multilingual discovery platform for the social sciences and humanities (SSH). It provides a comprehensive access point for discovering and reusing research artifacts that are relevant to the wide variety of disciplines under the umbrella domain of SSH: publications and research data, project descriptions, authors, and researcher profiles are automatically imported from aggregators and source providers, semantically enriched, and linked in GoTriple.<p><strong>Joining Process</strong></p><p>If the publications are not already stored in GoTriple's data sources, the main option is to register a new data source through the dedicated interface: <a target="_blank" href="https://pipeline.gotriple.eu/user/login?destination=/">https://pipeline.gotriple.eu/user/login?destination=/</a></p>."
+msgstr " It provides an access point for discovering and reusing research artifacts that are relevant to SSH disciplines. <p><strong>Joining Process</strong></p><p>If the publications are not already stored in GoTriple's data sources, the main option is to register a new data source through the dedicated interface: <a target="_blank" href="https://pipeline.gotriple.eu/user/login?destination=/">https://pipeline.gotriple.eu/user/login?destination=/</a></p>."
 
 msgid "plugins.generic.disco.knowledgeBase.gotriple.application"
 msgstr "Become a content provider"
@@ -989,7 +982,7 @@ msgid "plugins.generic.disco.knowledgeBase.openalex"
 msgstr "OpenAlex"
 
 msgid "plugins.generic.disco.knowledgeBase.openalex.description"
-msgstr "Open catalog of scholarly works (journal articles, conference papers, books and book chapters, datasets, and theses), authors, and institutions. It includes connections between these works, finding associations through things like journals, authors, institutional affiliations, citations, concepts, and funders.<p><strong>Joining Process</strong></p><p>OpenAlex automatically indexes new journals and articles. If the publications are not already stored in OpenAlex data sources. OpenAlex primarily retrieves new records from Crossref (<a target="_blank" href="https://www.crossref.org/">https://www.crossref.org/</a>)."
+msgstr "Open catalog of scholarly works (journal articles, conference papers, books and book chapters, datasets, and theses), authors, and institutions. It includes connections between these works, finding associations through things like journals, authors, institutional affiliations, citations, concepts, and funders.<p><strong>Joining Process</strong></p><p>OpenAlex automatically indexes new journals and articles, primarily retrieving records from Crossref, but also from DOAJ and other sources."
 
 msgid "plugins.generic.disco.knowledgeBase.pubmed"
 msgstr "PubMed"
@@ -1004,7 +997,7 @@ msgid "plugins.generic.disco.knowledgeBase.scopus"
 msgstr "Scopus"
 
 msgid "plugins.generic.disco.knowledgeBase.scopus.description"
-msgstr "Abstract and citation database that allows searching papers of peer-reviewed journals in different subject fields: life sciences, social sciences, physical sciences, and health sciences. It covers three types of sources: book series, journals, and trade journals. Scopus also allows patent searches in a dedicated patent database, Lexis-Nexis.<p><strong>Joining Process</strong></p><p>Application form for journal suggestion to the CSAB (Content Selection and Advisory Board): <a target="_blank" href="https://suggestor.step.scopus.com/suggestTitle/step1.cfm">https://suggestor.step.scopus.com/suggestTitle/step1.cfm</a> and compliance with a set of editorial and technical requirements.</p>"
+msgstr "Scopus is an abstract and citation database covering peer-reviewed literature across life sciences, social sciences, physical sciences, and health sciences. It indexes book series, journals, and trade journals, and also enables patent searches via the Lexis-Nexis database.<p><strong>Joining Process</strong></p><p>Application form for journal suggestion to the CSAB (Content Selection and Advisory Board): <a target="_blank" href="https://suggestor.step.scopus.com/suggestTitle/step1.cfm">https://suggestor.step.scopus.com/suggestTitle/step1.cfm</a> and compliance with a set of editorial and technical requirements.</p>"
 
 msgid "plugins.generic.disco.knowledgeBase.scopus.application"
 msgstr "Suggest for application"
@@ -1013,7 +1006,7 @@ msgid "plugins.generic.disco.knowledgeBase.wos"
 msgstr "Web of Science (WoS)"
 
 msgid "plugins.generic.disco.knowledgeBase.wos.description"
-msgstr "The Web of Science (WoS) is a paid-access platform that provides access to multiple databases that provide reference and citation data from academic journals, conference proceedings, and other documents in various academic disciplines.<p><strong>Joining Process</strong></p><p>Acces governed by a 2-step process detailed here: <a target="_blank" href="https://clarivate.com/products/scientific-and-academic-research/research-publishing-solutions/publisher-portal/newusers/">https://clarivate.com/products/scientific-and-academic-research/research-publishing-solutions/publisher-portal/newusers/</a><br /> 1st step: Creation of a user account with your institutional email address: <a target="_blank" href="https://access.clarivate.com/register?app=wpp&referrer=%2Fwpp%2Fhom">https://access.clarivate.com/register?app=wpp&referrer=%2Fwpp%2Fhom</a><br />2nd step: Request access to the publisher portal: <a target="_blank" href="https://support.clarivate.com/ScientificandAcademicResearch/s/publisher-portal-access-request?language=en_US">https://support.clarivate.com/ScientificandAcademicResearch/s/publisher-portal-access-request?language=en_US</a></p>"
+msgstr "The Web of Science (WoS) is a subscription-based platform offering access to databases with reference and citation data from academic journals, conference proceedings, and other scholarly sources across disciplines.<p><strong>Joining Process</strong></p><p>Acces governed by a 2-step process detailed here: <a target="_blank" href="https://clarivate.com/products/scientific-and-academic-research/research-publishing-solutions/publisher-portal/newusers/">https://clarivate.com/products/scientific-and-academic-research/research-publishing-solutions/publisher-portal/newusers/</a><br /> 1st step: Creation of a user account with your institutional email address: <a target="_blank" href="https://access.clarivate.com/register?app=wpp&referrer=%2Fwpp%2Fhom">https://access.clarivate.com/register?app=wpp&referrer=%2Fwpp%2Fhom</a><br />2nd step: Request access to the publisher portal: <a target="_blank" href="https://support.clarivate.com/ScientificandAcademicResearch/s/publisher-portal-access-request?language=en_US">https://support.clarivate.com/ScientificandAcademicResearch/s/publisher-portal-access-request?language=en_US</a></p>"
 
 msgid "plugins.generic.disco.knowledgeBase.wos.application"
 msgstr "Suggest for application"
@@ -1022,7 +1015,7 @@ msgid "plugins.generic.disco.knowledgeBase.google"
 msgstr "Search Engine: Google"
 
 msgid "plugins.generic.disco.knowledgeBase.google.description"
-msgstr "Google uses automated ranking systems that <a href="https://www.google.com/search/howsearchworks/how-search-works/ranking-results/" target="_blank">look at many factors and signals</a> about hundreds of billions of web pages and other content in our Search index to present the most relevant, useful results, all in a fraction of a second. This page is a guide to understanding some of our more notable ranking systems. It covers some systems that are part of our core ranking systems, which are the underlying technologies that produce search results in response to queries. It also covers some systems involved with specific ranking needs."
+msgstr "Google uses automated ranking systems that evaluate a wide range of factors and signals across hundreds of billions of web pages and other content in the Search index to deliver the most relevant and useful results in a fraction of a second. This page explains several key ranking systems, including core systems that drive general search results, as well as systems designed for specific ranking purposes."
 
 msgid "plugins.generic.disco.knowledgeBase.yahoo"
 msgstr "Search Engine: Yahoo! Search"
@@ -1034,13 +1027,13 @@ msgid "plugins.generic.disco.knowledgeBase.bing"
 msgstr "Search Engine: Microsoft Bing"
 
 msgid "plugins.generic.disco.knowledgeBase.bing.description"
-msgstr "Microsoft Bing (also known simply as Bing) is a search engine owned and operated by Microsoft. The service traces its roots back to Microsoft's earlier search engines, including MSN Search, Windows Live Search, and Live Search. Bing offers a broad spectrum of search services, encompassing web, video, image, and map search products, all developed using ASP.NET."
+msgstr "Microsoft Bing (also known simply as Bing) is Microsoft's search engine offering web, image, video, and map search services."
 
 msgid "plugins.generic.disco.knowledgeBase.duckduckgo"
 msgstr "Search Engine: DuckDuckGo"
 
 msgid "plugins.generic.disco.knowledgeBase.duckduckgo.description"
-msgstr "DuckDuckGo stands out from its competitors for many reasons other than its fun name and branding. While they do have fantastic marketing, DuckDuckGo affords you a level of privacy that most other search engines don't, can't, or are unwilling to match. Furthermore, understanding DuckDuckGo Search Engine Optimization (SEO) will enable you to tap into a larger audience. If that sounds like something you'd be interested in, let's talk about what makes DuckDuckGo unique and how you can optimize your website to appear in its search results!"
+msgstr "DuckDuckGo is a privacy-focused search engine that does not track users and offers unbiased search results. Understanding its SEO approach can help improve a website’s visibility to privacy-conscious audiences."
 
 msgid "plugins.generic.disco.knowledgeBase.redalyc"
 msgstr "REDALYC"
@@ -1055,7 +1048,7 @@ msgid "plugins.generic.disco.knowledgeBase.ddh"
 msgstr "Diamond Discovery Hub"
 
 msgid "plugins.generic.disco.knowledgeBase.ddh.description"
-msgstr "The Diamond Discovery Hub (DDH) will be a comprehensive registry of institutionally published and scholar-led Open Access Journals in Europe. It will be implemented as a responsive and WCAG (Web Content Accessibility Guidelines) compliant website with a SEO friendly UI. It will be scalable as well as easy to maintain and extend in the future. The DDH will be a service that provides Diamond journals' data curated by an editorial team."
+msgstr "The Diamond Discovery Hub (DDH) is one of the services of the European Diamond Discovery Hub (EDCH). Its aim is to become a comprehensive registry for institutionally published and scholar-led Open Access journals without author fees in Europe, designed to improve the visibility and discoverability of diamond OA journals."
 
 msgid "plugins.generic.disco.knowledgeBase.ddh.application"
 msgstr "Suggest for application"
@@ -1064,7 +1057,7 @@ msgid "plugins.generic.disco.score"
 msgstr "Score"
 
 msgid "plugins.generic.disco.results.description"
-msgstr "This page is designed to display scores for individual databases that require certain prerequisites for application submission, which are subsequently subject to evaluation. Since the Discoverability Companion tool is a self-assessment tool, it cannot guarantee that a journal will be evaluated by the service. The plugin serves only as an aid and a knowledge base. Below, you will also find additional databases that may not have any evaluation criteria but are still worth being aware of."
+msgstr "This page displays scores for individual databases that require specific prerequisites before journals can apply for inclusion. These prerequisites are then subject to further evaluation. As the Discoverability Companion is a self-assessment tool, it does not guarantee evaluation or indexing by these services – it serves solely as guidance and a knowledge resource. The page also lists additional databases that may not impose formal evaluation criteria but are still valuable to consider."
 
 msgid "plugins.generic.disco.badges"
 msgstr "Badges"
@@ -1073,10 +1066,10 @@ msgid "plugins.generic.disco.badges.description"
 msgstr ""
 
 msgid "plugins.generic.disco.badges.badgesAvailable"
-msgstr "Allow Badges in the footer of the pages."
+msgstr "Allow badges to be shown in the footer of the website."
 
 msgid "plugins.generic.disco.badges.badgesAvailable.description"
-msgstr "The badges will be shown as a part of the footer on the journal's pages"
+msgstr "Badges will appear as part of the footer on all journal pages."
 
 msgid "plugins.generic.disco.about.openToAllAuthors"
 msgstr "<h3>Open to all authors:</h3><p>{$contextTitle} is committed to openness and inclusivity in scholarly publishing without author-facing charges for reading or publishing. We welcome submissions from all authors, regardless of their institutional affiliation, geographical location, or academic status. Submissions only must align with the aims and scope of the journal and meet the required quality standards once the reviewing process is completed.</p>"
