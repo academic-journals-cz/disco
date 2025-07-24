@@ -41,6 +41,9 @@ msgstr "Journal Settings->Masthead->Publishing Details->Online ISSN"
 msgid "plugins.generic.disco.settings.enabled"
 msgstr "Administration->Hosted Journals->[Journal]->Enable"
 
+msgid "plugins.generic.disco.settings.ccLicense"
+msgstr "Distribution Settings->License->License"
+
 msgid "plugins.generic.disco.settings.ccLicence"
 msgstr "Distribution Settings->License->License"
 
@@ -94,7 +97,7 @@ msgid "plugins.generic.disco.disco"
 msgstr "Discoverability companion"
 
 msgid "plugins.generic.disco.description.long"
-msgstr "<p>Editors can use the Discoverability Companion plugin to review key criteria and get an overall picture of their journal’s visibility.</p><p>Requirements from aggregators, indexing databases, and search engines are grouped into several sections. Some criteria are checked automatically, others require a quick manual review using a simple checklist, and some are provided as recommendations.</p><p>Use the plugin to see if your journal could be more visible and find out what steps you can take to improve it.</p>"
+msgstr "<p>Editors can use the Discoverability Companion plugin to review key criteria and get an overall picture of their journal's visibility.</p><p>Requirements from aggregators, indexing databases, and search engines are grouped into several sections. Some criteria are checked automatically, others require a quick manual review using a simple checklist, and some are provided as recommendations.</p><p>Use the plugin to see if your journal could be more visible and find out what steps you can take to improve it.</p>"
 
 
 msgid "plugins.generic.disco.diamond.scholarlyJournal"
@@ -155,7 +158,7 @@ msgid "plugins.generic.disco.diamond.eIssn"
 msgstr "Persistent identification (eISSN)" 
 
 msgid "plugins.generic.disco.diamond.eIssn.description"
-msgstr "<p>The journal must have a registered ISSN that can be verified in the ISSN database (https://portal.issn.org/), and it should be clearly and consistently displayed across all journal platforms (electronic and/or print). If both print and electronic ISSNs exist, both must be provided.</p><p>ERIH PLUS requires a valid ISSN confirmed in the International ISSN Portal. Please note that journals with ISSNs marked as “assigned but not yet confirmed” or with free/unofficial ISSNs will not be processed.</p>"
+msgstr "<p>The journal must have a registered ISSN that can be verified in the ISSN database (https://portal.issn.org/), and it should be clearly and consistently displayed across all journal platforms (electronic and/or print). If both print and electronic ISSNs exist, both must be provided.</p><p>ERIH PLUS requires a valid ISSN confirmed in the International ISSN Portal. Please note that journals with ISSNs marked as 'assigned but not yet confirmed' or with free/unofficial ISSNs will not be processed.</p>"
 
 msgid "plugins.generic.disco.appearance.fullContentAvailable"
 msgstr "Full journal published content available (is the journal available?) - OA" 
@@ -191,7 +194,7 @@ msgid "plugins.generic.disco.journalDescription.aimsAndScopeDescribed"
 msgstr "Page with aims and scope" 
 
 msgid "plugins.generic.disco.journalDescription.aimsAndScopeDescribed.description"
-msgstr "<p>The journal must have a clearly defined scope and statement of purpose that reflect its focus and coherence.</p><p>Published content should align with the journal’s title and stated scope—and, where applicable, with the theme of the special issue in which it appears.</p><p>Who is the journal intended for? Consider your target audience: researchers, practitioners, students, or a specific scholarly community.</p>" 
+msgstr "<p>The journal must have a clearly defined scope and statement of purpose that reflect its focus and coherence.</p><p>Published content should align with the journal's title and stated scope and, where applicable, with the theme of the special issue in which it appears.</p><p>Who is the journal intended for? Consider your target audience: researchers, practitioners, students, or a specific scholarly community.</p>" 
 
 msgid "plugins.generic.disco.journalDescription.authorGuidelinesDescribed"
 msgstr "Guidelines for Authors are well described" 
@@ -209,13 +212,13 @@ msgid "plugins.generic.disco.journalDescription.editorialBoardPage"
 msgstr "Editorial board with affiliation details" 
 
 msgid "plugins.generic.disco.journalDescription.editorialBoardPage.description"
-msgstr "<p>Editorial board members must be identifiable and contactable.</p><p>The names and institutional affiliations—including country or region—of all members of the editorial team (e.g., Editor-in-Chief, Editorial Board Members, Associate Editors, Regional Editors) must be provided. This also applies to Guest Editors of special issues. </p><p>To help verify identity and affiliation, persistent digital identifiers (such as ORCID or ResearcherID) or links to institutional profiles may also be included.</p>" 
+msgstr "<p>Editorial board members must be identifiable and contactable.</p><p>The names and institutional affiliations - including country or region - of all members of the editorial team (e.g., Editor-in-Chief, Editorial Board Members, Associate Editors, Regional Editors) must be provided. This also applies to Guest Editors of special issues. </p><p>To help verify identity and affiliation, persistent digital identifiers (such as ORCID or ResearcherID) or links to institutional profiles may also be included.</p>" 
 
 msgid "plugins.generic.disco.journalDescription.contactDetailsAvailable"
 msgstr "Contact details available" 
 
 msgid "plugins.generic.disco.journalDescription.contactDetailsAvailable.description"
-msgstr "<p>OJS checks whether contact details have been provided. </p><p>Contact information for the journal’s key editorial and production roles must be included, and a publicly accessible email address should be available.</p>" 
+msgstr "<p>OJS checks whether contact details have been provided. </p><p>Contact information for the journal's key editorial and production roles must be included, and a publicly accessible email address should be available.</p>" 
 
 msgid "plugins.generic.disco.journalDescription.editorialBoardPageExists"
 msgstr "Is the editorial board field filled in OJS?" 
@@ -233,10 +236,7 @@ msgid "plugins.generic.disco.journalDescription.peerReviewDescribed"
 msgstr "Peer review process described" 
 
 msgid "plugins.generic.disco.journalDescription.peerReviewDescribed.description"
-msgstr "The journal must provide a readily accessible, clear statement of its commitment to peer review and/or editorial oversight of all published content. Primary research articles must be subject to external peer review. <br />
-Published content must reflect adequate and effective peer review and/or editorial oversight. Signs of deficient peer review include, but are not limited to, articles that demonstrate lack of scholarly rigor or scientific validity, presence of articles outside the scope of the journal or irrelevant citations.<br />
-ERIH PLUS requires an explicit description of the journal's procedures for external/independent peer review. As a minimum, the journal's website must describe how the process ensures that reviewers are independent of the 
-" 
+msgstr "The journal must provide a readily accessible, clear statement of its commitment to peer review and/or editorial oversight of all published content. Primary research articles must be subject to external peer review. <br />Published content must reflect adequate and effective peer review and/or editorial oversight. Signs of deficient peer review include, but are not limited to, articles that demonstrate lack of scholarly rigor or scientific validity, presence of articles outside the scope of the journal or irrelevant citations.<br />ERIH PLUS requires an explicit description of the journal's procedures for external/independent peer review. As a minimum, the journal's website must describe how the process ensures that reviewers are independent of the authors" 
 
 msgid "plugins.generic.disco.journalDescription.publicationEthicsDescribed"
 msgstr "Publication ethics are well described" 
@@ -248,7 +248,7 @@ msgid "plugins.generic.disco.journalDescription.scholarlyArticles"
 msgstr "Original scholarly articles" 
 
 msgid "plugins.generic.disco.journalDescription.scholarlyArticles.description"
-msgstr "<p>The journal should primarily publish original scholarly material.</p><p>The academic level of the research should be suitable for a graduate, post-doctoral, and/or professional research audience.</p><p>Redalyc requirement: In each issue, at least 75% of the contributions must be original research results or other significant, novel contributions relevant to the journal’s specific field. (BCA)</p>" 
+msgstr "<p>The journal should primarily publish original scholarly material.</p><p>The academic level of the research should be suitable for a graduate, post-doctoral, and/or professional research audience.</p><p>Redalyc requirement: In each issue, at least 75% of the contributions must be original research results or other significant, novel contributions relevant to the journal's specific field. (BCA)</p>" 
 
 msgid "plugins.generic.disco.lpGalleys"
 msgstr "Landing Pages / Galleys"
@@ -266,7 +266,7 @@ msgid "plugins.generic.disco.lpGalleys.lpDoi"
 msgstr "The DOI is displayed as a URL" 
 
 msgid "plugins.generic.disco.lpGalleys.lpDoi.description"
-msgstr "This allows readers to easily copy and paste the DOI link when citing the item. (Learn more about Crossref’s <a href="https://www.crossref.org/display-guidelines" target="_blank">DOI display guidelines</a>)" 
+msgstr "This allows readers to easily copy and paste the DOI link when citing the item. (Learn more about Crossref's <a href="https://www.crossref.org/display-guidelines" target="_blank">DOI display guidelines</a>)" 
 
 msgid "plugins.generic.disco.lpGalleys.linkToFulltext"
 msgstr "A way to access the full-text of the content" 
@@ -536,7 +536,7 @@ msgstr "A brief description of the content in plain text. <p>OpenAIRE: <strong>R
 
 
 msgid "plugins.generic.disco.metadataQuality.title.countCheck"
-msgstr "The number of articles with titles filled in, in the journal’s primary localization."
+msgstr "The number of articles with titles filled in, in the journal's primary localization."
 
 msgid "plugins.generic.disco.metadataQuality.authors.countCheck"
 msgstr "The number of articles with at least one affiliated author."
@@ -560,13 +560,13 @@ msgid "plugins.generic.disco.metadataQuality.alternateIdentifier.countCheck"
 msgstr "The number of articles with DOIs connected."
 
 msgid "plugins.generic.disco.metadataQuality.source.countCheck"
-msgstr "The number of articles that have the source field filled in, using the journal’s primary localization."
+msgstr "The number of articles that have the source field filled in, using the journal's primary localization."
 
 msgid "plugins.generic.disco.metadataQuality.licenseCondition.countCheck"
 msgstr "The number of articles with the license type field filled in."
 
 msgid "plugins.generic.disco.metadataQuality.coverage.countCheck"
-msgstr "The number of articles that have coverage information filled in, in the journal’s primary localization."
+msgstr "The number of articles that have coverage information filled in, in the journal's primary localization."
 
 msgid "plugins.generic.disco.metadataQuality.size.countCheck"
 msgstr "The number of articles with pages filled in."
@@ -707,7 +707,7 @@ msgid "plugins.generic.disco.impactRecommendations.citedness"
 msgstr "Citedness of journal articles" 
 
 msgid "plugins.generic.disco.impactRecommendations.citedness.description"
-msgstr "<p>Most selective indices include the highest-impact journals within a given discipline. </p><p>Comparative citation analysis takes into account both the number of citations a journal receives and the sources of those citations. It also considers the stability of citation activity over time, reflecting not only a journal’s influence in a particular year but also the sustainability of that influence.</p>" 
+msgstr "<p>Most selective indices include the highest-impact journals within a given discipline. </p><p>Comparative citation analysis takes into account both the number of citations a journal receives and the sources of those citations. It also considers the stability of citation activity over time, reflecting not only a journal's influence in a particular year but also the sustainability of that influence.</p>" 
 
 msgid "plugins.generic.disco.impactRecommendations.contentSignificance"
 msgstr "Content Significance / Academic contribution to the field" 
@@ -744,13 +744,13 @@ msgid "plugins.generic.disco.seo.covers"
 msgstr "Issues' / Journal's cover" 
 
 msgid "plugins.generic.disco.seo.covers.description"
-msgstr "Support visual discovery by enabling “search by image” functionality in search engines." 
+msgstr "Support visual discovery by enabling 'search by image' functionality in search engines." 
 
 msgid "plugins.generic.disco.seo.crosslinks"
 msgstr "Meaningful cross-links" 
 
 msgid "plugins.generic.disco.seo.crosslinks.description"
-msgstr "Meaningful cross-links between the journal’s website and related websites or content providers enhance user value and contribute to better search engine ranking." 
+msgstr "Meaningful cross-links between the journal's website and related websites or content providers enhance user value and contribute to better search engine ranking." 
 
 msgid "plugins.generic.disco.seo.h1Title"
 msgstr "Journal Title in H1" 
@@ -780,7 +780,7 @@ msgid "plugins.generic.disco.seo.readableURLs"
 msgstr "Readable URLs" 
 
 msgid "plugins.generic.disco.seo.readableURLs.description"
-msgstr "URLs that reflect the structure and content of the page – rather than numerical or ambiguous formats – are easier for both users and search engines to interpret." 
+msgstr "URLs that reflect the structure and content of the page - rather than numerical or ambiguous formats - are easier for both users and search engines to interpret." 
 
 msgid "plugins.generic.disco.seo.robotsFile"
 msgstr "Robots.txt file" 
@@ -816,7 +816,7 @@ msgid "plugins.generic.disco.seo.unhideJScontent"
 msgstr "Unhide content that's behind JavaScript" 
 
 msgid "plugins.generic.disco.seo.unhideJScontent.description"
-msgstr "Content rendered only through JavaScript should be made accessible to non-JavaScript user agents and crawlers by using <noscript> HTML elements." 
+msgstr "Content rendered only through JavaScript should be made accessible to non-JavaScript user agents and crawlers by using &lt;noscript&gt; HTML elements." 
 
 msgid "plugins.generic.disco.results"
 msgstr "Results"
@@ -889,7 +889,7 @@ msgid "plugins.generic.disco.knowledgeBase.base"
 msgstr "BASE"
 
 msgid "plugins.generic.disco.knowledgeBase.base.description"
-msgstr "BASE indexes the metadata of all types of academically relevant resources—such as journals, institutional repositories, and digital collections—that provide an OAI interface and use the OAI-PMH protocol to share their content."
+msgstr "BASE indexes the metadata of all types of academically relevant resources 'such as journals, institutional repositories, and digital collections' that provide an OAI interface and use the OAI-PMH protocol to share their content."
 
 msgid "plugins.generic.disco.knowledgeBase.base.application"
 msgstr "Become a content provider"
@@ -916,7 +916,7 @@ msgid "plugins.generic.disco.knowledgeBase.crossref"
 msgstr "Crossref"
 
 msgid "plugins.generic.disco.knowledgeBase.crossref.description"
-msgstr "Crossref is a membership organization with 19K members from commercial and institutional publishing. Crossref's main service is the linking of citing and cited publications. Participating publishers register Crossref DOIs and submit metadata of their own publications.<p><strong>Joining Process</strong></p><p>Membership is required to be registered by Crossref. Membership is open to either publishers or service providers.<br />Members can then assign Crossref DOIs to their content. DOI generation methods may vary between services—for example, automated or on-demand, and for all content or specific types only.</p>"
+msgstr "Crossref is a membership organization with 19K members from commercial and institutional publishing. Crossref's main service is the linking of citing and cited publications. Participating publishers register Crossref DOIs and submit metadata of their own publications.<p><strong>Joining Process</strong></p><p>Membership is required to be registered by Crossref. Membership is open to either publishers or service providers.<br />Members can then assign Crossref DOIs to their content. DOI generation methods may vary between services - for example, automated or on-demand, and for all content or specific types only.</p>"
 
 msgid "plugins.generic.disco.knowledgeBase.crossref.application"
 msgstr "Became a member"
@@ -949,7 +949,7 @@ msgid "plugins.generic.disco.knowledgeBase.erihplus"
 msgstr "ERIH+"
 
 msgid "plugins.generic.disco.knowledgeBase.erihplus.description"
-msgstr "ERIH+ is an online index of quality Social Sciences and Humanities journals across Europe, promoting openness and editorial best practices. It marks journals’ open access status and Plan S compliance. ERIH+ also indexes articles with DOIs from the Dimensions database, which covers over 140 million publications.<p><strong>Joining Process</strong></p><p>New journals have to be submitted after creation of a user account: <a target="_blank" href="https://kanalregister.hkdir.no/publiseringskanaler/erihplus/login.action">https://kanalregister.hkdir.no/publiseringskanaler/erihplus/login.action</a><br />ERIH+ will not be evaluating journals submitted by publishers, members of the editorial board or others affiliated with a journal.</p>"
+msgstr "ERIH+ is an online index of quality Social Sciences and Humanities journals across Europe, promoting openness and editorial best practices. It marks journals' open access status and Plan S compliance. ERIH+ also indexes articles with DOIs from the Dimensions database, which covers over 140 million publications.<p><strong>Joining Process</strong></p><p>New journals have to be submitted after creation of a user account: <a target="_blank" href="https://kanalregister.hkdir.no/publiseringskanaler/erihplus/login.action">https://kanalregister.hkdir.no/publiseringskanaler/erihplus/login.action</a><br />ERIH+ will not be evaluating journals submitted by publishers, members of the editorial board or others affiliated with a journal.</p>"
 
 msgid "plugins.generic.disco.knowledgeBase.erihplus.application"
 msgstr "Suggest for application"
@@ -1033,7 +1033,7 @@ msgid "plugins.generic.disco.knowledgeBase.duckduckgo"
 msgstr "Search Engine: DuckDuckGo"
 
 msgid "plugins.generic.disco.knowledgeBase.duckduckgo.description"
-msgstr "DuckDuckGo is a privacy-focused search engine that does not track users and offers unbiased search results. Understanding its SEO approach can help improve a website’s visibility to privacy-conscious audiences."
+msgstr "DuckDuckGo is a privacy-focused search engine that does not track users and offers unbiased search results. Understanding its SEO approach can help improve a website's visibility to privacy-conscious audiences."
 
 msgid "plugins.generic.disco.knowledgeBase.redalyc"
 msgstr "REDALYC"
@@ -1057,7 +1057,7 @@ msgid "plugins.generic.disco.score"
 msgstr "Score"
 
 msgid "plugins.generic.disco.results.description"
-msgstr "This page displays scores for individual databases that require specific prerequisites before journals can apply for inclusion. These prerequisites are then subject to further evaluation. As the Discoverability Companion is a self-assessment tool, it does not guarantee evaluation or indexing by these services – it serves solely as guidance and a knowledge resource. The page also lists additional databases that may not impose formal evaluation criteria but are still valuable to consider."
+msgstr "This page displays scores for individual databases that require specific prerequisites before journals can apply for inclusion. These prerequisites are then subject to further evaluation. As the Discoverability Companion is a self-assessment tool, it does not guarantee evaluation or indexing by these services - it serves solely as guidance and a knowledge resource. The page also lists additional databases that may not impose formal evaluation criteria but are still valuable to consider."
 
 msgid "plugins.generic.disco.badges"
 msgstr "Badges"
