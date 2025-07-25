@@ -17,6 +17,15 @@ msgstr "Discoverability companion Plugin"
 msgid "plugins.generic.disco.description"
 msgstr "Check your journal's visibility against the criteria of aggregators, indexing databases, and search engines."
 
+msgid "plugin.generic.disco.page.title"
+msgstr "OJS Discoverability Companion Badges' Description"
+
+msgid "plugin.generic.disco.page.description"
+msgstr "<p>The badges are an integral part of the OJS Discoverability Companion (DISCO plugin).</p><p>The Discoverability Companion (DISCO) is a plugin designed to help academic journal editors improve the visibility and credibility of their journals by guiding them through the technical and editorial criteria required by major indexing databases. It brings together these requirements—often similar but described differently across platforms—into one clear, user-friendly interface. By clarifying terminology and showing overlapping standards, DISCO reduces the complexity of compliance and supports better indexing outcomes.</p><p>An integral feature of the plugin is a set of badges that appear in the website footer. These badges signal to readers and evaluators that the journal meets recognized standards of quality, transparency, and openness.</p>"
+
+msgid "plugin.generic.disco.page.description.footer"
+msgstr "If you’d like to use the DISCO plugin for your journal, you can download it from <a href=\"https://github.com/munipress/disco\" title=\"Github repository Disco Plugin\" target=\"_blank\">GitHub</a> or reach out to your platform manager."
+
 msgid "plugins.generic.disco.less"
 msgstr "Less information"
 
@@ -1102,7 +1111,7 @@ msgid "plugins.generic.disco.badges.diamondJournal"
 msgstr "💎 Diamond Open Access"
 
 msgid "plugins.generic.disco.badges.diamondJournal.description"
-msgstr "The journal charges neither authors nor readers — it is fully funded by alternative means."
+msgstr "To be a Diamond Open Access Journal your journal needs to fullfil 6 <a href=\"https://ddh.diamas.org/docs/diamond-journals/\" target=\"_blank\">Diamond Criterias</a>. "
 
 msgid "plugins.generic.disco.badges.doiUsed"
 msgstr "🔗 DOI Assigned"
@@ -1132,7 +1141,7 @@ msgid "plugins.generic.disco.badges.plagiarismCheckImplemented"
 msgstr "🔍 Plagiarism Check Implemented"
 
 msgid "plugins.generic.disco.badges.plagiarismCheckImplemented.description"
-msgstr "The journal uses tools to detect plagiarism and ensure the originality of published articles."
+msgstr "The journal uses tools to detect plagiarism and ensures the originality of published articles."
 
 msgid "plugins.generic.disco.badges.regularPeriodicity"
 msgstr "📅 Regular Publication Schedule"
