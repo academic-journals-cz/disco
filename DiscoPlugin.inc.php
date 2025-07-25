@@ -139,6 +139,8 @@ class DiscoPlugin extends GenericPlugin {
             // Register the components this plugin implements to
             // permit administration of disco.
             HookRegistry::register('LoadComponentHandler', array($this, 'setupHandler'));
+            
+            HookRegistry::register('LoadHandler', array($this, 'callbackHandleContent'));
         }
         return true;
     }
@@ -294,16 +296,16 @@ class DiscoPlugin extends GenericPlugin {
 
     function assignBadges() {
         $templateMgr = TemplateManager::getManager();
-        $badges = array("badgesAvailableContent" => $this->getTemplateResource('badges/availableContent.svg')
-            , "badgesCommunityOwned" => $this->getTemplateResource('badges/communityOwned.svg')
-            , "badgesDiamondJournal" => $this->getTemplateResource('badges/diamondJournal.svg')
-            , "badgesDoiUsed" => $this->getTemplateResource('badges/doiUsed.svg')
-            , "badgesGeographicalDiversity" => $this->getTemplateResource('badges/geographicalDiversity.svg')
-            , "badgesNoApc" => $this->getTemplateResource('badges/noApc.svg')
-            , "badgesOpenToAllAuthors" => $this->getTemplateResource('badges/openToAllAuthors.svg')
-            , "badgesPlagiarismCheckImplemented" => $this->getTemplateResource('badges/plagiarismCheckImplemented.svg')
-            , "badgesRegularPeriodicity" => $this->getTemplateResource('badges/regularPeriodicity.svg')
-            , "badgesScholarlyJournal" => $this->getTemplateResource('badges/scholarlyJournal.svg'));
+       $badges = array("availableContent" => $this->getTemplateResource('badges/availableContent.svg')
+            , "communityOwned" => $this->getTemplateResource('badges/communityOwned.svg')
+            , "diamondJournal" => $this->getTemplateResource('badges/diamondJournal.svg')
+            , "doiUsed" => $this->getTemplateResource('badges/doiUsed.svg')
+            , "geographicalDiversity" => $this->getTemplateResource('badges/geographicalDiversity.svg')
+            , "noApc" => $this->getTemplateResource('badges/noApc.svg')
+            , "openToAllAuthors" => $this->getTemplateResource('badges/openToAllAuthors.svg')
+            , "plagiarismCheckImplemented" => $this->getTemplateResource('badges/plagiarismCheckImplemented.svg')
+            , "regularPeriodicity" => $this->getTemplateResource('badges/regularPeriodicity.svg')
+            , "scholarlyJournal" => $this->getTemplateResource('badges/scholarlyJournal.svg'));
 
         $templateMgr->assign("badges", $badges);
         return true;
@@ -317,54 +319,55 @@ class DiscoPlugin extends GenericPlugin {
             $variables = $this->getVariables($disco);
         }
 
-        $badgesAvailability["badgesAvailableContent"] = false;
-        $badgesAvailability["badgesCommunityOwned"] = false;
-        $badgesAvailability["badgesDiamondJournal"] = false;
-        $badgesAvailability["badgesDoiUsed"] = false;
-        $badgesAvailability["badgesGeographicalDiversity"] = false;
-        $badgesAvailability["badgesNoApc"] = false;
-        $badgesAvailability["badgesOpenToAllAuthors"] = false;
-        $badgesAvailability["badgesPlagiarismCheckImplemented"] = false;
-        $badgesAvailability["badgesRegularPeriodicity"] = false;
-        $badgesAvailability["badgesScholarlyJournal"] = false;
+         $badgesAvailability["availableContent"] = false;
+        $badgesAvailability["communityOwned"] = false;
+        $badgesAvailability["diamondJournal"] = false;
+        $badgesAvailability["doiUsed"] = false;
+        $badgesAvailability["geographicalDiversity"] = false;
+        $badgesAvailability["noApc"] = false;
+        $badgesAvailability["openToAllAuthors"] = false;
+        $badgesAvailability["plagiarismCheckImplemented"] = false;
+        $badgesAvailability["regularPeriodicity"] = false;
+        $badgesAvailability["scholarlyJournal"] = false;
 
         if ($variables["fullContentAvailable"] && $automaticChecks["appearance"]["fullContentAvailable"]) {
-            $badgesAvailability["badgesAvailableContent"] = true;
+            $badgesAvailability["availableContent"] = true;
         }
 
         if ($variables["ownershipScience"]) {
-            $badgesAvailability["badgesCommunityOwned"] = true;
+            $badgesAvailability["communityOwned"] = true;
         }
 
         if ($variables['eIssn'] && $variables['scholarlyJournal'] && $variables['openLicence'] && $variables['noCharges'] && $variables['openAuthorship'] && $variables['ownershipScience']) {
-            $badgesAvailability["badgesDiamondJournal"] = true;
+            $badgesAvailability["diamondJournal"] = true;
         }
 
         if ($variables["usingDOIs"] && $automaticChecks["metadataRequirements"]["usingDOIs"]) {
-            $badgesAvailability["badgesDoiUsed"] = true;
+            $badgesAvailability["doiUsed"] = true;
         }
 
-        $badgesAvailability["badgesGeographicalDiversity"] = false;
+        $badgesAvailability["geographicalDiversity"] = false;
 
         if ($variables["noApc"] || $variables["noCharges"]) {
-            $badgesAvailability["badgesNoApc"] = true;
+            $badgesAvailability["noApc"] = true;
         }
 
         if ($variables["openAuthorship"]) {
-            $badgesAvailability["badgesOpenToAllAuthors"] = true;
+            $badgesAvailability["openToAllAuthors"] = true;
         }
 
         if ($automaticChecks["generalRecommendations"]["plagiarismCheck"]) {
-            $badgesAvailability["badgesPlagiarismCheckImplemented"] = true;
+            $badgesAvailability["plagiarismCheckImplemented"] = true;
         }
 
         if ($variables["scholarlyJournal"]) {
-            $badgesAvailability["badgesScholarlyJournal"] = true;
+            $badgesAvailability["scholarlyJournal"] = true;
         }
 
         if ($variables["periodicity"]) {
-            $badgesAvailability["badgesRegularPeriodicity"] = true;
+            $badgesAvailability["regularPeriodicity"] = true;
         }
+
 
         return $badgesAvailability;
     }
@@ -918,4 +921,34 @@ class DiscoPlugin extends GenericPlugin {
         return $variables;
     }
 
+    /**
+     * Declare the handler function to process the actual page 
+     * @param $hookName string The name of the invoked hook
+     * @param $args array Hook parameters
+     * @return boolean Hook handling status
+     */
+    function callbackHandleContent($hookName, $args) {
+        $request = Application::get()->getRequest();
+        $templateMgr = TemplateManager::getManager($request);
+        $page = & $args[0];
+        $op = & $args[1];
+
+        if ($page == 'disco') {
+            // Construct a path to look for
+            $path = $page;
+            if ($op !== 'index')
+                $path .= "/$op";
+            if ($ops = $request->getRequestedArgs())
+                $path .= '/' . implode('/', $ops);
+
+            
+            // It is -- attach the Disco Page handler.
+            define('HANDLER_CLASS', 'DiscoPageHandler');
+            $this->import('DiscoPageHandler');
+            DiscoPageHandler::setPlugin($this);
+            
+            return true;
+        }
+        return false;
+    }
 }

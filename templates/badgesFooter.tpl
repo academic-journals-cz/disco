@@ -11,7 +11,7 @@
     <div class="pkp_structure_footer">
         {foreach $badgesAvailability key="badge" item="availability"}
             <span {if !$availability}style="opacity: 0.2;"{/if}>
-            {include file={$badges.$badge}}
+                <a href="{url page="disco"}">{include file={$badges.$badge}}</a>
             </span>
         {/foreach}       
     </div>
