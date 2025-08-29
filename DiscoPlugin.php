@@ -153,8 +153,6 @@ class DiscoPlugin extends GenericPlugin {
             Hook::add('TemplateManager::display', array($this, 'addDiscoStylesFrontend'));
 
             Hook::add('Templates::Common::Footer::PageFooter', array($this, 'callbackTemplateCommonPageFooter'));
-            
-            Hook::add('TemplateManager::display', array($this, 'addDiamondTexts'));
 
             // Register the components this plugin implements to
             // permit administration of disco.
@@ -181,55 +179,7 @@ class DiscoPlugin extends GenericPlugin {
         }
         return false;
     }
-
-    public function addDiamondTexts($hookName, $args) {
-        $templateMgr = $args[0];
-        $template = $args[1];
-
-        $request = Application::get()->getRequest();
-        $context = $request->getContext();
-        $contextId = $context->getId();
-
-        // Get the disco settings
-        $discoDao = DAORegistry::getDAO('DiscoDAO');
-        $discoIterator = $discoDao->getByContextId($contextId);
-        $disco = $discoIterator->next();
-        
-        if ($template !== "frontend/pages/about.tpl") return false;
-
-        // Get "about" page content
-        $currentContext = $templateMgr->getTemplateVars('currentContext');
-        $currentLocale = Locale::getLocale();
-        
-        if ($currentContext) {
-            $aboutText = $currentContext->getLocalizedSetting('about');
-
-            // Add own text to about context part
-            
-            if ((bool) $disco->getOpenAuthorship()){
-                $aboutText .= __('plugins.generic.disco.about.openToAllAuthors', array('contextTitle' => $currentContext->getLocalizedData('name')));
-            }           
-            if ((bool) $disco->getOwnershipScience()){
-                if($disco->getOrganisationType()=="nonprofit"){
-                    $organisationType = __('plugins.generic.disco.diamond.organisationType.nonProfit');
-                } else {
-                    $organisationType = __('plugins.generic.disco.diamond.organisationType.public');
-                }
-                $aboutText .= __('plugins.generic.disco.about.communityOwned', array('contextTitle' => $currentContext->getLocalizedData('name'), 'publisherInstitution' => $currentContext->getData('publisherInstitution'), 'organisationType' => $organisationType));
-            }
-            // Content update inside object
-            $currentContext->setData('about', $aboutText, $currentLocale);
-        }
-
-        // Assign whole updated object to template
-        $templateMgr->assign(array(
-            'currentContext' => $currentContext,            
-        ));
-
-        return false;
-    }
-
-    
+   
     /**
      * Extend the website settings tabs to include static pages
      * @param $hookName string The name of the invoked hook
@@ -938,7 +888,6 @@ class DiscoPlugin extends GenericPlugin {
         $variables['journalPublisherNameAvailable'] = (bool) $disco->getJournalPublisherNameAvailable();
         $variables['badgesAvailable'] = (bool) $disco->getBadgesAvailable();
         
-        $variables['organisationType'] = $disco->getOrganisationType();
         return $variables;
     }
     
