@@ -137,13 +137,13 @@ msgid "plugins.generic.disco.diamond.openAuthorship"
 msgstr "Open to all authors" 
 
 msgid "plugins.generic.disco.diamond.openAuthorship.description"
-msgstr "<p>Authorship in the journal should not be limited to any type of affiliation. Any author can submit an article that is in line with the aims and scope of the journal.</p><p>After checking the checkbox and saving, a self-declaration text defined by Dimond Discovery Hub regarding openness to all authors will appear at the end of the \"About journal\" section.</p>" 
+msgstr "<p>Authorship in the journal should not be limited to any type of affiliation. Any author can submit an article that is in line with the aims and scope of the journal.</p>" 
 
 msgid "plugins.generic.disco.diamond.ownershipScience"
 msgstr "Community-owned" 
 
 msgid "plugins.generic.disco.diamond.ownershipScience.description"
-msgstr "<p>The journal title must be owned by public or not-for-profit organisations (or parts there of) whose mission includes performing or promoting research and scholarship. These include but are not limited to research performing organisations (RPOs), research funding organisations (RFOs), organisations connected to RPOs (university libraries, university presses, faculties, and departments), research institutes, and scholarly societies. The journal should explain its ownership status on its webpage.</p><p>After checking the checkbox and saving, a self-declaration text about ownership  defined by Dimond Discovery Hub  will appear at the end of the \"About journal\" section.</p>" 
+msgstr "<p>The journal title must be owned by public or not-for-profit organisations (or parts there of) whose mission includes performing or promoting research and scholarship. These include but are not limited to research performing organisations (RPOs), research funding organisations (RFOs), organisations connected to RPOs (university libraries, university presses, faculties, and departments), research institutes, and scholarly societies. The journal should explain its ownership status on its webpage.</p>" 
 
 msgid "plugins.generic.disco.appearance"
 msgstr "Appearance"
@@ -1085,15 +1085,6 @@ msgstr "<h3>Open to all authors:</h3><p>{$contextTitle} is committed to openness
 
 msgid "plugins.generic.disco.about.communityOwned"
 msgstr "<h3>Community-owned:</h3><p>{$contextTitle} is owned by {$publisherInstitution}, a {$organisationType} institution/organisation dedicated to advancing research and scholarship. The journal’s ownership and governance structure reflect its mission to support open and accessible academic publishing. We confirm that any commercial service providers involved in our operations only deal with service-related aspects of journal publishing. All content-related aspects of publishing, such as submission, peer review, acceptance, publication frequency, and scope of the journal, are controlled by the editors / the owners of the journal.</p>"
-
-msgid "plugins.generic.disco.diamond.organisationType"
-msgstr "Choose the type of your institution/organisation:"
-
-msgid "plugins.generic.disco.diamond.organisationType.public"
-msgstr "public"
-
-msgid "plugins.generic.disco.diamond.organisationType.nonProfit"
-msgstr "not-for-profit"
 
 msgid "plugins.generic.disco.badges.availableContent"
 msgstr "📖 Content Freely Available"

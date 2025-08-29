@@ -35,19 +35,6 @@
     {fbvElement type="checkbox" name="autoCheck_{$autoCheckRequirement}" id="autoCheck_{$autoCheckRequirement}" checked={$autoCheck} label="plugins.generic.disco.{$autoCheckRequirement}.autocheck" disabled=true}
     {/foreach}
 {/if}
-
-{if $requirement == "ownershipScience"}
-    {translate key="plugins.generic.disco.diamond.organisationType"}
-    {if $variables['organisationType'] == "nonprofit"}
-        {assign var=elementPublicChecked value=false}
-        {assign var=elementNonProfitChecked value=true}
-    {else}
-        {assign var=elementPublicChecked value=true}
-        {assign var=elementNonProfitChecked value=false}
-    {/if}
-    {fbvElement type="radio" name="organisationType" id="organisationTypePublic" value="public" checked=$elementPublicChecked label="plugins.generic.disco.diamond.organisationType.public"}
-     {fbvElement type="radio" name="organisationType" id="organisationTypePublic" value="nonprofit" checked=$elementNonProfitChecked label="plugins.generic.disco.diamond.organisationType.nonProfit"}
-{/if}
 {if array_key_exists($requirement, $metadataQuality) && $metadataQuality[$requirement] >= 0}
     <span class ="metadataQuality" íd="metadataQuality_{$requirement}">[{$metadataQuality.$requirement} / {$metadataQuality["publishedSubmissionsCount"]}] <em>{translate key="plugins.generic.disco.{$category}.{$requirement}.countCheck"}</em></span>
 {/if}
