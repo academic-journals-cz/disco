@@ -49,7 +49,7 @@ define('SERVICE_GS', '<a href="https://github.com/operas-eu/craft-oa-ScholIndexe
 define('SERVICE_OPENAIRE', '<a href="https://github.com/operas-eu/craft-oa-ScholIndexes-doc/blob/main/CRAFTOA-doc-OpenAIRE.md" target="_blank">OpenAIRE Graph</a>');
 define('SERVICE_OPENALEX', '<a href="https://github.com/operas-eu/craft-oa-ScholIndexes-doc/blob/main/CRAFTOA-doc-OpenAlex.md" target="_blank">OpenAlex</a>');
 define('SERVICE_PUBMED', '<a href="https://github.com/operas-eu/craft-oa-ScholIndexes-doc/blob/main/CRAFTOA-doc-PubMed.md" target="_blank">PubMed</a>');
-define('SERVICE_REDALYC', '<a href="https://www.redalyc.org/postulacion.oa?q=criterios" target="_blank">REDALYC</a>');
+define('SERVICE_REDALYC', '<a href="https://github.com/operas-eu/craft-oa-ScholIndexes-doc/blob/main/CRAFT-OA-doc-Redalyc.md" target="_blank">REDALYC</a>');
 define('SERVICE_SEMANTIC_SCHOLAR', '<a href="https://github.com/operas-eu/craft-oa-ScholIndexes-doc/blob/main/CRAFT-OA-doc-Semantic-Scholar.md" target="_blank">Semantic Scholar</a>');
 define('SERVICE_SCOPUS', '<a href="https://github.com/operas-eu/craft-oa-ScholIndexes-doc/blob/main/CRAFTOA-doc-Scopus.md" target="_blank">Scopus</a>');
 define('SERVICE_WOS_ESCI', '<a href="https://github.com/operas-eu/craft-oa-ScholIndexes-doc/blob/main/CRAFTOA-doc-WOS.md" target="_blank">Web of Science (ESCI)</a>');
