@@ -570,7 +570,6 @@ class DiscoPlugin extends GenericPlugin {
             "fullContentAvailable" => array(SERVICE_WOS_ESCI),
             "functionalWebsite" => array(SERVICE_WOS_ESCI),
             "journalUrl" => array(SERVICE_WOS_ESCI, SERVICE_DOAJ, SERVICE_PUBMED),
-            "eIssn" => array(SERVICE_WOS_ESCI, SERVICE_SCOPUS, SERVICE_ERIHPLUS, SERVICE_REDALYC, SERVICE_DOAJ),
             "qualityEnHomepage" => array(SERVICE_SCOPUS),
         );
 
