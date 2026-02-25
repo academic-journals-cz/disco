@@ -31,7 +31,7 @@ define('SERVICE_OPENAIRE', '<a href="https://github.com/operas-eu/GuideScholarly
 define('SERVICE_OPENALEX', '<a href="https://github.com/operas-eu/GuideScholarlyIndexes/blob/main/GuideScholarlyIndexes-OpenAlex.md" target="_blank">OpenAlex</a>');
 define('SERVICE_PUBMED', '<a href="https://github.com/operas-eu/GuideScholarlyIndexes/blob/main/GuideScholarlyIndexes-PubMed.md" target="_blank">PubMed</a>');
 define('SERVICE_REDALYC', '<a href="https://github.com/operas-eu/GuideScholarlyIndexes/blob/main/GuideScholarlyIndexes-Redalyc.md" target="_blank">REDALYC</a>');
-define('SERVICE_SEMANTIC_SCHOLAR', '<a https://github.com/operas-eu/GuideScholarlyIndexes/blob/main/GuideScholarlyIndexes-Semantic_Scholar.md" target="_blank">Semantic Scholar</a>');
+define('SERVICE_SEMANTIC_SCHOLAR', '<a href="https://github.com/operas-eu/GuideScholarlyIndexes/blob/main/GuideScholarlyIndexes-Semantic_Scholar.md" target="_blank">Semantic Scholar</a>');
 define('SERVICE_SCOPUS', '<a href="https://github.com/operas-eu/GuideScholarlyIndexes/blob/main/GuideScholarlyIndexes-Scopus.md" target="_blank">Scopus</a>');
 define('SERVICE_WOS_ESCI', '<a href="https://github.com/operas-eu/GuideScholarlyIndexes/blob/main/GuideScholarlyIndexes-WebOfScience.md" target="_blank">Web of Science (ESCI)</a>');
 define('SERVICE_WOS', '<a href="https://github.com/operas-eu/GuideScholarlyIndexes/blob/main/GuideScholarlyIndexes-WebOfScience.md" target="_blank">Web of Science</a>');
