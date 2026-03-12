@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `disco_plugin` (
   `disco_id` bigint NOT NULL AUTO_INCREMENT,
   `context_id` bigint NOT NULL,
   PRIMARY KEY (`disco_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- disco_plugin_settings
 CREATE TABLE IF NOT EXISTS `disco_plugin_settings` (
@@ -23,5 +23,5 @@ CREATE TABLE IF NOT EXISTS `disco_plugin_settings` (
   `setting_type` varchar(6) NOT NULL COMMENT '(bool|int|float|string|object)',
   UNIQUE KEY `disco_plugin_settings_f_l_s_pkey` (`disco_id`,`locale`,`setting_name`),
   KEY `disco_plugin_settings_id` (`disco_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

@@ -33,7 +33,7 @@ class DiscoPageHandler extends \APP\handler\Handler {
      * @param $args array
      * @param $request Request
      */
-    function index($args, $request) {
+    public function index($args, $request) {
         $path = array_shift($args);
                                                             
         // Assign the template vars needed and display

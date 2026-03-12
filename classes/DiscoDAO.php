@@ -27,7 +27,7 @@ class DiscoDAO extends \PKP\db\DAO {
 	 * @param $discoId int Disco ID
 	 * @param $contextId int (optional) Context ID
 	 */
-	function getById($discoId, $contextId = null) {
+	public function getById($discoId, $contextId = null) {
 		$params = [(int) $discoId];
 		if ($contextId) $params[] = (int) $contextId;
 
@@ -47,7 +47,7 @@ class DiscoDAO extends \PKP\db\DAO {
 	 * @param $rangeInfo Object optional
 	 * @return DAOResultFactory
 	 */
-	function getByContextId($contextId) {
+	public function getByContextId($contextId) {
                 $params = [(int) $contextId];
 		$result = $this->retrieve(
 			'SELECT * FROM disco_plugin WHERE context_id = ?',
@@ -62,7 +62,7 @@ class DiscoDAO extends \PKP\db\DAO {
 	 * @param $disco disco
 	 * @return int Inserted disco ID
 	 */
-	function insertObject($disco) {
+	public function insertObject($disco) {
 		$this->update(
 			'INSERT INTO disco_plugin (context_id) VALUES (?)',
 			array(
@@ -79,7 +79,7 @@ class DiscoDAO extends \PKP\db\DAO {
 	 * Update the database with a disco object
 	 * @param $disco Disco
 	 */
-	function updateObject($disco) {
+	public function updateObject($disco) {
 		$this->update(
 			'UPDATE	disco_plugin
 			SET	context_id = ?
@@ -96,7 +96,7 @@ class DiscoDAO extends \PKP\db\DAO {
 	 * Delete a disco by ID.
 	 * @param $discoId int
 	 */
-	function deleteById($discoId) {
+	public function deleteById($discoId) {
 		$this->update(
 			'DELETE FROM disco_plugin WHERE disco_id = ?',
 			[(int) $discoId]
@@ -112,7 +112,7 @@ class DiscoDAO extends \PKP\db\DAO {
 	 * Delete a disco object.
 	 * @param $disco Disco
 	 */
-	function deleteObject($disco) {
+	public function deleteObject($disco) {
 		$this->deleteById($disco->getId());
 	}
 
@@ -120,7 +120,7 @@ class DiscoDAO extends \PKP\db\DAO {
 	 * Generate a new disco object.
 	 * @return Disco
 	 */
-	function newDataObject() {
+	public function newDataObject() {
 		return new Disco();
 	}
         
@@ -128,7 +128,7 @@ class DiscoDAO extends \PKP\db\DAO {
 	 * Return a new disco object from a given row.
 	 * @return disco
 	 */
-	function _fromRow($row) {
+	public function _fromRow($row) {
 		$disco = $this->newDataObject();
 		$disco->setId($row['disco_id']);
 		$disco->setContextId($row['context_id']);
@@ -143,15 +143,15 @@ class DiscoDAO extends \PKP\db\DAO {
 	 * Get the additional field names.
 	 * @return array
 	 */
-	function getAdditionalFieldNames() {
-		return array('scholarlyJournal', 'noCharges', 'openAuthorship', 'ownershipScience', 'openLicence', 'fullContentAvailable', 'functionalWebsite', 'journalUrl', 'qualityEnHomepage', 'aimsAndScopeDescribed', 'authorGuidelinesDescribed', 'bibliographicInformation', 'editorialBoardPage', 'contactDetailsAvailable', 'peerReviewDescribed', 'publicationEthicsDescribed', 'scholarlyArticles', 'fullBio', 'linkToFulltext', 'lpDoi', 'references', 'uniqueUrlArticles', 'authorsAffiliations', 'titlesAbstractsInEnglish', 'markingReferences', 'noAPC', 'apcDescribed', 'oaPolicyDescribed', 'copyrightTerms', 'periodicity', 'publishingHistory', 'timeliness', 'eIssn', 'journalTitle', 'machineReadableMetadataFormat', 'oaiPMHEnabled', 'usingDOIs', 'metadataFormatOpenAIRE', 'noRegistrationNeed', 'noEmbargoPeriod', 'journalPublisherNameAvailable', 'badgesAvailable','organisationType');
+	public function getAdditionalFieldNames(): array {
+		return ['scholarlyJournal', 'noCharges', 'openAuthorship', 'ownershipScience', 'openLicence', 'fullContentAvailable', 'public functionalWebsite', 'journalUrl', 'qualityEnHomepage', 'aimsAndScopeDescribed', 'authorGuidelinesDescribed', 'bibliographicInformation', 'editorialBoardPage', 'contactDetailsAvailable', 'peerReviewDescribed', 'publicationEthicsDescribed', 'scholarlyArticles', 'fullBio', 'linkToFulltext', 'lpDoi', 'references', 'uniqueUrlArticles', 'authorsAffiliations', 'titlesAbstractsInEnglish', 'markingReferences', 'noAPC', 'apcDescribed', 'oaPolicyDescribed', 'copyrightTerms', 'periodicity', 'publishingHistory', 'timeliness', 'eIssn', 'journalTitle', 'machineReadableMetadataFormat', 'oaiPMHEnabled', 'usingDOIs', 'metadataFormatOpenAIRE', 'noRegistrationNeed', 'noEmbargoPeriod', 'journalPublisherNameAvailable', 'badgesAvailable','organisationType'];
 	}
 
 	/**
 	 * Update the settings for this object
 	 * @param $disco object
 	 */
-	function updateLocaleFields($disco) {
+	public function updateLocaleFields($disco) {
 		$this->updateDataObjectSettings('disco_plugin_settings', $disco, array('disco_id' => (int) $disco->getId()));
 	}
 }

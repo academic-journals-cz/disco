@@ -22,7 +22,7 @@ class Disco extends \PKP\core\DataObject {
      * Get context ID
      * @return string
      */
-    function getContextId() {
+    public function getContextId() {
         return $this->getData('contextId');
     }
 
@@ -30,7 +30,7 @@ class Disco extends \PKP\core\DataObject {
      * Set context ID
      * @param $contextId int
      */
-    function setContextId($contextId) {
+    public function setContextId($contextId) {
         return $this->setData('contextId', $contextId);
     }
 
@@ -38,7 +38,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getScholarlyJournal() {
+    public function getScholarlyJournal() {
         return $this->getData('scholarlyJournal');
     }
 
@@ -46,7 +46,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $scholarlyJournal boolean
      */
-    function setScholarlyJournal($scholarlyJournal) {
+    public function setScholarlyJournal($scholarlyJournal) {
         return $this->setData('scholarlyJournal', $scholarlyJournal);
     }
 
@@ -54,7 +54,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getOpenLicence() {
+    public function getOpenLicence() {
         return $this->getData('openLicence');
     }
 
@@ -62,7 +62,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $openLicence boolean
      */
-    function setOpenLicence($openLicence) {
+    public function setOpenLicence($openLicence) {
         return $this->setData('openLicence', $openLicence);
     }
 
@@ -70,7 +70,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getNoCharges() {
+    public function getNoCharges() {
         return $this->getData('noCharges');
     }
 
@@ -78,7 +78,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $noCharges boolean
      */
-    function setNoCharges($noCharges) {
+    public function setNoCharges($noCharges) {
         return $this->setData('noCharges', $noCharges);
     }
 
@@ -86,7 +86,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getOpenAuthorship() {
+    public function getOpenAuthorship() {
         return $this->getData('openAuthorship');
     }
 
@@ -94,7 +94,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $openAuthorship boolean
      */
-    function setOpenAuthorship($openAuthorship) {
+    public function setOpenAuthorship($openAuthorship) {
         return $this->setData('openAuthorship', $openAuthorship);
     }
 
@@ -102,7 +102,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getOwnershipScience() {
+    public function getOwnershipScience() {
         return $this->getData('ownershipScience');
     }
 
@@ -110,7 +110,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $ownershipScience boolean
      */
-    function setOwnershipScience($ownershipScience) {
+    public function setOwnershipScience($ownershipScience) {
         return $this->setData('ownershipScience', $ownershipScience);
     }
 
@@ -118,15 +118,15 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getFunctionalWebsite() {
-        return $this->getData('functionalWebsite');
+    public function getFunctionalWebsite() {
+        return $this->getData('public functionalWebsite');
     }
 
     /**
      * Set name.
-     * @param $functionalWebsite boolean
+     * @param $public functionalWebsite boolean
      */
-    function setFunctionalWebsite($functionalWebsite) {
+    public function setFunctionalWebsite($functionalWebsite) {
         return $this->setData('functionalWebsite', $functionalWebsite);
     }
 
@@ -134,7 +134,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getJournalUrl() {
+    public function getJournalUrl() {
         return $this->getData('journalUrl');
     }
 
@@ -142,7 +142,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $journalUrl boolean
      */
-    function setJournalUrl($journalUrl) {
+    public function setJournalUrl($journalUrl) {
         return $this->setData('journalUrl', $journalUrl);
     }
 
@@ -150,7 +150,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getQualityEnHomepage() {
+    public function getQualityEnHomepage() {
         return $this->getData('qualityEnHomepage');
     }
 
@@ -158,7 +158,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $qualityEnHomepage boolean
      */
-    function setQualityEnHomepage($qualityEnHomepage) {
+    public function setQualityEnHomepage($qualityEnHomepage) {
         return $this->setData('qualityEnHomepage', $qualityEnHomepage);
     }
 
@@ -166,7 +166,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getAimsAndScopeDescribed() {
+    public function getAimsAndScopeDescribed() {
         return $this->getData('aimsAndScopeDescribed');
     }
 
@@ -174,7 +174,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $aimsAndScopeDescribed boolean
      */
-    function setAimsAndScopeDescribed($aimsAndScopeDescribed) {
+    public function setAimsAndScopeDescribed($aimsAndScopeDescribed) {
         return $this->setData('aimsAndScopeDescribed', $aimsAndScopeDescribed);
     }
 
@@ -182,7 +182,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getAuthorGuidelinesDescribed() {
+    public function getAuthorGuidelinesDescribed() {
         return $this->getData('authorGuidelinesDescribed');
     }
 
@@ -190,7 +190,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $authorGuidelinesDescribed boolean
      */
-    function setAuthorGuidelinesDescribed($authorGuidelinesDescribed) {
+    public function setAuthorGuidelinesDescribed($authorGuidelinesDescribed) {
         return $this->setData('authorGuidelinesDescribed', $authorGuidelinesDescribed);
     }
 
@@ -198,7 +198,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getBibliographicInformation() {
+    public function getBibliographicInformation() {
         return $this->getData('bibliographicInformation');
     }
 
@@ -206,7 +206,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $bibliographicInformation boolean
      */
-    function setBibliographicInformation($bibliographicInformation) {
+    public function setBibliographicInformation($bibliographicInformation) {
         return $this->setData('bibliographicInformation', $bibliographicInformation);
     }
 
@@ -214,7 +214,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getEditorialBoardPage() {
+    public function getEditorialBoardPage() {
         return $this->getData('editorialBoardPage');
     }
 
@@ -222,7 +222,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $editorialBoardPage boolean
      */
-    function setEditorialBoardPage($editorialBoardPage) {
+    public function setEditorialBoardPage($editorialBoardPage) {
         return $this->setData('editorialBoardPage', $editorialBoardPage);
     }
 
@@ -230,7 +230,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getContactDetailsAvailable() {
+    public function getContactDetailsAvailable() {
         return $this->getData('contactDetailsAvailable');
     }
 
@@ -238,7 +238,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $contactDetailsAvailable boolean
      */
-    function setContactDetailsAvailable($contactDetailsAvailable) {
+    public function setContactDetailsAvailable($contactDetailsAvailable) {
         return $this->setData('contactDetailsAvailable', $contactDetailsAvailable);
     }
 
@@ -246,7 +246,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getPeerReviewDescribed() {
+    public function getPeerReviewDescribed() {
         return $this->getData('peerReviewDescribed');
     }
 
@@ -254,7 +254,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $peerReviewDescribed boolean
      */
-    function setPeerReviewDescribed($peerReviewDescribed) {
+    public function setPeerReviewDescribed($peerReviewDescribed) {
         return $this->setData('peerReviewDescribed', $peerReviewDescribed);
     }
 
@@ -262,7 +262,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getPublicationEthicsDescribed() {
+    public function getPublicationEthicsDescribed() {
         return $this->getData('publicationEthicsDescribed');
     }
 
@@ -270,7 +270,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $publicationEthicsDescribed boolean
      */
-    function setPublicationEthicsDescribed($publicationEthicsDescribed) {
+    public function setPublicationEthicsDescribed($publicationEthicsDescribed) {
         return $this->setData('publicationEthicsDescribed', $publicationEthicsDescribed);
     }
 
@@ -278,7 +278,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getScholarlyArticles() {
+    public function getScholarlyArticles() {
         return $this->getData('scholarlyArticles');
     }
 
@@ -286,7 +286,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $scholarlyArticles boolean
      */
-    function setScholarlyArticles($scholarlyArticles) {
+    public function setScholarlyArticles($scholarlyArticles) {
         return $this->setData('scholarlyArticles', $scholarlyArticles);
     }
 
@@ -294,7 +294,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getFullBio() {
+    public function getFullBio() {
         return $this->getData('fullBio');
     }
 
@@ -302,7 +302,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $fullBio boolean
      */
-    function setFullBio($fullBio) {
+    public function setFullBio($fullBio) {
         return $this->setData('fullBio', $fullBio);
     }
 
@@ -310,7 +310,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getLinkToFulltext() {
+    public function getLinkToFulltext() {
         return $this->getData('linkToFulltext');
     }
 
@@ -318,7 +318,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $linkToFulltext boolean
      */
-    function setLinkToFulltext($linkToFulltext) {
+    public function setLinkToFulltext($linkToFulltext) {
         return $this->setData('linkToFulltext', $linkToFulltext);
     }
 
@@ -326,7 +326,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getLpDoi() {
+    public function getLpDoi() {
         return $this->getData('lpDoi');
     }
 
@@ -334,7 +334,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $lpDoi boolean
      */
-    function setLpDoi($lpDoi) {
+    public function setLpDoi($lpDoi) {
         return $this->setData('lpDoi', $lpDoi);
     }
 
@@ -342,7 +342,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getReferences() {
+    public function getReferences() {
         return $this->getData('references');
     }
 
@@ -350,7 +350,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $references boolean
      */
-    function setReferences($references) {
+    public function setReferences($references) {
         return $this->setData('references', $references);
     }
 
@@ -358,7 +358,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getUniqueUrlArticles() {
+    public function getUniqueUrlArticles() {
         return $this->getData('uniqueUrlArticles');
     }
 
@@ -366,7 +366,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $uniqueUrlArticles boolean
      */
-    function setUniqueUrlArticles($uniqueUrlArticles) {
+    public function setUniqueUrlArticles($uniqueUrlArticles) {
         return $this->setData('uniqueUrlArticles', $uniqueUrlArticles);
     }
 
@@ -374,7 +374,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getAuthorsAffiliations() {
+    public function getAuthorsAffiliations() {
         return $this->getData('authorsAffiliations');
     }
 
@@ -382,7 +382,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $authorsAffiliations boolean
      */
-    function setAuthorsAffiliations($authorsAffiliations) {
+    public function setAuthorsAffiliations($authorsAffiliations) {
         return $this->setData('authorsAffiliations', $authorsAffiliations);
     }
 
@@ -390,7 +390,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getTitlesAbstractsInEnglish() {
+    public function getTitlesAbstractsInEnglish() {
         return $this->getData('titlesAbstractsInEnglish');
     }
 
@@ -398,7 +398,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $titlesAbstractsInEnglish boolean
      */
-    function setTitlesAbstractsInEnglish($titlesAbstractsInEnglish) {
+    public function setTitlesAbstractsInEnglish($titlesAbstractsInEnglish) {
         return $this->setData('titlesAbstractsInEnglish', $titlesAbstractsInEnglish);
     }
 
@@ -406,7 +406,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getNoAPC() {
+    public function getNoAPC() {
         return $this->getData('noAPC');
     }
 
@@ -414,7 +414,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $noAPC boolean
      */
-    function setNoAPC($noAPC) {
+    public function setNoAPC($noAPC) {
         return $this->setData('noAPC', $noAPC);
     }
 
@@ -422,7 +422,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getApcDescribed() {
+    public function getApcDescribed() {
         return $this->getData('apcDescribed');
     }
 
@@ -430,7 +430,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $apcDescribed boolean
      */
-    function setApcDescribed($apcDescribed) {
+    public function setApcDescribed($apcDescribed) {
         return $this->setData('apcDescribed', $apcDescribed);
     }
 
@@ -438,7 +438,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getOaPolicyDescribed() {
+    public function getOaPolicyDescribed() {
         return $this->getData('oaPolicyDescribed');
     }
 
@@ -446,7 +446,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $oaPolicyDescribed boolean
      */
-    function setOaPolicyDescribed($oaPolicyDescribed) {
+    public function setOaPolicyDescribed($oaPolicyDescribed) {
         return $this->setData('oaPolicyDescribed', $oaPolicyDescribed);
     }
 
@@ -454,7 +454,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getCopyrightTerms() {
+    public function getCopyrightTerms() {
         return $this->getData('copyrightTerms');
     }
 
@@ -462,7 +462,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $copyrightTerms boolean
      */
-    function setCopyrightTerms($copyrightTerms) {
+    public function setCopyrightTerms($copyrightTerms) {
         return $this->setData('copyrightTerms', $copyrightTerms);
     }
 
@@ -470,7 +470,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getPeriodicity() {
+    public function getPeriodicity() {
         return $this->getData('periodicity');
     }
 
@@ -478,7 +478,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $periodicity boolean
      */
-    function setPeriodicity($periodicity) {
+    public function setPeriodicity($periodicity) {
         return $this->setData('periodicity', $periodicity);
     }
 
@@ -486,7 +486,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getPublishingHistory() {
+    public function getPublishingHistory() {
         return $this->getData('publishingHistory');
     }
 
@@ -494,7 +494,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $publishingHistory boolean
      */
-    function setPublishingHistory($publishingHistory) {
+    public function setPublishingHistory($publishingHistory) {
         return $this->setData('publishingHistory', $publishingHistory);
     }
 
@@ -502,7 +502,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getTimeliness() {
+    public function getTimeliness() {
         return $this->getData('timeliness');
     }
 
@@ -510,7 +510,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $timeliness boolean
      */
-    function setTimeliness($timeliness) {
+    public function setTimeliness($timeliness) {
         return $this->setData('timeliness', $timeliness);
     }
 
@@ -518,7 +518,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getFullContentAvailable() {
+    public function getFullContentAvailable() {
         return $this->getData('fullContentAvailable');
     }
 
@@ -526,7 +526,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $fullContentAvailable boolean
      */
-    function setFullContentAvailable($fullContentAvailable) {
+    public function setFullContentAvailable($fullContentAvailable) {
         return $this->setData('fullContentAvailable', $fullContentAvailable);
     }
 
@@ -534,7 +534,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getEIssn() {
+    public function getEIssn() {
         return $this->getData('eIssn');
     }
 
@@ -542,7 +542,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $eIssn boolean
      */
-    function setEIssn($eIssn) {
+    public function setEIssn($eIssn) {
         return $this->setData('eIssn', $eIssn);
     }
 
@@ -550,7 +550,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getJournalTitle() {
+    public function getJournalTitle() {
         return $this->getData('journalTitle');
     }
 
@@ -558,7 +558,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $journalTitle boolean
      */
-    function setJournalTitle($journalTitle) {
+    public function setJournalTitle($journalTitle) {
         return $this->setData('journalTitle', $journalTitle);
     }
 
@@ -566,7 +566,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getMachineReadableMetadataFormat() {
+    public function getMachineReadableMetadataFormat() {
         return $this->getData('machineReadableMetadataFormat');
     }
 
@@ -574,7 +574,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $machineReadableMetadataFormat boolean
      */
-    function setMachineReadableMetadataFormat($machineReadableMetadataFormat) {
+    public function setMachineReadableMetadataFormat($machineReadableMetadataFormat) {
         return $this->setData('machineReadableMetadataFormat', $machineReadableMetadataFormat);
     }
 
@@ -582,7 +582,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getOaiPMHEnabled() {
+    public function getOaiPMHEnabled() {
         return $this->getData('oaiPMHEnabled');
     }
 
@@ -590,7 +590,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $oaiPMHEnabled boolean
      */
-    function setOaiPMHEnabled($oaiPMHEnabled) {
+    public function setOaiPMHEnabled($oaiPMHEnabled) {
         return $this->setData('oaiPMHEnabled', $oaiPMHEnabled);
     }
 
@@ -598,7 +598,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getUsingDOIs() {
+    public function getUsingDOIs() {
         return $this->getData('usingDOIs');
     }
 
@@ -606,7 +606,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $usingDOIs boolean
      */
-    function setUsingDOIs($usingDOIs) {
+    public function setUsingDOIs($usingDOIs) {
         return $this->setData('usingDOIs', $usingDOIs);
     }
 
@@ -614,7 +614,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getMarkingReferences() {
+    public function getMarkingReferences() {
         return $this->getData('markingReferences');
     }
 
@@ -622,7 +622,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $markingReferences boolean
      */
-    function setMarkingReferences($markingReferences) {
+    public function setMarkingReferences($markingReferences) {
         return $this->setData('markingReferences', $markingReferences);
     }
 
@@ -630,7 +630,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getMetadataFormatOpenAIRE() {
+    public function getMetadataFormatOpenAIRE() {
         return $this->getData('metadataFormatOpenAIRE');
     }
 
@@ -638,7 +638,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $metadataFormatOpenAIRE boolean
      */
-    function setMetadataFormatOpenAIRE($metadataFormatOpenAIRE) {
+    public function setMetadataFormatOpenAIRE($metadataFormatOpenAIRE) {
         return $this->setData('metadataFormatOpenAIRE', $metadataFormatOpenAIRE);
     }
 
@@ -646,7 +646,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getNoRegistrationNeed() {
+    public function getNoRegistrationNeed() {
         return $this->getData('noRegistrationNeed');
     }
 
@@ -654,7 +654,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $noRegistrationNeed boolean
      */
-    function setNoRegistrationNeed($noRegistrationNeed) {
+    public function setNoRegistrationNeed($noRegistrationNeed) {
         return $this->setData('noRegistrationNeed', $noRegistrationNeed);
     }
 
@@ -662,7 +662,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getNoEmbargoPeriod() {
+    public function getNoEmbargoPeriod() {
         return $this->getData('noEmbargoPeriod');
     }
 
@@ -670,7 +670,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $noEmbargoPeriod boolean
      */
-    function setNoEmbargoPeriod($noEmbargoPeriod) {
+    public function setNoEmbargoPeriod($noEmbargoPeriod) {
         return $this->setData('noEmbargoPeriod', $noEmbargoPeriod);
     }
 
@@ -678,7 +678,7 @@ class Disco extends \PKP\core\DataObject {
      * Get name.
      * @return boolean
      */
-    function getJournalPublisherNameAvailable() {
+    public function getJournalPublisherNameAvailable() {
         return $this->getData('journalPublisherNameAvailable');
     }
 
@@ -686,7 +686,7 @@ class Disco extends \PKP\core\DataObject {
      * Set name.
      * @param $journalPublisherNameAvailable boolean
      */
-    function setJournalPublisherNameAvailable($journalPublisherNameAvailable) {
+    public function setJournalPublisherNameAvailable($journalPublisherNameAvailable) {
         return $this->setData('journalPublisherNameAvailable', $journalPublisherNameAvailable);
     }
     
@@ -694,7 +694,7 @@ class Disco extends \PKP\core\DataObject {
      * Get badges availability.
      * @return boolean
      */
-    function getBadgesAvailable() {
+    public function getBadgesAvailable() {
         return $this->getData('badgesAvailable');
     }
 
@@ -702,7 +702,7 @@ class Disco extends \PKP\core\DataObject {
      * Set badges availability.
      * @param $badgesAvailable boolean
      */
-    function setBadgesAvailable($badgesAvailable) {
+    public function setBadgesAvailable($badgesAvailable) {
         return $this->setData('badgesAvailable', $badgesAvailable);
     }    
     
@@ -710,7 +710,7 @@ class Disco extends \PKP\core\DataObject {
      * Get organisation typ.
      * @return boolean
      */
-    function getOrganisationType() {
+    public function getOrganisationType() {
         return $this->getData('organisationType');
     }
 
@@ -718,7 +718,7 @@ class Disco extends \PKP\core\DataObject {
      * Set organisation typ.
      * @param $organisationType boolean
      */
-    function setOrganisationType($organisationType) {
+    public function setOrganisationType($organisationType) {
         return $this->setData('organisationType', $organisationType);
     }
 

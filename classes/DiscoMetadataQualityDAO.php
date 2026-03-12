@@ -26,35 +26,35 @@ class DiscoMetadataQualityDAO extends \PKP\db\DAO {
      * Get a published submissions count by context ID
      * @param $contextId int Context ID
      */
-    function getCountByContextId($contextId) {
+    public function getCountByContextId($contextId) {
         return $this->getCount($contextId);
     }
 
-    function getCountByPublicationSettings($contextId, $publicationSettings = null, $locale = true) {
+    public function getCountByPublicationSettings($contextId, $publicationSettings = null, $locale = true) {
         return $this->getCount($contextId, $publicationSettings, $locale);
     }
     
-    function getCountByArticleLocale($contextId) {
+    public function getCountByArticleLocale($contextId) {
         return $this->getCount($contextId, null, false, true);
     }
     
-    function getCountByPublicationDate($contextId) {
+    public function getCountByPublicationDate($contextId) {
         return $this->getCount($contextId, null, false, false, true);
     }
     
-    function getCountByResourceType($contextId) {
+    public function getCountByResourceType($contextId) {
         return $this->getCount($contextId, null, false, false, false, true);
     }
     
-    function getCountByAuthors($contextId) {
+    public function getCountByAuthors($contextId) {
         return $this->getCount($contextId, null, false, false, false, false, true);
     }
     
-    function getCountByEmbargoPeriod($contextId) {
+    public function getCountByEmbargoPeriod($contextId) {
         return $this->getCount($contextId, null, false, false, false, false, false, true);
     }
     
-    function getCount($contextId, $publicationSettings = null, $locale = false, $articleLocale = false, $publicationDate = false, $resourceType = false, $authors = false, $embargoPeriod = false) {
+    public function getCount($contextId, $publicationSettings = null, $locale = false, $articleLocale = false, $publicationDate = false, $resourceType = false, $authors = false, $embargoPeriod = false) {
         $params[] = STATUS_PUBLISHED;
         $params[] = $contextId;
         

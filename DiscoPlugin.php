@@ -22,16 +22,11 @@ use APP\plugins\generic\disco\classes\DiscoDAO;
 use APP\plugins\generic\disco\classes\DiscoMetadataQualityDAO;
 
 use APP\core\Application;
-use PKP\core\JSONMessage;
 use APP\template\TemplateManager;
-use PKP\linkAction\LinkAction;
-use PKP\linkAction\request\AjaxModal;
 use PKP\plugins\GenericPlugin;
 use PKP\plugins\Hook;
-use PKP\core\Registry;
 use PKP\db\DAORegistry;
 use PKP\plugins\PluginRegistry;
-use PKP\facades\Locale;
 
 /*
  * Services links to knowledge base
@@ -113,52 +108,51 @@ class DiscoPlugin extends GenericPlugin {
     /**
      * @copydoc Plugin::getName()
      */
-    function getName() {
+    public function getName() {
         return 'DiscoPlugin';
     }
 
     /**
      * @copydoc Plugin::getDisplayName()
      */
-    function getDisplayName() {
+    public function getDisplayName() {
         return __('plugins.generic.disco.displayName');
     }
 
     /**
      * @copydoc Plugin::getDescription()
      */
-    function getDescription() {
+    public function getDescription() {
         return __('plugins.generic.disco.description');
     }
 
     /**
      * @copydoc Plugin::register()
      */
-    function register($category, $path, $mainContextId = null) {
+    public function register($category, $path, $mainContextId = null) {
         if (!parent::register($category, $path, $mainContextId))
             return false;
 
-        if ($this->getEnabled()) {
+        if ($this->getEnabled($mainContextId)) {
                       
-            import('plugins.generic.disco.classes.DiscoDAO');
+           
             $discoDao = new DiscoDAO();
             DAORegistry::registerDAO('DiscoDAO', $discoDao);
             
-            import('plugins.generic.disco.classes.DiscoMetadataQualityDAO');
             $discoMetadataQualityDAO = new DiscoMetadataQualityDAO();
             DAORegistry::registerDAO('DiscoMetadataQualityDAO', $discoMetadataQualityDAO);
 
-            Hook::add('Template::Settings::website', array($this, 'callbackShowWebsiteSettingsTabs'));
-            Hook::add('TemplateManager::display', array($this, 'addDiscoStylesBackend'));
-            Hook::add('TemplateManager::display', array($this, 'addDiscoStylesFrontend'));
+            Hook::add('Template::Settings::website', $this->callbackShowWebsiteSettingsTabs(...));
+            Hook::add('TemplateManager::display', $this->addDiscoStylesBackend(...));
+            Hook::add('TemplateManager::display', $this->addDiscoStylesFrontend(...));
 
-            Hook::add('Templates::Common::Footer::PageFooter', array($this, 'callbackTemplateCommonPageFooter'));
+            Hook::add('Templates::Common::Footer::PageFooter', $this->callbackTemplateCommonPageFooter(...));
 
             // Register the components this plugin implements to
             // permit administration of disco.
-            Hook::add('LoadComponentHandler', array($this, 'setupHandler'));
+            Hook::add('LoadComponentHandler', $this->setupHandler(...));
             
-            Hook::add('LoadHandler', array($this, 'callbackHandleContent'));
+            Hook::add('LoadHandler', $this->callbackHandleContent(...));
         }
         
         return true;
@@ -169,7 +163,7 @@ class DiscoPlugin extends GenericPlugin {
      * @param $hookName string The name of the hook being invoked
      * @param $params array The parameters to the invoked hook
      */
-    function setupHandler($hookName, $params) {
+    public function setupHandler($hookName, $params) {
         $component = & $params[0];
         $handler = & $params[2];
         if ($component == 'plugins.generic.disco.controllers.DiscoHandler') {
@@ -186,7 +180,7 @@ class DiscoPlugin extends GenericPlugin {
      * @param $args array Hook parameters
      * @return boolean Hook handling status
      */
-    function callbackShowWebsiteSettingsTabs($hookName, $args) {
+    public function callbackShowWebsiteSettingsTabs($hookName, $args) {
         $templateMgr = $args[1];
         $output = &$args[2];
         $request = Application::get()->getRequest();
@@ -238,7 +232,7 @@ class DiscoPlugin extends GenericPlugin {
         return false;
     }
 
-    function getRequirementsCategory() {
+    public function getRequirementsCategory() {
         $requirementsCategory = array();
         foreach ($this->_categorizedRequirements as $category => $requiremens) {
             foreach ($requiremens as $requirement => $values) {
@@ -251,7 +245,7 @@ class DiscoPlugin extends GenericPlugin {
    /**
      * 
      */
-    function callbackTemplateCommonPageFooter($hookName, $args) {
+    public function callbackTemplateCommonPageFooter($hookName, $args) {
         $templateMgr = $args[1];
         $output = &$args[2];
         $request = Application::get()->getRequest();
@@ -281,7 +275,7 @@ class DiscoPlugin extends GenericPlugin {
         return false;
     }
 
-    function assignBadges() {
+    public function assignBadges() {
         $templateMgr = TemplateManager::getManager();
         $badges = array("availableContent" => $this->getTemplateResource('badges/availableContent.svg')
             , "communityOwned" => $this->getTemplateResource('badges/communityOwned.svg')
@@ -298,7 +292,7 @@ class DiscoPlugin extends GenericPlugin {
         return true;
     }
 
-    function badgesAvailability($disco, $context) {
+    public function badgesAvailability($disco, $context) {
         $badgesAvailability = array();
 
         $automaticChecks = $this->getAutomaticChecks($context);
@@ -361,7 +355,7 @@ class DiscoPlugin extends GenericPlugin {
     /**
      * 
      */
-    function addDiscoStylesBackend($hookName, $params) {
+    public function addDiscoStylesBackend($hookName, $params) {
         $templateMgr = $params[0];
         $request = $this->getRequest();
         $discoStyles = $this->getStyleSheetURL($request, false) . DIRECTORY_SEPARATOR . 'disco.less';
@@ -369,7 +363,10 @@ class DiscoPlugin extends GenericPlugin {
         $templateMgr->addStylesheet(
                 'DiscoStyles',
                 $discoStyles,
-                array('contexts' => 'backend')
+                [
+                    'contexts' => 'backend',
+                    'priority' => TemplateManager::STYLE_SEQUENCE_LAST,
+                ]
         );
         return false;
     }
@@ -377,7 +374,7 @@ class DiscoPlugin extends GenericPlugin {
      /**
      * 
      */
-    function addDiscoStylesFrontend($hookName, $params) {
+    public function addDiscoStylesFrontend($hookName, $params) {
         $templateMgr = $params[0];
         $request = $this->getRequest();
         $discoStyles = $this->getStyleSheetURL($request, false) . DIRECTORY_SEPARATOR . 'discoFrontend.less';
@@ -390,7 +387,7 @@ class DiscoPlugin extends GenericPlugin {
         return false;
     }
 
-    function getMetadataQuality($contextId) {
+    public function getMetadataQuality($contextId) {
         $discoMetadataQualityDAO = DAORegistry::getDAO('DiscoMetadataQualityDAO');
         $metadataQuality = array();
 
@@ -427,7 +424,7 @@ class DiscoPlugin extends GenericPlugin {
         return $metadataQuality;
     }
 
-    function getAutomaticChecks($context) {
+    public function getAutomaticChecks($context) {
         $enabled = $context->getEnabled();
         $locale = $context->getPrimaryLocale();
         $publishingMode = $context->getData("publishingMode");
@@ -435,7 +432,7 @@ class DiscoPlugin extends GenericPlugin {
         $onlineIssn = $context->getData('onlineIssn');
         $name = $context->getLocalizedData('name', $locale);
         $authorGuidelines = $context->getLocalizedData('authorGuidelines', $locale);
-        $editorialTeam = $context->getLocalizedData('editorialTeam', $locale);
+        $editorialHistory = $context->getLocalizedData('editorialHistory', $locale);
         $contactName = $context->getData('contactName');
         $contactEmail = $context->getData('contactEmail');
         $mailingAddress = $context->getData('mailingAddress');
@@ -477,7 +474,7 @@ class DiscoPlugin extends GenericPlugin {
         /* Journal description */
         $automaticChecks["journalDescription"] = array(
             "authorGuidelinesDescribed" => array("authorGuidelinesDescribed" => $authorGuidelines ? true : false),
-            "editorialBoardPage" => array("editorialBoardPage" => $editorialTeam ? true : false),
+            "editorialBoardPage" => array("editorialBoardPage" => $editorialHistory ? true : false),
             "contactDetailsAvailable" => array("contactName" => $contactName ? true : false, "contactEmail" => $contactEmail ? true : false, "mailingAddress" => $mailingAddress ? true : false) ,
             "journalPublisherNameAvailable" => array("journalPublisherNameAvailable" => $publisherInstitution ? true : false),
         );
@@ -512,7 +509,7 @@ class DiscoPlugin extends GenericPlugin {
         return $automaticChecks;
     }
 
-    function getOJSSettings() {
+    public function getOJSSettings() {
         $ojsSettings = array();
         $ojsSettings["fullContentAvailable"] = array("enabled", "ccLicense","publishingMode");
         $ojsSettings["eIssn"] = array("eIssn");
@@ -520,7 +517,7 @@ class DiscoPlugin extends GenericPlugin {
         $ojsSettings["journalTitle"] = array("journalTitle");
         $ojsSettings["aimsAndScopeDescribed"] = array("about");
         $ojsSettings["authorGuidelinesDescribed"] = array("authorGuidelines");
-        $ojsSettings["editorialBoardPage"] = array("editorialTeam");
+        $ojsSettings["editorialBoardPage"] = array("editorialHistory");
         $ojsSettings["contactDetailsAvailable"] = array("contact");
         $ojsSettings["journalPublisherNameAvailable"] = array("publisher");
         $ojsSettings["peerReviewDescribed"] = array("about");
@@ -540,7 +537,7 @@ class DiscoPlugin extends GenericPlugin {
         return $ojsSettings;
     }
 
-    function getCategorizedRequirements() {
+    public function getCategorizedRequirements() {
         $categorizedRequirements = array(
             "diamond" => array(),
             "appearance" => array(),
@@ -704,7 +701,7 @@ class DiscoPlugin extends GenericPlugin {
         return $categorizedRequirements;
     }
 
-    function getResultsKnowledgeBase($disco, $automaticChecks) {
+    public function getResultsKnowledgeBase($disco, $automaticChecks) {
         $knowledgeBase = $this->_knowledgeBase;
 
         if ($disco) {
@@ -723,7 +720,7 @@ class DiscoPlugin extends GenericPlugin {
         return $knowledgeBase;
     }
 
-    function countScoreForDatabase($database, $disco, $automaticChecks) {
+    public function countScoreForDatabase($database, $disco, $automaticChecks) {
         $output = array();
         $variables = $this->_knowledgeBase[$database]["requirements"];
         $scoreFromAutomaticChecks = $this->scoreFromAutomaticChecks($variables, $automaticChecks);
@@ -736,7 +733,7 @@ class DiscoPlugin extends GenericPlugin {
         return $output;
     }
 
-    function scoreFromAutomaticChecks($variables, $automaticChecks) {
+    public function scoreFromAutomaticChecks($variables, $automaticChecks) {
         $score = 0;
         $count = 0;
         $fulfilledCriteria = array();
@@ -760,7 +757,7 @@ class DiscoPlugin extends GenericPlugin {
         return $output;
     }
 
-    function scoreFromSelfAssessment($variables, $disco) {
+    public function scoreFromSelfAssessment($variables, $disco) {
         $score = 0;
         $count = sizeof($variables);
         $fulfilledCriteria = array();
@@ -776,25 +773,25 @@ class DiscoPlugin extends GenericPlugin {
     /**
 	 * @copydoc Plugin::getInstallMigration()
 	 */
-	function getInstallMigration() {
+	public function getInstallMigration() {
 		return new DiscoSchemaMigration();
 	}
 
     /**
      * Get the JavaScript URL for this plugin.
      */
-    function getJavaScriptURL() {
+    public function getJavaScriptURL() {
         return Application::get()->getRequest()->getBaseUrl() . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR . 'js';
     }
 
     /**
      * Get the StyleSheet URL for this plugin.
      */
-    function getStyleSheetURL() {
+    public function getStyleSheetURL() {
         return Application::get()->getRequest()->getBaseUrl() . DIRECTORY_SEPARATOR . $this->getPluginPath() . DIRECTORY_SEPARATOR . 'styles';
     }
 
-    function licenceTest($licenseUrl) {
+    public function licenceTest($licenseUrl) {
         $licenseKeyMap = array(
             '|http[s]?://(www\.)?creativecommons.org/licenses/by-nc-nd/4.0[/]?|',
             '|http[s]?://(www\.)?creativecommons.org/licenses/by-nc/4.0[/]?|',
@@ -831,7 +828,7 @@ class DiscoPlugin extends GenericPlugin {
     /**
      * Initialize form data from current group group.
      */
-    function assign($disco) {
+    public function assign($disco) {
         $templateMgr = TemplateManager::getManager();
         $templateMgr->assign("contextId", $this->_contextId);
         if ($disco) {
@@ -842,7 +839,7 @@ class DiscoPlugin extends GenericPlugin {
         return true;
     }
     
-     function getVariables($disco) {
+     public function getVariables($disco) {
         $variables = array();
         
         $variables['scholarlyJournal'] = (bool) $disco->getScholarlyJournal();
@@ -891,12 +888,12 @@ class DiscoPlugin extends GenericPlugin {
     }
     
     /**
-     * Declare the handler function to process the actual page 
+     * Declare the handler public function to process the actual page 
      * @param $hookName string The name of the invoked hook
      * @param $args array Hook parameters
      * @return boolean Hook handling status
      */
-    function callbackHandleContent($hookName, $args) {
+    public function callbackHandleContent($hookName, $args) {
         $request = Application::get()->getRequest();
         $templateMgr = TemplateManager::getManager($request);
         $page = & $args[0];

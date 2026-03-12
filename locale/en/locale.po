@@ -24,7 +24,7 @@ msgid "plugin.generic.disco.page.description"
 msgstr "<p>The badges are an integral part of the OJS Discoverability Companion (DISCO plugin).</p><p>The Discoverability Companion (DISCO) is a plugin designed to help academic journal editors improve the visibility and credibility of their journals by guiding them through the technical and editorial criteria required by major indexing databases. It brings together these requirements—often similar but described differently across platforms—into one clear, user-friendly interface. By clarifying terminology and showing overlapping standards, DISCO reduces the complexity of compliance and supports better indexing outcomes.</p><p>An integral feature of the plugin is a set of badges that appear in the website footer. These badges signal to readers and evaluators that the journal meets recognized standards of quality, transparency, and openness.</p>"
 
 msgid "plugin.generic.disco.page.description.footer"
-msgstr "If you’d like to use the DISCO plugin for your journal, you can download it from <a href=\"https://github.com/munipress/disco\" title=\"Github repository Disco Plugin\" target=\"_blank\">GitHub</a> or reach out to your platform manager."
+msgstr "If you’d like to use the DISCO plugin for your journal, you can download it from <a href=\"https://github.com/academic-journals-cz/disco\" title=\"Github repository Disco Plugin\" target=\"_blank\">GitHub</a> or reach out to your platform manager."
 
 msgid "plugins.generic.disco.less"
 msgstr "Less information"
@@ -59,8 +59,8 @@ msgstr "Distribution Settings->License->License"
 msgid "plugins.generic.disco.settings.authorGuidelines"
 msgstr "Workflow Settings->Submission->Author Guidelines"
 
-msgid "plugins.generic.disco.settings.editorialTeam"
-msgstr "Journal Settings->Masthead->Editorial Team"
+msgid "plugins.generic.disco.settings.editorialHistory"
+msgstr "Journal Settings->Masthead->Editorial Masthead"
 
 msgid "plugins.generic.disco.settings.contact"
 msgstr "Journal Settings->Contact"
@@ -313,7 +313,7 @@ msgid "plugins.generic.disco.metadataRequirements.metadataFormatOpenAIRE"
 msgstr "OpenAIRE metadataPrefix" 
 
 msgid "plugins.generic.disco.metadataRequirements.metadataFormatOpenAIRE.description"
-msgstr "OpenAIRE expects metadata to be encoded following the metadata format defined in the OpenAIRE Application Profile. The recommended metadataPrefix is oai_openaire. For information on how to use the individual properties, please refer to the section <a href="https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/application_profile.html#application-profile" target="_blank">Application Profile Overview.</a><p>In OJS you can use <a href="https://github.com/munipress/openAIREstandard" target="_blank">openAIREstandard plugin</a></p>" 
+msgstr "OpenAIRE expects metadata to be encoded following the metadata format defined in the OpenAIRE Application Profile. The recommended metadataPrefix is oai_openaire. For information on how to use the individual properties, please refer to the section <a href="https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/application_profile.html#application-profile" target="_blank">Application Profile Overview.</a><p>In OJS you can use <a href="https://github.com/academic-journals-cz/openAIREstandard" target="_blank">openAIREstandard plugin</a></p>" 
 
 msgid "plugins.generic.disco.metadataRequirements.markingReferences"
 msgstr "Marking the references" 
@@ -343,7 +343,7 @@ msgid "plugins.generic.disco.metadataRequirements.oaiPMHEnabled"
 msgstr "Using the OAI-PMH protocol" 
 
 msgid "plugins.generic.disco.metadataRequirements.oaiPMHEnabled.description"
-msgstr "The providers can have their contents indexed on GoTriple in three ways: - by following the GoTriple recommendations for the technical set-up and the data model, i.e., using the OAI-PMH protocol and  the DC metadata standard. </p><p>For OpenAIRE, this is the only possible way to register and index the metadata there. For the "OpenAIRE Guidelines for Literature, institutional, and thematic Repositories v 4.0", you have to use the <em>metadataPrefix</em> <strong>oai_openaire</strong>. You can use the OJS plugin: <a href='https://github.com/munipress/openAIREstandard' target='_blank'>https://github.com/munipress/openAIREstandard</a></p>" 
+msgstr "The providers can have their contents indexed on GoTriple in three ways: - by following the GoTriple recommendations for the technical set-up and the data model, i.e., using the OAI-PMH protocol and  the DC metadata standard. </p><p>For OpenAIRE, this is the only possible way to register and index the metadata there. For the "OpenAIRE Guidelines for Literature, institutional, and thematic Repositories v 4.0", you have to use the <em>metadataPrefix</em> <strong>oai_openaire</strong>. You can use the OJS plugin: <a href='https://github.com/academic-journals-cz/openAIREstandard' target='_blank'>https://github.com/academic-journals-cz/openAIREstandard</a></p>" 
 
 msgid "plugins.generic.disco.metadataRequirements.systemLanguageCheck"
 msgstr "" 
@@ -505,7 +505,7 @@ msgid "plugins.generic.disco.metadataQuality.resourceType"
 msgstr "Resource Type" 
 
 msgid "plugins.generic.disco.metadataQuality.resourceType.description"
-msgstr "Indicates the type of scientific output the resource represents. It describes the genre or form of the resource. <p>OpenAIRE: <strong>Required</strong></p><p><a href="https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_publicationtype.html#aire-resourcetype" target="_blank">https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_publicationtype.html#aire-resourcetype</a></p><p>In OJS you should use <a href="https://github.com/munipress/openAIREstandard" target="_blank">openAIREstandard plugin</a></p>" 
+msgstr "Indicates the type of scientific output the resource represents. It describes the genre or form of the resource. <p>OpenAIRE: <strong>Required</strong></p><p><a href="https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_publicationtype.html#aire-resourcetype" target="_blank">https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_publicationtype.html#aire-resourcetype</a></p><p>In OJS you should use <a href="https://github.com/academic-journals-cz/openAIREstandard" target="_blank">openAIREstandard plugin</a></p>" 
 
 msgid "plugins.generic.disco.metadataQuality.resourceVersion"
 msgstr "Resource Version" 
@@ -1072,7 +1072,7 @@ msgid "plugins.generic.disco.badges"
 msgstr "Badges"
 
 msgid "plugins.generic.disco.badges.description"
-msgstr ""
+msgstr "<p>The badges are an integral part of the OJS Discoverability Companion (DISCO plugin).</p><p>The Discoverability Companion (DISCO) is a plugin designed to help academic journal editors improve the visibility and credibility of their journals by guiding them through the technical and editorial criteria required by major indexing databases. It brings together these requirements—often similar but described differently across platforms—into one clear, user-friendly interface. By clarifying terminology and showing overlapping standards, DISCO reduces the complexity of compliance and supports better indexing outcomes.</p><p>An integral feature of the plugin is a set of badges that appear in the website footer. These badges signal to readers and evaluators that the journal meets recognized standards of quality, transparency, and openness.</p>"
 
 msgid "plugins.generic.disco.badges.badgesAvailable"
 msgstr "Allow badges to be shown in the footer of the website."
