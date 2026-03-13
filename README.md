@@ -26,6 +26,7 @@ This plugin is licensed under the GNU General Public License v3. See the file LI
 OJS 3.2.0 or later.
 
 # Latest Versions
+- Version 1.0.2-0 – Support for OJS 3.5.0
 - Version 1.0.1-1 – Support for OJS 3.4.0
 - Version 1.0.0-1 – Support for OJS 3.3.0
 
