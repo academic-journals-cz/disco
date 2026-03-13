@@ -25,9 +25,11 @@ This plugin is licensed under the GNU General Public License v3. See the file LI
 # System Requirements
 OJS 3.2.0 or later.
 
-# Version History
-- Version 3.4.0.0 – Support for OJS 3.4.0
-- Version 3.3.0.0 – Support for OJS 3.3.0
+# Latest Versions
+- Version 1.0.1-1 – Support for OJS 3.4.0
+- Version 1.0.0-1 – Support for OJS 3.3.0
+
+# Legacy version
 - Version 3.2.0.0 – Support for OJS 3.2.0
 
 # Installation
@@ -38,6 +40,8 @@ Installing using a release from GitHub:
 **php tools/upgrade.php upgrade**
 4.	If you cannot run the update command, you can manually add the tables to your database. Use the MySQL query from the **mysql_query.sql** file.
 5.	Go to **Settings → Website → Plugins → Generic Plugin → DISCO Plugin** and enable the plugin.
+
+You can install it through the plugin gallery, but you still need to add DISCO tables into database.
 
 # How to Use the Plugin
 After enabling the plugin, you will see a new tab "Discoverability Companion" in the **website settings**.
@@ -55,14 +59,23 @@ This page is designed to display scores for individual databases that require ce
 If your Journal fulfil the requerements for evaluation or registration as a content provider, a button will appear next to the database, directing you to the relevant registration page.
 
 # Third-Party Software:
-- **JMEF plugin** – The DISCO plugin checks whether you are using the JMEF format plugin. **https://github.com/munipress/jmef**
+- **JMEF plugin** – The DISCO plugin checks whether you are using the JMEF format plugin. **https://github.com/academic-journals-cz/jmef**
 - **iThenticate plugin** – The DISCO plugin checks whether you are using the plugin for plagiarism detection. **https://github.com/pkp/plagiarism**
 - **Knowledge Base** – The DISCO plugin is connected to the Knowledge Base via links, providing access to information about databases. **https://github.com/operas-eu/craft-oa-ScholIndexes-doc/**
 - **Database links** – DISCO provides direct links to registration forms for databases and indexing services.
 
-Credit
+# Legacy Credit
 ---------------
 This plugin was developed at the [Masaryk University Press - Munipress](https://www.press.muni.cz), as part of its active participation in the [Craft-OA project](https://www.craft-oa.eu/).
 
 The development was initiated, coordinated, and technically supported by Munipress.
 
+# Academic-journals.cz Workspace
+--------------
+Academic-journals.cz is a collaborative workspace for the development and management of the Academic Journals platform for Czech scholarly journals. The project aims to support Czech academic publishers and editorial teams by providing shared infrastructure and tools for publishing and managing academic journals.
+
+The project is based on an open memorandum of cooperation between **Charles University** and **Palacký University Olomouc**, under the leadership of **Karolinum Press** and **Palacký University Press**.
+
+The memorandum establishes a shared framework for cooperation in the field of academic journal publishing infrastructure and services. It is designed as an open initiative, allowing other universities and academic institutions to join and participate in the development of the platform.
+
+Technical garant for the project is **Radek Gomola**.
